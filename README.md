@@ -1,5 +1,7 @@
 # Brobeat
 
+[![Build Status](https://travis-ci.org/blacktop/brobeat.svg?branch=master)](https://travis-ci.org/blacktop/brobeat)
+
 Welcome to Brobeat.
 
 Ensure that this folder is at the following location:
