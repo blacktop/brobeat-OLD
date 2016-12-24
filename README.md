@@ -1,4 +1,4 @@
-# Brobeat
+# Brobeat (WIP)
 
 [![Build Status](https://travis-ci.org/blacktop/brobeat.svg?branch=master)](https://travis-ci.org/blacktop/brobeat)
 

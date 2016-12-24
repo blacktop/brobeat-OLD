@@ -12,13 +12,14 @@ import (
 	"github.com/blacktop/brobeat/config"
 )
 
+// Brobeat beat struct
 type Brobeat struct {
 	done   chan struct{}
 	config config.Config
 	client publisher.Client
 }
 
-// Creates beater
+// New creates beater
 func New(b *beat.Beat, cfg *common.Config) (beat.Beater, error) {
 	config := config.DefaultConfig
 	if err := cfg.Unpack(&config); err != nil {
@@ -26,12 +27,13 @@ func New(b *beat.Beat, cfg *common.Config) (beat.Beater, error) {
 	}
 
 	bt := &Brobeat{
-		done: make(chan struct{}),
+		done:   make(chan struct{}),
 		config: config,
 	}
 	return bt, nil
 }
 
+// Run start beater
 func (bt *Brobeat) Run(b *beat.Beat) error {
 	logp.Info("brobeat is running! Hit CTRL-C to stop it.")
 
@@ -56,6 +58,7 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 	}
 }
 
+// Stop stops beater
 func (bt *Brobeat) Stop() {
 	bt.client.Close()
 	close(bt.done)
