@@ -22,3 +22,11 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+/.idea
+/build
+
+.DS_Store
+/brobeat
+/brobeat.test
+*.pyc
