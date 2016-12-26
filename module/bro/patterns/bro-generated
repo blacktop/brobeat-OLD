@@ -1,0 +1,183 @@
+# BRO-DOC-GENERATED patterns
+# https://www.bro.org/sphinx/script-reference/log-files.html
+
+# conn.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{transport_proto:proto}\t%{string:service}\t%{interval:duration}\t%{count:orig_bytes}\t%{count:resp_bytes}\t%{string:conn_state}\t%{bool:local_orig}\t%{bool:local_resp}\t%{count:missed_bytes}\t%{string:history}\t%{count:orig_pkts}\t%{count:orig_ip_bytes}\t%{count:resp_pkts}\t%{count:resp_ip_bytes}\t%{set:tunnel_parents}\t%{string:orig_l2_addr}\t%{string:resp_l2_addr}\t%{int:vlan}\t%{int:inner_vlan}
+
+# dce_rpc.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{interval:rtt}\t%{string:named_pipe}\t%{string:endpoint}\t%{string:operation}
+
+# dhcp.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:mac}\t%{addr:assigned_ip}\t%{interval:lease_time}\t%{count:trans_id}
+
+# dnp3.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:fc_request}\t%{string:fc_reply}\t%{count:iin}
+
+# dns.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{transport_proto:proto}\t%{count:trans_id}\t%{interval:rtt}\t%{string:query}\t%{count:qclass}\t%{string:qclass_name}\t%{count:qtype}\t%{string:qtype_name}\t%{count:rcode}\t%{string:rcode_name}\t%{bool:AA}\t%{bool:TC}\t%{bool:RD}\t%{bool:RA}\t%{count:Z}\t%{vector:answers}\t%{vector:TTLs}\t%{bool:rejected}\t%{set:auth}\t%{set:addl}
+
+# ftp.log
+%{bool:passive}\t%{addr:orig_h}\t%{addr:resp_h}\t%{port:resp_p}\t%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:user}\t%{string:password}\t%{string:command}\t%{string:arg}\t%{string:mime_type}\t%{count:file_size}\t%{count:reply_code}\t%{string:reply_msg}\t%{FTP::ExpectedDataChannel:data_channel}\t%{string:fuid}
+
+# http.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{count:trans_depth}\t%{string:method}\t%{string:host}\t%{string:uri}\t%{string:referrer}\t%{string:version}\t%{string:user_agent}\t%{count:request_body_len}\t%{count:response_body_len}\t%{count:status_code}\t%{string:status_msg}\t%{count:info_code}\t%{string:info_msg}\t%{set:tags}\t%{string:username}\t%{string:password}\t%{set:proxied}\t%{vector:orig_fuids}\t%{vector:orig_filenames}\t%{vector:orig_mime_types}\t%{vector:resp_fuids}\t%{vector:resp_filenames}\t%{vector:resp_mime_types}\t%{vector:client_header_names}\t%{vector:server_header_names}\t%{vector:cookie_vars}\t%{vector:uri_vars}
+
+# irc.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:nick}\t%{string:user}\t%{string:command}\t%{string:value}\t%{string:addl}\t%{string:dcc_file_name}\t%{count:dcc_file_size}\t%{string:dcc_mime_type}\t%{string:fuid}
+
+# kerberos.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:request_type}\t%{string:client}\t%{string:service}\t%{bool:success}\t%{string:error_msg}\t%{time:from}\t%{time:till}\t%{string:cipher}\t%{bool:forwardable}\t%{bool:renewable}\t%{string:client_cert_subject}\t%{string:client_cert_fuid}\t%{string:server_cert_subject}\t%{string:server_cert_fuid}
+
+# modbus.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:func}\t%{string:exception}
+
+# modbus_register_change.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{count:register}\t%{count:old_val}\t%{count:new_val}\t%{interval:delta}
+
+# mysql.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:cmd}\t%{string:arg}\t%{bool:success}\t%{count:rows}\t%{string:response}
+
+# ntlm.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:username}\t%{string:hostname}\t%{string:domainname}\t%{bool:success}\t%{string:status}
+
+# radius.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:username}\t%{string:mac}\t%{addr:remote_ip}\t%{string:connect_info}\t%{string:result}
+
+# rdp.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:cookie}\t%{string:result}\t%{string:security_protocol}\t%{string:keyboard_layout}\t%{string:client_build}\t%{string:client_name}\t%{string:client_dig_product_id}\t%{count:desktop_width}\t%{count:desktop_height}\t%{string:requested_color_depth}\t%{string:cert_type}\t%{count:cert_count}\t%{bool:cert_permanent}\t%{string:encryption_level}\t%{string:encryption_method}\t%{bool:ssl}
+
+# rfb.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:client_major_version}\t%{string:client_minor_version}\t%{string:server_major_version}\t%{string:server_minor_version}\t%{string:authentication_method}\t%{bool:auth}\t%{bool:share_flag}\t%{string:desktop_name}\t%{count:width}\t%{count:height}
+
+# sip.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{count:trans_depth}\t%{string:method}\t%{string:uri}\t%{string:date}\t%{string:request_from}\t%{string:request_to}\t%{string:response_from}\t%{string:response_to}\t%{string:reply_to}\t%{string:call_id}\t%{string:seq}\t%{string:subject}\t%{vector:request_path}\t%{vector:response_path}\t%{string:user_agent}\t%{count:status_code}\t%{string:status_msg}\t%{string:warning}\t%{count:request_body_len}\t%{count:response_body_len}\t%{string:content_type}
+
+# smb_cmd.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:command}\t%{string:sub_command}\t%{string:argument}\t%{string:status}\t%{interval:rtt}\t%{string:version}\t%{string:username}\t%{string:tree}\t%{string:tree_service}\t%{SMB::FileInfo:referenced_file}\t%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:fuid}\t%{SMB::Action:action}\t%{string:path}\t%{string:name}\t%{count:size}\t%{string:prev_name}\t%{SMB::MACTimes:times}\t%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:path}\t%{string:service}\t%{string:native_file_system}\t%{string:share_type}
+
+# smb_files.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:command}\t%{string:sub_command}\t%{string:argument}\t%{string:status}\t%{interval:rtt}\t%{string:version}\t%{string:username}\t%{string:tree}\t%{string:tree_service}\t%{SMB::FileInfo:referenced_file}\t%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:fuid}\t%{SMB::Action:action}\t%{string:path}\t%{string:name}\t%{count:size}\t%{string:prev_name}\t%{SMB::MACTimes:times}\t%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:path}\t%{string:service}\t%{string:native_file_system}\t%{string:share_type}
+
+# smb_mapping.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:command}\t%{string:sub_command}\t%{string:argument}\t%{string:status}\t%{interval:rtt}\t%{string:version}\t%{string:username}\t%{string:tree}\t%{string:tree_service}\t%{SMB::FileInfo:referenced_file}\t%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:fuid}\t%{SMB::Action:action}\t%{string:path}\t%{string:name}\t%{count:size}\t%{string:prev_name}\t%{SMB::MACTimes:times}\t%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:path}\t%{string:service}\t%{string:native_file_system}\t%{string:share_type}
+
+# smtp.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{count:trans_depth}\t%{string:helo}\t%{string:mailfrom}\t%{set:rcptto}\t%{string:date}\t%{string:from}\t%{set:to}\t%{set:cc}\t%{string:reply_to}\t%{string:msg_id}\t%{string:in_reply_to}\t%{string:subject}\t%{addr:x_originating_ip}\t%{string:first_received}\t%{string:second_received}\t%{string:last_reply}\t%{vector:path}\t%{string:user_agent}\t%{bool:tls}\t%{vector:fuids}\t%{bool:is_webmail}
+
+# snmp.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{interval:duration}\t%{string:version}\t%{string:community}\t%{count:get_requests}\t%{count:get_bulk_requests}\t%{count:get_responses}\t%{count:set_requests}\t%{string:display_string}\t%{time:up_since}
+
+# socks.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{count:version}\t%{string:user}\t%{string:password}\t%{string:status}\t%{SOCKS::Address:request}\t%{port:request_p}\t%{SOCKS::Address:bound}\t%{port:bound_p}
+
+# ssh.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{count:version}\t%{bool:auth_success}\t%{count:auth_attempts}\t%{Direction:direction}\t%{string:client}\t%{string:server}\t%{string:cipher_alg}\t%{string:mac_alg}\t%{string:compression_alg}\t%{string:kex_alg}\t%{string:host_key_alg}\t%{string:host_key}\t%{geo_location:remote_location}
+
+# ssl.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:version}\t%{string:cipher}\t%{string:curve}\t%{string:server_name}\t%{bool:resumed}\t%{string:last_alert}\t%{string:next_protocol}\t%{bool:established}\t%{vector:cert_chain_fuids}\t%{vector:client_cert_chain_fuids}\t%{string:subject}\t%{string:issuer}\t%{string:client_subject}\t%{string:client_issuer}\t%{string:validation_status}\t%{string:ocsp_status}\t%{CertNotary::Response:notary}
+
+# syslog.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{transport_proto:proto}\t%{string:facility}\t%{string:severity}\t%{string:message}
+
+# tunnel.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{Tunnel::Type:tunnel_type}\t%{Tunnel::Action:action}
+
+# files.log
+%{time:ts}\t%{string:fuid}\t%{set:tx_hosts}\t%{set:rx_hosts}\t%{set:conn_uids}\t%{string:source}\t%{count:depth}\t%{set:analyzers}\t%{string:mime_type}\t%{string:filename}\t%{interval:duration}\t%{bool:local_orig}\t%{bool:is_orig}\t%{count:seen_bytes}\t%{count:total_bytes}\t%{count:missing_bytes}\t%{count:overflow_bytes}\t%{bool:timedout}\t%{string:parent_fuid}\t%{string:md5}\t%{string:sha1}\t%{string:sha256}\t%{string:extracted}\t%{double:entropy}
+
+# pe.log
+%{time:ts}\t%{string:id}\t%{string:machine}\t%{time:compile_ts}\t%{string:os}\t%{string:subsystem}\t%{bool:is_exe}\t%{bool:is_64bit}\t%{bool:uses_aslr}\t%{bool:uses_dep}\t%{bool:uses_code_integrity}\t%{bool:uses_seh}\t%{bool:has_import_table}\t%{bool:has_export_table}\t%{bool:has_cert_table}\t%{bool:has_debug_data}\t%{vector:section_names}
+
+# x509.log
+%{time:ts}\t%{string:id}\t%{X509::Certificate:certificate}\t%{X509::SubjectAlternativeName:san}\t%{X509::BasicConstraints:basic_constraints}
+
+# netcontrol.log
+%{time:ts}\t%{string:rule_id}\t%{NetControl::InfoCategory:category}\t%{string:cmd}\t%{NetControl::InfoState:state}\t%{string:action}\t%{NetControl::TargetType:target}\t%{string:entity_type}\t%{string:entity}\t%{string:mod}\t%{string:msg}\t%{int:priority}\t%{interval:expire}\t%{string:location}\t%{string:plugin}
+
+# netcontrol_drop.log
+%{time:ts}\t%{string:rule_id}\t%{addr:orig_h}\t%{port:orig_p}\t%{addr:resp_h}\t%{port:resp_p}\t%{interval:expire}\t%{string:location}
+
+# netcontrol_shunt.log
+%{time:ts}\t%{string:rule_id}\t%{flow_id:f}\t%{interval:expire}\t%{string:location}
+
+# netcontrol_catch_release.log
+%{time:ts}\t%{string:rule_id}\t%{addr:ip}\t%{NetControl::CatchReleaseActions:action}\t%{interval:block_interval}\t%{interval:watch_interval}\t%{time:blocked_until}\t%{time:watched_until}\t%{count:num_blocked}\t%{string:location}\t%{string:message}
+
+# openflow.log
+%{time:ts}\t%{count:dpid}\t%{OpenFlow::ofp_match:match}\t%{OpenFlow::ofp_flow_mod:flow_mod}
+
+# intel.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{Intel::Seen:seen}\t%{Intel::TypeSet:matched}\t%{set:sources}\t%{string:fuid}\t%{string:file_mime_type}\t%{string:file_desc}\t%{string:indicator}\t%{Intel::Type:indicator_type}\t%{Intel::Where:where}\t%{string:node}
+
+# notice.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:fuid}\t%{string:file_mime_type}\t%{string:file_desc}\t%{transport_proto:proto}\t%{Notice::Type:note}\t%{string:msg}\t%{string:sub}\t%{addr:src}\t%{addr:dst}\t%{port:p}\t%{count:n}\t%{string:peer_descr}\t%{Notice::ActionSet:actions}\t%{interval:suppress_for}\t%{bool:dropped}\t%{geo_location:remote_location}
+
+# notice_alarm.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:fuid}\t%{string:file_mime_type}\t%{string:file_desc}\t%{transport_proto:proto}\t%{Notice::Type:note}\t%{string:msg}\t%{string:sub}\t%{addr:src}\t%{addr:dst}\t%{port:p}\t%{count:n}\t%{string:peer_descr}\t%{Notice::ActionSet:actions}\t%{interval:suppress_for}\t%{bool:dropped}\t%{geo_location:remote_location}
+
+# signatures.log
+%{time:ts}\t%{string:uid}\t%{addr:src_addr}\t%{port:src_port}\t%{addr:dst_addr}\t%{port:dst_port}\t%{Notice::Type:note}\t%{string:sig_id}\t%{string:event_msg}\t%{string:sub_msg}\t%{count:sig_count}\t%{count:host_count}
+
+# traceroute.log
+%{time:ts}\t%{addr:src}\t%{addr:dst}\t%{string:proto}
+
+# known_certs.log
+%{time:ts}\t%{addr:host}\t%{port:port_num}\t%{string:subject}\t%{string:issuer_subject}\t%{string:serial}
+
+# known_devices.log
+%{time:ts}\t%{string:mac}\t%{string:dhcp_host_name}
+
+# known_hosts.log
+%{time:ts}\t%{addr:host}
+
+# known_modbus.log
+%{time:ts}\t%{addr:host}\t%{Known::ModbusDeviceType:device_type}
+
+# known_services.log
+%{time:ts}\t%{addr:host}\t%{port:port_num}\t%{transport_proto:port_proto}\t%{set:service}
+
+# software.log
+%{time:ts}\t%{addr:host}\t%{port:host_p}\t%{Software::Type:software_type}\t%{string:name}\t%{Software::Version:version}\t%{string:unparsed_version}\t%{string:url}\t%{count:major}\t%{count:minor}\t%{count:minor2}\t%{count:minor3}\t%{string:addl}
+
+# barnyard2.log
+
+
+# dpd.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{transport_proto:proto}\t%{string:analyzer}\t%{string:failure_reason}\t%{string:packet_segment}
+
+# unified2.log
+%{time:ts}\t%{Unified2::PacketID:id}\t%{count:sensor_id}\t%{count:signature_id}\t%{string:signature}\t%{count:generator_id}\t%{string:generator}\t%{count:signature_revision}\t%{count:classification_id}\t%{string:classification}\t%{count:priority_id}\t%{count:event_id}\t%{string:packet}
+
+# weird.log
+%{time:ts}\t%{string:uid}\t%{conn_id:id}\t%{string:name}\t%{string:addl}\t%{bool:notice}\t%{string:peer}
+
+# capture_loss.log
+%{time:ts}\t%{interval:ts_delta}\t%{string:peer}\t%{count:gaps}\t%{count:acks}\t%{double:percent_lost}
+
+# cluster.log
+%{time:ts}\t%{string:message}
+
+# communication.log
+%{time:ts}\t%{string:peer}\t%{string:src_name}\t%{string:connected_peer_desc}\t%{addr:connected_peer_addr}\t%{port:connected_peer_port}\t%{string:level}\t%{string:message}
+
+# loaded_scripts.log
+%{string:name}
+
+# packet_filter.log
+%{time:ts}\t%{string:node}\t%{string:filter}\t%{bool:init}\t%{bool:success}
+
+# prof.log
+
+
+# reporter.log
+%{time:ts}\t%{Reporter::Level:level}\t%{string:message}\t%{string:location}
+
+# stats.log
+%{time:ts}\t%{string:peer}\t%{count:mem}\t%{count:pkts_proc}\t%{count:bytes_recv}\t%{count:pkts_dropped}\t%{count:pkts_link}\t%{interval:pkt_lag}\t%{count:events_proc}\t%{count:events_queued}\t%{count:active_tcp_conns}\t%{count:active_udp_conns}\t%{count:active_icmp_conns}\t%{count:tcp_conns}\t%{count:udp_conns}\t%{count:icmp_conns}\t%{count:timers}\t%{count:active_timers}\t%{count:files}\t%{count:active_files}\t%{count:dns_requests}\t%{count:active_dns_requests}\t%{count:reassem_tcp_size}\t%{count:reassem_file_size}\t%{count:reassem_frag_size}\t%{count:reassem_unknown_size}
+
+# stderr.log
+
+
+# stdout.log
+
+

@@ -23,7 +23,7 @@ _testmain.go
 *.test
 *.prof
 
-/.idea
+.idea
 /build
 
 .DS_Store

@@ -28,9 +28,19 @@ for log_type in bro_logs['logs']:
         soup = BeautifulSoup(resp.content, "html.parser")
         for dt in soup.find_all("dt"):
             if '&log' in dt.text:
-                log_type['fields'].append(dict(
-                    field=dt.contents[0].split(':', 1)[0],
-                    type=dt.contents[1].text))
+                log_type['fields'].append(dict(field=dt.contents[0].split(':', 1)[0], type=dt.contents[1].text))
 
 with open('bro-logs.json', 'w') as jsonfile:
     json.dump(bro_logs, jsonfile)
+
+# Build pattern file
+with open('../patterns/bro-generated', 'w') as patternfile:
+    patternfile.write('# BRO-DOC-GENERATED patterns')
+    patternfile.write('\n')
+    patternfile.write('# https://www.bro.org/sphinx/script-reference/log-files.html')
+    patternfile.write('\n\n')
+    for logtype in bro_logs['logs']:
+        patternfile.write('# ' + logtype.get('file') + '\n')
+        pattern_line = '\\t'.join(['%%{%s:%s}' % (field['type'], field['field']) for field in logtype.get('fields')])
+        patternfile.write(pattern_line)
+        patternfile.write('\n\n')
