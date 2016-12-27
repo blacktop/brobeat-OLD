@@ -85,6 +85,11 @@
             }
           }
         },
+        "remote_ip": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
         "tags": {
           "ignore_above": 1024,
           "index": "not_analyzed",

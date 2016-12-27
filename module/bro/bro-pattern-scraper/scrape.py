@@ -72,9 +72,8 @@ def scrape_bro_docs():
 def convert_docs_to_grok_patterns(bro_logs):
     """ Build pattern file """
     with open('../patterns/generated-bro', 'w') as patternfile:
-        patternfile.write('# BRO-DOC-GENERATED patterns')
-        patternfile.write('# author: blacktop')
-        patternfile.write('\n')
+        patternfile.write('# BRO-DOC-GENERATED patterns\n')
+        patternfile.write('# author: blacktop\n')
         patternfile.write('# https://www.bro.org/sphinx/script-reference/log-files.html')
         patternfile.write('\n\n')
         for logtype in bro_logs['logs']:

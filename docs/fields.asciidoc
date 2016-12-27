@@ -86,6 +86,14 @@ required: True
 PLEASE UPDATE DOCUMENTATION
 
 
+[float]
+=== remote_ip
+
+type: keyword
+
+Client IP address.
+
+
 [[exported-fields-cloud]]
 == Cloud Provider Metadata Fields
 
