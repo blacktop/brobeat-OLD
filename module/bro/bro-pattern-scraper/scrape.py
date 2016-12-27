@@ -4,6 +4,15 @@ from requests.compat import urljoin
 import json
 import os
 import re
+import logging
+import logging.handlers
+
+logFormatter = logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s")
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+consoleHandler = logging.StreamHandler()
+consoleHandler.setFormatter(logFormatter)
+logger.addHandler(consoleHandler)
 
 
 def field_type_lookup(ftype, field):
@@ -82,6 +91,7 @@ def get_log_types():
             # do not add a URL for notice_alarm.log
             if link is not None and 'notice_alarm' not in log['log_type']:
                 log['url'] = urljoin(url, link['href'])
+                logger.info('adding log type: {}'.format(log['log_type']))
             bro_logs['logs'].append(log)
     return bro_logs
 
@@ -104,8 +114,6 @@ def build_url(current_url, next_url):
         return urljoin(current_url, next_url)
 
 
-# TODO: handle edge case for files.log
-# https://www.bro.org/sphinx/scripts/base/frameworks/files/main.bro.html#type-Files::Info
 def scrape_bro_docs():
     """ Crawl bro.org docs to extract log types """
     bro_logs = get_log_types()
@@ -115,6 +123,7 @@ def scrape_bro_docs():
             resp = requests.get(url=log_type.get('url'), allow_redirects=True)
             soup = BeautifulSoup(resp.content, "html.parser")
             dt_text = log_type.get('url').split('#', 1)[1]
+            logger.info('parsing log: {}, field: {}'.format(log_type['file'], dt_text))
             try:
                 dl = soup.find("dt", id=dt_text).parent.find("dl", {"class": "docutils"})
                 for dfield in list(zip(dl.find_all("dt"), dl.find_all("dd"))):
@@ -133,7 +142,7 @@ def scrape_bro_docs():
                                                            type=field_type,
                                                            description=field_description))
             except Exception as e:
-                print e.message
+                logger.exception(e.message)
     with open('bro-logs.json', 'w') as jsonfile:
         json.dump(bro_logs, jsonfile)
     return bro_logs
