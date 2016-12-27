@@ -1,0 +1,9 @@
+filebeat:
+  # List of prospectors to fetch data.
+  prospectors:
+    -
+      {% for field in fields %}
+      paths:
+        - /var/log/app/{{ field.log_type }}.log
+      document_type: {{ field.log_type }}
+      {% endfor %}

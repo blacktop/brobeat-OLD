@@ -1,0 +1,11 @@
+{% raw %}
+- input_type: log
+  paths:
+  {%- for path in paths %}
+   - {{path}}
+  {%- endfor %}
+  exclude_files: [".gz$"]
+{% endraw %}
+  fields:
+    source_type: bro-{{ field.log_type }}
+    pipeline_id: {{ '{{beat.pipeline_id}}' }}
