@@ -80,7 +80,7 @@ def get_log_types():
             log['fields'] = []
             link = row.find('a', href=True)
             # do not add a URL for notice_alarm.log
-            if link or 'notice_alarm' not in log['log_type']:
+            if link is not None and 'notice_alarm' not in log['log_type']:
                 log['url'] = urljoin(url, link['href'])
             bro_logs['logs'].append(log)
     return bro_logs
