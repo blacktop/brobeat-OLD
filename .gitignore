@@ -30,3 +30,5 @@ _testmain.go
 /brobeat
 /brobeat.test
 *.pyc
+
+module/bro/*.log

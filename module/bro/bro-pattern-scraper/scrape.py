@@ -8,7 +8,7 @@ def field_type_lookup(ftype, field):
     type2grok = {
         'time': 'NUMBER',
         'count': 'INT',
-        'interval': 'NUMBER',
+        'interval': 'GREEDYDATA',
         'bool': 'GREEDYDATA',
         'addr': 'IP',
         'port': 'INT',
@@ -34,6 +34,21 @@ def doc2grok(fields):
         else:
             converted.append('%%{%s:%s}' % field_type_lookup(field['type'], field['field']))
     return '\\t'.join(converted)
+
+
+def get_nested_fields(field_name, field_type, url):
+    nested = []
+    resp = requests.get(url=url)
+    soup = BeautifulSoup(resp.content, "html.parser")
+    for dl in soup.find_all("dl", {"class": "type"}):
+        dts = dl.find_all('dt')
+        if field_type not in dts[0].text:
+            break
+        for dt in dts[1:-1]:
+            nfield_name = dt.contents[0].split(':', 1)[0]
+            nfield_type = dt.contents[1].text
+            nested.append(dict(field=field_name+'.'+nfield_name, type=nfield_type))
+    return nested
 
 
 def scrape_bro_docs():
@@ -63,7 +78,12 @@ def scrape_bro_docs():
             soup = BeautifulSoup(resp.content, "html.parser")
             for dt in soup.find_all("dt"):
                 if '&log' in dt.text:
-                    log_type['fields'].append(dict(field=dt.contents[0].split(':', 1)[0], type=dt.contents[1].text))
+                    field_name = dt.contents[0].split(':', 1)[0]
+                    field_type = dt.contents[1].text
+                    if '::' in dt.contents[1].text:
+                        log_type['fields'] += get_nested_fields(field_name, field_type, log_type.get('url') + dt.a['href'])
+                    else:
+                        log_type['fields'].append(dict(field=field_name, type=field_type))
     with open('bro-logs.json', 'w') as jsonfile:
         json.dump(bro_logs, jsonfile)
     return bro_logs
