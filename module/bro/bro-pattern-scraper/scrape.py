@@ -142,6 +142,7 @@ def scrape_bro_docs():
                                                            type=field_type,
                                                            description=field_description))
             except Exception as e:
+                logger.error('parsing log: {}, field: {}'.format(log_type['file'], dt_text))
                 logger.exception(e.message)
     with open('bro-logs.json', 'w') as jsonfile:
         json.dump(bro_logs, jsonfile)
