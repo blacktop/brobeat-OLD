@@ -1,0 +1,132 @@
+- name: x509
+  type: group
+  description: >
+    Contains fields for the Bro x509 logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        Current timestamp.
+    
+    - name: id
+      type: string
+      description: >
+        File id of this certificate.
+    
+    - name: certificate.version
+      type: count
+      description: >
+        Version number.
+    
+    - name: certificate.serial
+      type: string
+      description: >
+        Serial number.
+    
+    - name: certificate.subject
+      type: string
+      description: >
+        Subject.
+    
+    - name: certificate.issuer
+      type: string
+      description: >
+        Issuer.
+    
+    - name: certificate.cn
+      type: string
+      description: >
+        Last (most specific) common name.
+    
+    - name: certificate.not_valid_before
+      type: time
+      description: >
+        Timestamp before when certificate is not valid.
+    
+    - name: certificate.not_valid_after
+      type: time
+      description: >
+        Timestamp after when certificate is not valid.
+    
+    - name: certificate.key_alg
+      type: string
+      description: >
+        Name of the key algorithm
+    
+    - name: certificate.sig_alg
+      type: string
+      description: >
+        Name of the signature algorithm
+    
+    - name: certificate.key_type
+      type: string
+      description: >
+        Key type, if key parseable by openssl (either rsa, dsa or ec)
+    
+    - name: certificate.key_length
+      type: count
+      description: >
+        Key length in bits
+    
+    - name: certificate.exponent
+      type: string
+      description: >
+        Exponent, if RSA-certificate
+    
+    - name: certificate.curve
+      type: string
+      description: >
+        Curve, if EC-certificate
+    
+    - name: handle
+      type: opaque
+      description: >
+        The opaque wrapping the certificate. Mainly used
+for the verify operations.
+    
+    - name: extensions
+      type: vector
+      description: >
+        All extensions that were encountered in the certificate.
+    
+    - name: san.dns
+      type: string_vec
+      description: >
+        List of DNS entries in SAN
+    
+    - name: san.uri
+      type: string_vec
+      description: >
+        List of URI entries in SAN
+    
+    - name: san.email
+      type: string_vec
+      description: >
+        List of email entries in SAN
+    
+    - name: san.ip
+      type: addr_vec
+      description: >
+        List of IP entries in SAN
+    
+    - name: san.other_fields
+      type: bool
+      description: >
+        True if the certificate contained other, not recognized or parsed name fields
+    
+    - name: basic_constraints.ca
+      type: bool
+      description: >
+        CA flag set?
+    
+    - name: basic_constraints.path_len
+      type: count
+      description: >
+        Maximum path length
+    
+    - name: logcert
+      type: bool
+      description: >
+        (present if policy/protocols/ssl/log-hostcerts-only.bro is loaded)
+    

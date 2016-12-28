@@ -1,0 +1,71 @@
+- name: signatures
+  type: group
+  description: >
+    Contains fields for the Bro signatures logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        The network time at which a signature matching type of event
+to be logged has occurred.
+    
+    - name: uid
+      type: string
+      description: >
+        A unique identifier of the connection which triggered the
+signature match event.
+    
+    - name: src_addr
+      type: addr
+      description: >
+        The host which triggered the signature match event.
+    
+    - name: src_port
+      type: port
+      description: >
+        The host port on which the signature-matching activity
+occurred.
+    
+    - name: dst_addr
+      type: addr
+      description: >
+        The destination host which was sent the payload that
+triggered the signature match.
+    
+    - name: dst_port
+      type: port
+      description: >
+        The destination host port which was sent the payload that
+triggered the signature match.
+    
+    - name: note
+      type: Notice::Type
+      description: >
+        
+    
+    - name: sig_id
+      type: string
+      description: >
+        The name of the signature that matched.
+    
+    - name: event_msg
+      type: string
+      description: >
+        A more descriptive message of the signature-matching event.
+    
+    - name: sub_msg
+      type: string
+      description: >
+        Extracted payload data or extra message.
+    
+    - name: sig_count
+      type: count
+      description: >
+        Number of sigs, usually from summary count.
+    
+    - name: host_count
+      type: count
+      description: >
+        Number of hosts, from a summary count.
+    

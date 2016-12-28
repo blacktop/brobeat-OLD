@@ -1,0 +1,141 @@
+- name: stats
+  type: group
+  description: >
+    Contains fields for the Bro stats logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        Timestamp for the measurement.
+    
+    - name: peer
+      type: string
+      description: >
+        Peer that generated this log.  Mostly for clusters.
+    
+    - name: mem
+      type: count
+      description: >
+        Amount of memory currently in use in MB.
+    
+    - name: pkts_proc
+      type: count
+      description: >
+        Number of packets processed since the last stats interval.
+    
+    - name: bytes_recv
+      type: count
+      description: >
+        Number of bytes received since the last stats interval if
+reading live traffic.
+    
+    - name: pkts_dropped
+      type: count
+      description: >
+        Number of packets dropped since the last stats interval if
+reading live traffic.
+    
+    - name: pkts_link
+      type: count
+      description: >
+        Number of packets seen on the link since the last stats
+interval if reading live traffic.
+    
+    - name: pkt_lag
+      type: interval
+      description: >
+        Lag between the wall clock and packet timestamps if reading
+live traffic.
+    
+    - name: events_proc
+      type: count
+      description: >
+        Number of events processed since the last stats interval.
+    
+    - name: events_queued
+      type: count
+      description: >
+        Number of events that have been queued since the last stats
+interval.
+    
+    - name: active_tcp_conns
+      type: count
+      description: >
+        TCP connections currently in memory.
+    
+    - name: active_udp_conns
+      type: count
+      description: >
+        UDP connections currently in memory.
+    
+    - name: active_icmp_conns
+      type: count
+      description: >
+        ICMP connections currently in memory.
+    
+    - name: tcp_conns
+      type: count
+      description: >
+        TCP connections seen since last stats interval.
+    
+    - name: udp_conns
+      type: count
+      description: >
+        UDP connections seen since last stats interval.
+    
+    - name: icmp_conns
+      type: count
+      description: >
+        ICMP connections seen since last stats interval.
+    
+    - name: timers
+      type: count
+      description: >
+        Number of timers scheduled since last stats interval.
+    
+    - name: active_timers
+      type: count
+      description: >
+        Current number of scheduled timers.
+    
+    - name: files
+      type: count
+      description: >
+        Number of files seen since last stats interval.
+    
+    - name: active_files
+      type: count
+      description: >
+        Current number of files actively being seen.
+    
+    - name: dns_requests
+      type: count
+      description: >
+        Number of DNS requests seen since last stats interval.
+    
+    - name: active_dns_requests
+      type: count
+      description: >
+        Current number of DNS requests awaiting a reply.
+    
+    - name: reassem_tcp_size
+      type: count
+      description: >
+        Current size of TCP data in reassembly.
+    
+    - name: reassem_file_size
+      type: count
+      description: >
+        Current size of File data in reassembly.
+    
+    - name: reassem_frag_size
+      type: count
+      description: >
+        Current size of packet fragment data in reassembly.
+    
+    - name: reassem_unknown_size
+      type: count
+      description: >
+        Current size of unknown data in reassembly (this is only PIA buffer right now).
+    

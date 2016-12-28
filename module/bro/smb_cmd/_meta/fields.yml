@@ -1,0 +1,174 @@
+- name: smb_cmd
+  type: group
+  description: >
+    Contains fields for the Bro smb_cmd logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        Timestamp of the command request.
+    
+    - name: uid
+      type: string
+      description: >
+        Unique ID of the connection the request was sent over.
+    
+    - name: id
+      type: conn_id
+      description: >
+        ID of the connection the request was sent over.
+    
+    - name: command
+      type: string
+      description: >
+        The command sent by the client.
+    
+    - name: sub_command
+      type: string
+      description: >
+        The subcommand sent by the client, if present.
+    
+    - name: argument
+      type: string
+      description: >
+        Command argument sent by the client, if any.
+    
+    - name: status
+      type: string
+      description: >
+        Server reply to the client's command.
+    
+    - name: rtt
+      type: interval
+      description: >
+        Round trip time from the request to the response.
+    
+    - name: version
+      type: string
+      description: >
+        Version of SMB for the command.
+    
+    - name: username
+      type: string
+      description: >
+        Authenticated username, if available.
+    
+    - name: tree
+      type: string
+      description: >
+        If this is related to a tree, this is the tree
+that was used for the current command.
+    
+    - name: tree_service
+      type: string
+      description: >
+        The type of tree (disk share, printer share, named pipe, etc.).
+    
+    - name: referenced_file.ts
+      type: time
+      description: >
+        Time when the file was first discovered.
+    
+    - name: referenced_file.uid
+      type: string
+      description: >
+        Unique ID of the connection the file was sent over.
+    
+    - name: referenced_file.id
+      type: conn_id
+      description: >
+        ID of the connection the file was sent over.
+    
+    - name: referenced_file.fuid
+      type: string
+      description: >
+        Unique ID of the file.
+    
+    - name: referenced_file.action
+      type: SMB::Action
+      description: >
+        Action this log record represents.
+    
+    - name: referenced_file.path
+      type: string
+      description: >
+        Path pulled from the tree this file was transferred to or from.
+    
+    - name: referenced_file.name
+      type: string
+      description: >
+        Filename if one was seen.
+    
+    - name: referenced_file.size
+      type: count
+      description: >
+        Total size of the file.
+    
+    - name: referenced_file.prev_name
+      type: string
+      description: >
+        If the rename action was seen, this will be
+the file's previous name.
+    
+    - name: referenced_file.times
+      type: SMB::MACTimes
+      description: >
+        Last time this file was modified.
+    
+    - name: referenced_file.fid
+      type: count
+      description: >
+        ID referencing this file.
+    
+    - name: referenced_file.uuid
+      type: string
+      description: >
+        UUID referencing this file if DCE/RPC.
+    
+    - name: referenced_tree.ts
+      type: time
+      description: >
+        Time when the tree was mapped.
+    
+    - name: referenced_tree.uid
+      type: string
+      description: >
+        Unique ID of the connection the tree was mapped over.
+    
+    - name: referenced_tree.id
+      type: conn_id
+      description: >
+        ID of the connection the tree was mapped over.
+    
+    - name: referenced_tree.path
+      type: string
+      description: >
+        Name of the tree path.
+    
+    - name: referenced_tree.service
+      type: string
+      description: >
+        The type of resource of the tree (disk share, printer share, named pipe, etc.).
+    
+    - name: referenced_tree.native_file_system
+      type: string
+      description: >
+        File system of the tree.
+    
+    - name: referenced_tree.share_type
+      type: string
+      description: >
+        If this is SMB2, a share type will be included.  For SMB1,
+the type of share will be deduced and included as well.
+    
+    - name: smb1_offered_dialects
+      type: string_vec
+      description: >
+        (present if policy/protocols/smb/smb1-main.bro is loaded)
+    
+    - name: smb2_offered_dialects
+      type: index_vec
+      description: >
+        (present if policy/protocols/smb/smb2-main.bro is loaded)
+    

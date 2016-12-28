@@ -1,0 +1,25 @@
+- name: {{ log_type }}
+  type: group
+  description: >
+    Contains fields for the Bro {{ log_type }} logs.
+  fields:
+    {% for field in fields %}
+    {% if field.is_nested %}
+    - name: {{ field.field_name }}
+        type: group
+        description: >
+          Contains the parsed {{ field.field_name }} field.
+        fields:
+        {% for nfield in nested_fields %}
+          - name: {{ nfield.field_name }}
+            type: {{ nfield.field_type }}
+            description: >
+              {{ nfield.field_description }}
+        {% endfor %}
+    {% else %}
+    - name: {{ field.field_name }}
+      type: {{ field.field_type }}
+      description: >
+        {{ field.field_description }}
+    {% endif %}
+    {% endfor %}

@@ -1,0 +1,86 @@
+- name: unified2
+  type: group
+  description: >
+    Contains fields for the Bro unified2 logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        Timestamp attached to the alert.
+    
+    - name: id.src_ip
+      type: addr
+      description: >
+        
+    
+    - name: id.src_p
+      type: port
+      description: >
+        
+    
+    - name: id.dst_ip
+      type: addr
+      description: >
+        
+    
+    - name: id.dst_p
+      type: port
+      description: >
+        
+    
+    - name: sensor_id
+      type: count
+      description: >
+        Sensor that originated this event.
+    
+    - name: signature_id
+      type: count
+      description: >
+        Sig id for this generator.
+    
+    - name: signature
+      type: string
+      description: >
+        A string representation of the signature_id field if a sid_msg.map file was loaded.
+    
+    - name: generator_id
+      type: count
+      description: >
+        Which generator generated the alert?
+    
+    - name: generator
+      type: string
+      description: >
+        A string representation of the generator_id field if a gen_msg.map file was loaded.
+    
+    - name: signature_revision
+      type: count
+      description: >
+        Sig revision for this id.
+    
+    - name: classification_id
+      type: count
+      description: >
+        Event classification.
+    
+    - name: classification
+      type: string
+      description: >
+        Descriptive classification string.
+    
+    - name: priority_id
+      type: count
+      description: >
+        Event priority.
+    
+    - name: event_id
+      type: count
+      description: >
+        Event ID.
+    
+    - name: packet
+      type: string
+      description: >
+        Some of the packet data.
+    

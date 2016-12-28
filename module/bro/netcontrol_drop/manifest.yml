@@ -1,0 +1,13 @@
+module_version: 1.0
+
+vars:
+  paths:
+    default:
+      - /var/log/bro/netcontrol_drop.log*
+  pipeline:
+    # options: with_plugins, no_plugins, json_with_plugins, json_no_plugins
+    default: no_plugins
+
+ingest_pipeline: ingest/{{pipeline}}.json
+prospectors:
+  - config/bro-netcontrol_drop.yml

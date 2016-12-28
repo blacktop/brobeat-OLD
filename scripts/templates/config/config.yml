@@ -7,5 +7,5 @@
   exclude_files: [".gz$"]
 {% endraw %}
   fields:
-    source_type: bro-{{ field.log_type }}
+    source_type: bro-{{ log_type }}
     pipeline_id: {{ '{{beat.pipeline_id}}' }}

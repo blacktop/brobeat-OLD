@@ -1,0 +1,21 @@
+- name: barnyard2
+  type: group
+  description: >
+    Contains fields for the Bro barnyard2 logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        
+    
+    - name: pid
+      type: Barnyard2::PacketID
+      description: >
+        
+    
+    - name: alert
+      type: Barnyard2::AlertData
+      description: >
+        
+    

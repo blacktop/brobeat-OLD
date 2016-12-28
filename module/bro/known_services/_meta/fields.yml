@@ -1,0 +1,31 @@
+- name: known_services
+  type: group
+  description: >
+    Contains fields for the Bro known_services logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        The time at which the service was detected.
+    
+    - name: host
+      type: addr
+      description: >
+        The host address on which the service is running.
+    
+    - name: port_num
+      type: port
+      description: >
+        The port number on which the service is running.
+    
+    - name: port_proto
+      type: transport_proto
+      description: >
+        The transport-layer protocol which the service uses.
+    
+    - name: service
+      type: set
+      description: >
+        A set of protocols that match the service's connection payloads.
+    

@@ -1,0 +1,72 @@
+- name: socks
+  type: group
+  description: >
+    Contains fields for the Bro socks logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        Time when the proxy connection was first detected.
+    
+    - name: uid
+      type: string
+      description: >
+        Unique ID for the tunnel - may correspond to connection uid
+or be non-existent.
+    
+    - name: id
+      type: conn_id
+      description: >
+        The connection's 4-tuple of endpoint addresses/ports.
+    
+    - name: version
+      type: count
+      description: >
+        Protocol version of SOCKS.
+    
+    - name: user
+      type: string
+      description: >
+        Username used to request a login to the proxy.
+    
+    - name: password
+      type: string
+      description: >
+        Password used to request a login to the proxy.
+    
+    - name: status
+      type: string
+      description: >
+        Server status for the attempt at using the proxy.
+    
+    - name: request.host
+      type: addr
+      description: >
+        
+    
+    - name: request.name
+      type: string
+      description: >
+        
+    
+    - name: request_p
+      type: port
+      description: >
+        Client requested port.
+    
+    - name: bound.host
+      type: addr
+      description: >
+        
+    
+    - name: bound.name
+      type: string
+      description: >
+        
+    
+    - name: bound_p
+      type: port
+      description: >
+        Server bound port.
+    

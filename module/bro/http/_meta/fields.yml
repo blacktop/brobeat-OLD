@@ -1,0 +1,198 @@
+- name: http
+  type: group
+  description: >
+    Contains fields for the Bro http logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        Timestamp for when the request happened.
+    
+    - name: uid
+      type: string
+      description: >
+        Unique ID for the connection.
+    
+    - name: id
+      type: conn_id
+      description: >
+        The connection's 4-tuple of endpoint addresses/ports.
+    
+    - name: trans_depth
+      type: count
+      description: >
+        Represents the pipelined depth into the connection of this
+request/response transaction.
+    
+    - name: method
+      type: string
+      description: >
+        Verb used in the HTTP request (GET, POST, HEAD, etc.).
+    
+    - name: host
+      type: string
+      description: >
+        Value of the HOST header.
+    
+    - name: uri
+      type: string
+      description: >
+        URI used in the request.
+    
+    - name: referrer
+      type: string
+      description: >
+        Value of the referer header.  The comment is deliberately
+misspelled like the standard declares, but the name used here
+is referrer spelled correctly.
+    
+    - name: version
+      type: string
+      description: >
+        Value of the version portion of the request.
+    
+    - name: user_agent
+      type: string
+      description: >
+        Value of the User-Agent header from the client.
+    
+    - name: request_body_len
+      type: count
+      description: >
+        Actual uncompressed content size of the data transferred from
+the client.
+    
+    - name: response_body_len
+      type: count
+      description: >
+        Actual uncompressed content size of the data transferred from
+the server.
+    
+    - name: status_code
+      type: count
+      description: >
+        Status code returned by the server.
+    
+    - name: status_msg
+      type: string
+      description: >
+        Status message returned by the server.
+    
+    - name: info_code
+      type: count
+      description: >
+        Last seen 1xx informational reply code returned by the server.
+    
+    - name: info_msg
+      type: string
+      description: >
+        Last seen 1xx informational reply message returned by the server.
+    
+    - name: tags
+      type: set
+      description: >
+        A set of indicators of various attributes discovered and
+related to a particular request/response pair.
+    
+    - name: username
+      type: string
+      description: >
+        Username if basic-auth is performed for the request.
+    
+    - name: password
+      type: string
+      description: >
+        Password if basic-auth is performed for the request.
+    
+    - name: capture_password
+      type: bool
+      description: >
+        Determines if the password will be captured for this request.
+    
+    - name: proxied
+      type: set
+      description: >
+        All of the headers that may indicate if the request was proxied.
+    
+    - name: range_request
+      type: bool
+      description: >
+        Indicates if this request can assume 206 partial content in
+response.
+    
+    - name: orig_fuids
+      type: vector
+      description: >
+        (present if base/protocols/http/entities.bro is loaded)
+    
+    - name: orig_filenames
+      type: vector
+      description: >
+        (present if base/protocols/http/entities.bro is loaded)
+    
+    - name: orig_mime_types
+      type: vector
+      description: >
+        (present if base/protocols/http/entities.bro is loaded)
+    
+    - name: resp_fuids
+      type: vector
+      description: >
+        (present if base/protocols/http/entities.bro is loaded)
+    
+    - name: resp_filenames
+      type: vector
+      description: >
+        (present if base/protocols/http/entities.bro is loaded)
+    
+    - name: resp_mime_types
+      type: vector
+      description: >
+        (present if base/protocols/http/entities.bro is loaded)
+    
+    - name: current_entity.filename
+      type: string
+      description: >
+        Filename for the entity if discovered from a header.
+    
+    - name: orig_mime_depth
+      type: count
+      description: >
+        (present if base/protocols/http/entities.bro is loaded)
+    
+    - name: resp_mime_depth
+      type: count
+      description: >
+        (present if base/protocols/http/entities.bro is loaded)
+    
+    - name: client_header_names
+      type: vector
+      description: >
+        (present if policy/protocols/http/header-names.bro is loaded)
+    
+    - name: server_header_names
+      type: vector
+      description: >
+        (present if policy/protocols/http/header-names.bro is loaded)
+    
+    - name: omniture
+      type: bool
+      description: >
+        (present if policy/protocols/http/software-browser-plugins.bro is loaded)
+    
+    - name: flash_version
+      type: string
+      description: >
+        (present if policy/protocols/http/software-browser-plugins.bro is loaded)
+    
+    - name: cookie_vars
+      type: vector
+      description: >
+        (present if policy/protocols/http/var-extraction-cookies.bro is loaded)
+    
+    - name: uri_vars
+      type: vector
+      description: >
+        (present if policy/protocols/http/var-extraction-uri.bro is loaded)
+    

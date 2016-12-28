@@ -1,0 +1,139 @@
+- name: conn
+  type: group
+  description: >
+    Contains fields for the Bro conn logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        This is the time of the first packet.
+    
+    - name: uid
+      type: string
+      description: >
+        A unique identifier of the connection.
+    
+    - name: id
+      type: conn_id
+      description: >
+        The connection's 4-tuple of endpoint addresses/ports.
+    
+    - name: proto
+      type: transport_proto
+      description: >
+        The transport layer protocol of the connection.
+    
+    - name: service
+      type: string
+      description: >
+        An identification of an application protocol being sent over
+the connection.
+    
+    - name: duration
+      type: interval
+      description: >
+        How long the connection lasted.  For 3-way or 4-way connection
+tear-downs, this will not include the final ACK.
+    
+    - name: orig_bytes
+      type: count
+      description: >
+        The number of payload bytes the originator sent. For TCP
+this is taken from sequence numbers and might be inaccurate
+(e.g., due to large connections).
+    
+    - name: resp_bytes
+      type: count
+      description: >
+        The number of payload bytes the responder sent. See
+orig_bytes.
+    
+    - name: conn_state
+      type: string
+      description: >
+        
+    
+    - name: local_orig
+      type: bool
+      description: >
+        If the connection is originated locally, this value will be T.
+If it was originated remotely it will be F.  In the case that
+the Site::local_nets variable is undefined, this
+field will be left empty at all times.
+    
+    - name: local_resp
+      type: bool
+      description: >
+        If the connection is responded to locally, this value will be T.
+If it was responded to remotely it will be F.  In the case that
+the Site::local_nets variable is undefined, this
+field will be left empty at all times.
+    
+    - name: missed_bytes
+      type: count
+      description: >
+        Indicates the number of bytes missed in content gaps, which
+is representative of packet loss.  A value other than zero
+will normally cause protocol analysis to fail but some
+analysis may have been completed prior to the packet loss.
+    
+    - name: history
+      type: string
+      description: >
+        Records the state history of connections as a string of
+letters.  The meaning of those letters is:
+    
+    - name: orig_pkts
+      type: count
+      description: >
+        Number of packets that the originator sent.
+Only set if use_conn_size_analyzer = T.
+    
+    - name: orig_ip_bytes
+      type: count
+      description: >
+        Number of IP level bytes that the originator sent (as seen on
+the wire, taken from the IP total_length header field).
+Only set if use_conn_size_analyzer = T.
+    
+    - name: resp_pkts
+      type: count
+      description: >
+        Number of packets that the responder sent.
+Only set if use_conn_size_analyzer = T.
+    
+    - name: resp_ip_bytes
+      type: count
+      description: >
+        Number of IP level bytes that the responder sent (as seen on
+the wire, taken from the IP total_length header field).
+Only set if use_conn_size_analyzer = T.
+    
+    - name: tunnel_parents
+      type: set
+      description: >
+        If this connection was over a tunnel, indicate the
+uid values for any encapsulating parent connections
+used over the lifetime of this inner connection.
+    
+    - name: orig_l2_addr
+      type: string
+      description: >
+        (present if policy/protocols/conn/mac-logging.bro is loaded)
+    
+    - name: resp_l2_addr
+      type: string
+      description: >
+        (present if policy/protocols/conn/mac-logging.bro is loaded)
+    
+    - name: vlan
+      type: int
+      description: >
+        (present if policy/protocols/conn/vlan-logging.bro is loaded)
+    
+    - name: inner_vlan
+      type: int
+      description: >
+        (present if policy/protocols/conn/vlan-logging.bro is loaded)
+    

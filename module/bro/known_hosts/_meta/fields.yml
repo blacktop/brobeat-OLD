@@ -1,0 +1,17 @@
+- name: known_hosts
+  type: group
+  description: >
+    Contains fields for the Bro known_hosts logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        The timestamp at which the host was detected.
+    
+    - name: host
+      type: addr
+      description: >
+        The address that was detected originating or responding to a
+TCP connection.
+    

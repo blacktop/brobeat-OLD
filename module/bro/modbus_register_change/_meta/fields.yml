@@ -1,0 +1,42 @@
+- name: modbus_register_change
+  type: group
+  description: >
+    Contains fields for the Bro modbus_register_change logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        Timestamp for the detected register change.
+    
+    - name: uid
+      type: string
+      description: >
+        Unique ID for the connection.
+    
+    - name: id
+      type: conn_id
+      description: >
+        Connection ID.
+    
+    - name: register
+      type: count
+      description: >
+        The device memory offset.
+    
+    - name: old_val
+      type: count
+      description: >
+        The old value stored in the register.
+    
+    - name: new_val
+      type: count
+      description: >
+        The new value stored in the register.
+    
+    - name: delta
+      type: interval
+      description: >
+        The time delta between when the old_val and new_val were
+seen.
+    

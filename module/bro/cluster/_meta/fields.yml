@@ -1,0 +1,16 @@
+- name: cluster
+  type: group
+  description: >
+    Contains fields for the Bro cluster logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        The time at which a cluster message was generated.
+    
+    - name: message
+      type: string
+      description: >
+        A message indicating information about the cluster's operation.
+    

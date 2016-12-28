@@ -1,0 +1,43 @@
+- name: dhcp
+  type: group
+  description: >
+    Contains fields for the Bro dhcp logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        The earliest time at which a DHCP message over the
+associated connection is observed.
+    
+    - name: uid
+      type: string
+      description: >
+        A unique identifier of the connection over which DHCP is
+occurring.
+    
+    - name: id
+      type: conn_id
+      description: >
+        The connection's 4-tuple of endpoint addresses/ports.
+    
+    - name: mac
+      type: string
+      description: >
+        Client's hardware address.
+    
+    - name: assigned_ip
+      type: addr
+      description: >
+        Client's actual assigned IP address.
+    
+    - name: lease_time
+      type: interval
+      description: >
+        IP address lease interval.
+    
+    - name: trans_id
+      type: count
+      description: >
+        A random number chosen by the client for this transaction.
+    

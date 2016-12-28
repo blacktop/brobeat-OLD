@@ -1,0 +1,37 @@
+- name: known_certs
+  type: group
+  description: >
+    Contains fields for the Bro known_certs logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        The timestamp when the certificate was detected.
+    
+    - name: host
+      type: addr
+      description: >
+        The address that offered the certificate.
+    
+    - name: port_num
+      type: port
+      description: >
+        If the certificate was handed out by a server, this is the
+port that the server was listening on.
+    
+    - name: subject
+      type: string
+      description: >
+        Certificate subject.
+    
+    - name: issuer_subject
+      type: string
+      description: >
+        Certificate issuer subject.
+    
+    - name: serial
+      type: string
+      description: >
+        Serial number for the certificate.
+    

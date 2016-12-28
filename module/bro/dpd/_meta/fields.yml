@@ -1,0 +1,47 @@
+- name: dpd
+  type: group
+  description: >
+    Contains fields for the Bro dpd logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        Timestamp for when protocol analysis failed.
+    
+    - name: uid
+      type: string
+      description: >
+        Connection unique ID.
+    
+    - name: id
+      type: conn_id
+      description: >
+        Connection ID containing the 4-tuple which identifies endpoints.
+    
+    - name: proto
+      type: transport_proto
+      description: >
+        Transport protocol for the violation.
+    
+    - name: analyzer
+      type: string
+      description: >
+        The analyzer that generated the violation.
+    
+    - name: failure_reason
+      type: string
+      description: >
+        The textual reason for the analysis failure.
+    
+    - name: disabled_aids
+      type: set
+      description: >
+        Disabled analyzer IDs.  This is only for internal tracking
+so as to not attempt to disable analyzers multiple times.
+    
+    - name: packet_segment
+      type: string
+      description: >
+        (present if policy/frameworks/dpd/packet-segment-logging.bro is loaded)
+    

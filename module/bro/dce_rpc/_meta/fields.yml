@@ -1,0 +1,43 @@
+- name: dce_rpc
+  type: group
+  description: >
+    Contains fields for the Bro dce_rpc logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        Timestamp for when the event happened.
+    
+    - name: uid
+      type: string
+      description: >
+        Unique ID for the connection.
+    
+    - name: id
+      type: conn_id
+      description: >
+        The connection's 4-tuple of endpoint addresses/ports.
+    
+    - name: rtt
+      type: interval
+      description: >
+        Round trip time from the request to the response.
+If either the request or response wasn't seen,
+this will be null.
+    
+    - name: named_pipe
+      type: string
+      description: >
+        Remote pipe name.
+    
+    - name: endpoint
+      type: string
+      description: >
+        Endpoint name looked up from the uuid.
+    
+    - name: operation
+      type: string
+      description: >
+        Operation seen in the call.
+    

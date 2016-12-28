@@ -1,0 +1,148 @@
+- name: smtp
+  type: group
+  description: >
+    Contains fields for the Bro smtp logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        Time when the message was first seen.
+    
+    - name: uid
+      type: string
+      description: >
+        Unique ID for the connection.
+    
+    - name: id
+      type: conn_id
+      description: >
+        The connection's 4-tuple of endpoint addresses/ports.
+    
+    - name: trans_depth
+      type: count
+      description: >
+        A count to represent the depth of this message transaction in
+a single connection where multiple messages were transferred.
+    
+    - name: helo
+      type: string
+      description: >
+        Contents of the Helo header.
+    
+    - name: mailfrom
+      type: string
+      description: >
+        Email addresses found in the From header.
+    
+    - name: rcptto
+      type: set
+      description: >
+        Email addresses found in the Rcpt header.
+    
+    - name: date
+      type: string
+      description: >
+        Contents of the Date header.
+    
+    - name: from
+      type: string
+      description: >
+        Contents of the From header.
+    
+    - name: to
+      type: set
+      description: >
+        Contents of the To header.
+    
+    - name: cc
+      type: set
+      description: >
+        Contents of the CC header.
+    
+    - name: reply_to
+      type: string
+      description: >
+        Contents of the ReplyTo header.
+    
+    - name: msg_id
+      type: string
+      description: >
+        Contents of the MsgID header.
+    
+    - name: in_reply_to
+      type: string
+      description: >
+        Contents of the In-Reply-To header.
+    
+    - name: subject
+      type: string
+      description: >
+        Contents of the Subject header.
+    
+    - name: x_originating_ip
+      type: addr
+      description: >
+        Contents of the X-Originating-IP header.
+    
+    - name: first_received
+      type: string
+      description: >
+        Contents of the first Received header.
+    
+    - name: second_received
+      type: string
+      description: >
+        Contents of the second Received header.
+    
+    - name: last_reply
+      type: string
+      description: >
+        The last message that the server sent to the client.
+    
+    - name: path
+      type: vector
+      description: >
+        The message transmission path, as extracted from the headers.
+    
+    - name: user_agent
+      type: string
+      description: >
+        Value of the User-Agent header from the client.
+    
+    - name: tls
+      type: bool
+      description: >
+        Indicates that the connection has switched to using TLS.
+    
+    - name: process_received_from
+      type: bool
+      description: >
+        Indicates if the Received: from headers should still be
+processed.
+    
+    - name: has_client_activity
+      type: bool
+      description: >
+        Indicates if client activity has been seen, but not yet logged.
+    
+    - name: entity.filename
+      type: string
+      description: >
+        Filename for the entity if discovered from a header.
+    
+    - name: entity.excerpt
+      type: string
+      description: >
+        (present if policy/protocols/smtp/entities-excerpt.bro is loaded)
+    
+    - name: fuids
+      type: vector
+      description: >
+        (present if base/protocols/smtp/files.bro is loaded)
+    
+    - name: is_webmail
+      type: bool
+      description: >
+        (present if policy/protocols/smtp/software.bro is loaded)
+    

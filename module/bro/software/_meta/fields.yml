@@ -1,0 +1,80 @@
+- name: software
+  type: group
+  description: >
+    Contains fields for the Bro software logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        The time at which the software was detected.
+    
+    - name: host
+      type: addr
+      description: >
+        The IP address detected running the software.
+    
+    - name: host_p
+      type: port
+      description: >
+        The port on which the software is running. Only sensible for
+server software.
+    
+    - name: software_type
+      type: Software::Type
+      description: >
+        
+    
+    - name: name
+      type: string
+      description: >
+        Name of the software (e.g. Apache).
+    
+    - name: version.major
+      type: count
+      description: >
+        Major version number.
+    
+    - name: version.minor
+      type: count
+      description: >
+        Minor version number.
+    
+    - name: version.minor2
+      type: count
+      description: >
+        Minor subversion number.
+    
+    - name: version.minor3
+      type: count
+      description: >
+        Minor updates number.
+    
+    - name: version.addl
+      type: string
+      description: >
+        Additional version string (e.g. beta42).
+    
+    - name: unparsed_version
+      type: string
+      description: >
+        The full unparsed version string found because the version
+parsing doesn't always work reliably in all cases and this
+acts as a fallback in the logs.
+    
+    - name: force_log
+      type: bool
+      description: >
+        This can indicate that this software being detected should
+definitely be sent onward to the logging framework.  By
+default, only software that is interesting due to a change
+in version or it being currently unknown is sent to the
+logging framework.  This can be set to T to force the record
+to be sent to the logging framework if some amount of this
+tracking needs to happen in a specific way to the software.
+    
+    - name: url
+      type: string
+      description: >
+        (present if policy/protocols/http/detect-webapps.bro is loaded)
+    

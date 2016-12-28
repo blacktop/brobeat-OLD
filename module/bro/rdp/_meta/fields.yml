@@ -1,0 +1,121 @@
+- name: rdp
+  type: group
+  description: >
+    Contains fields for the Bro rdp logs.
+  fields:
+    
+    - name: ts
+      type: time
+      description: >
+        Timestamp for when the event happened.
+    
+    - name: uid
+      type: string
+      description: >
+        Unique ID for the connection.
+    
+    - name: id
+      type: conn_id
+      description: >
+        The connection's 4-tuple of endpoint addresses/ports.
+    
+    - name: cookie
+      type: string
+      description: >
+        Cookie value used by the client machine.
+This is typically a username.
+    
+    - name: result
+      type: string
+      description: >
+        Status result for the connection.  It's a mix between
+RDP negotation failure messages and GCC server create
+response messages.
+    
+    - name: security_protocol
+      type: string
+      description: >
+        Security protocol chosen by the server.
+    
+    - name: keyboard_layout
+      type: string
+      description: >
+        Keyboard layout (language) of the client machine.
+    
+    - name: client_build
+      type: string
+      description: >
+        RDP client version used by the client machine.
+    
+    - name: client_name
+      type: string
+      description: >
+        Name of the client machine.
+    
+    - name: client_dig_product_id
+      type: string
+      description: >
+        Product ID of the client machine.
+    
+    - name: desktop_width
+      type: count
+      description: >
+        Desktop width of the client machine.
+    
+    - name: desktop_height
+      type: count
+      description: >
+        Desktop height of the client machine.
+    
+    - name: requested_color_depth
+      type: string
+      description: >
+        The color depth requested by the client in
+the high_color_depth field.
+    
+    - name: cert_type
+      type: string
+      description: >
+        If the connection is being encrypted with native
+RDP encryption, this is the type of cert
+being used.
+    
+    - name: cert_count
+      type: count
+      description: >
+        The number of certs seen.  X.509 can transfer an
+entire certificate chain.
+    
+    - name: cert_permanent
+      type: bool
+      description: >
+        Indicates if the provided certificate or certificate
+chain is permanent or temporary.
+    
+    - name: encryption_level
+      type: string
+      description: >
+        Encryption level of the connection.
+    
+    - name: encryption_method
+      type: string
+      description: >
+        Encryption method of the connection.
+    
+    - name: analyzer_id
+      type: count
+      description: >
+        The analyzer ID used for the analyzer instance attached
+to each connection.  It is not used for logging since it's a
+meaningless arbitrary number.
+    
+    - name: done
+      type: bool
+      description: >
+        Track status of logging RDP connections.
+    
+    - name: ssl
+      type: bool
+      description: >
+        (present if policy/protocols/rdp/indicate_ssl.bro is loaded)
+    
