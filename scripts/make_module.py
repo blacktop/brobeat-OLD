@@ -8,7 +8,7 @@ with open('bro-logs.json') as json_file:
 env = Environment(loader=PackageLoader(__name__, 'templates'))
 
 # create logstash config
-template = env.get_template('logstash.conf')
+template = env.get_template('logstash/logstash.conf')
 logstash_dir = '../logstash/bro.conf'
 with open('../logstash/bro.conf', 'w') as lsfile:
     lsfile.write(template.render(logs=bro_logs['logs']))
