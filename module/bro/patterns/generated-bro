@@ -141,7 +141,7 @@ BRO_KNOWN_SERVICES %{NUMBER:ts}\t%{IP:host}\t%{INT:port_num}\t%{WORD:port_proto}
 BRO_SOFTWARE %{NUMBER:ts}\t%{IP:host}\t%{INT:host_p}\t%{GREEDYDATA:software_type}\t%{GREEDYDATA:name}\t%{INT:version.major}\t%{INT:version.minor}\t%{INT:version.minor2}\t%{INT:version.minor3}\t%{GREEDYDATA:version.addl}\t%{GREEDYDATA:unparsed_version}\t%{GREEDYDATA:force_log}\t%{GREEDYDATA:url}
 
 # barnyard2.log
-
+BRO_BARNYARD2 %{NUMBER:ts}\t%{GREEDYDATA:pid}\t%{GREEDYDATA:alert}
 
 # dpd.log
 BRO_DPD %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{WORD:proto}\t%{GREEDYDATA:analyzer}\t%{GREEDYDATA:failure_reason}\t%{GREEDYDATA:disabled_aids}\t%{GREEDYDATA:packet_segment}

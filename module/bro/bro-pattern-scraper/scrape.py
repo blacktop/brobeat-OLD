@@ -74,6 +74,22 @@ def is_enum(soup, dt_text):
         return False
 
 
+def parse_p_table(soup, field_name=None, dt_text=None):
+    pfields = []
+    table = soup.find("dt", id=dt_text).parent.find("table")
+    ps = table.find("th", text="Type:").parent.find_all("p")
+    for p in ps[1:]:
+        nfield_name = p.contents[0].split(':', 1)[0]
+        nfield_type = p.contents[1].text
+        if field_name is None:
+            logger.info(' ===> adding nested field: {}'.format(nfield_name))
+            pfields.append(dict(field=nfield_name, type=nfield_type, description=""))
+        else:
+            logger.info(' ===> adding nested field: {}'.format(field_name + '.' + nfield_name))
+            pfields.append(dict(field=field_name + '.' + nfield_name, type=nfield_type, description=""))
+    return pfields
+
+
 def get_nested_fields(field_name, field_type, url):
     nested = []
     skip_list = ["FTP::PendingCmds", "Intel::TypeSet", "Notice::ActionSet"]
@@ -105,13 +121,7 @@ def get_nested_fields(field_name, field_type, url):
                                            description=nfield_description))
             else:
                 logger.warn(' ===> unable to parse nested field type: {}. Trying again...'.format(field_type))
-                table = soup.find("dt", id=dt_text).parent.find("table")
-                ps = table.find("th", text="Type:").parent.find_all("p")
-                for p in ps[1:]:
-                    nfield_name = p.contents[0].split(':', 1)[0]
-                    nfield_type = p.contents[1].text
-                    logger.info(' ===> adding nested field: {}'.format(field_name + '.' + nfield_name))
-                    nested.append(dict(field=field_name + '.' + nfield_name, type=nfield_type, description=""))
+                nested += parse_p_table(soup, field_name, dt_text)
     return nested
 
 
@@ -139,8 +149,6 @@ def get_log_types():
     return bro_logs
 
 
-# TODO: add edge case where it is a table of <p>
-# https://www.bro.org/sphinx/scripts/policy/integration/barnyard2/main.bro.html#type-Barnyard2::Info
 def scrape_bro_docs():
     """ Crawl bro.org docs to extract log types """
     bro_logs = get_log_types()
@@ -153,21 +161,25 @@ def scrape_bro_docs():
             logger.info('parsing log: {}, field: {}'.format(log_type['file'], dt_text))
             try:
                 dl = soup.find("dt", id=dt_text).parent.find("dl", {"class": "docutils"})
-                for dfield in list(zip(dl.find_all("dt"), dl.find_all("dd"))):
-                    if len(dfield) == 2:
-                        field_name = dfield[0].contents[0].split(':', 1)[0]
-                        field_type = dfield[0].contents[1].text
-                        if dfield[1].p is not None:
-                            field_description = dfield[1].p.text
-                        else:
-                            field_description = ""
-                        if '::' in field_type:
-                            url = build_url(log_type.get('url'), dfield[0].a['href'])
-                            log_type['fields'] += get_nested_fields(field_name, field_type, url)
-                        else:
-                            log_type['fields'].append(dict(field=field_name,
-                                                           type=field_type,
-                                                           description=field_description))
+                if dl is not None:
+                    for dfield in list(zip(dl.find_all("dt"), dl.find_all("dd"))):
+                        if len(dfield) == 2:
+                            field_name = dfield[0].contents[0].split(':', 1)[0]
+                            field_type = dfield[0].contents[1].text
+                            if dfield[1].p is not None:
+                                field_description = dfield[1].p.text
+                            else:
+                                field_description = ""
+                            if '::' in field_type:
+                                url = build_url(log_type.get('url'), dfield[0].a['href'])
+                                log_type['fields'] += get_nested_fields(field_name, field_type, url)
+                            else:
+                                log_type['fields'].append(dict(field=field_name,
+                                                               type=field_type,
+                                                               description=field_description))
+                else:
+                    logger.warn(' ===> unable to parse fields for log: {}. Trying again...'.format(log_type['file']))
+                    log_type['fields'] += parse_p_table(soup, field_name=None, dt_text=dt_text)
             except Exception as e:
                 logger.error('parsing log: {}, field: {}'.format(log_type['file'], dt_text))
                 logger.exception(e.message)
