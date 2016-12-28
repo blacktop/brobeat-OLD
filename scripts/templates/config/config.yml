@@ -1,5 +1,4 @@
-{%- raw %}
-- input_type: log
+{%- raw %}- input_type: log
   paths:
   {%- for path in paths %}
    - {{path}}
