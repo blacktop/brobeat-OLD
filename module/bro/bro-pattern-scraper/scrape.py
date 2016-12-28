@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from bs4 import BeautifulSoup
 import requests
 from requests.compat import urljoin
@@ -5,14 +7,31 @@ import json
 import os
 import re
 import logging
-import logging.handlers
 
-logFormatter = logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s")
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 consoleHandler = logging.StreamHandler()
+logFormatter = logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s")
 consoleHandler.setFormatter(logFormatter)
 logger.addHandler(consoleHandler)
+
+
+def is_url(url):
+    regex = re.compile(r'^(?:http|ftp)s?://'  # http:// or https://
+                       r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'  # domain...
+                       r'localhost|'  # localhost...
+                       r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'  # ...or ip
+                       r'(?::\d+)?'  # optional port
+                       r'(?:/?|[/?]\S+)$',
+                       re.IGNORECASE)
+    return regex.match(url)
+
+
+def build_url(current_url, next_url):
+    if is_url(next_url):
+        return next_url
+    else:
+        return urljoin(current_url, next_url)
 
 
 def field_type_lookup(ftype, field):
@@ -47,28 +66,52 @@ def doc2grok(fields):
     return '\\t'.join(converted)
 
 
-# TODO: add edge case where it is a table of <p>
-# https://www.bro.org/sphinx/scripts/base/init-bare.bro.html#type-SOCKS::Address
+def is_enum(soup, dt_text):
+    p = soup.find("dt", id=dt_text).parent.find("p", {"class": "first"})
+    if p is not None and 'enum' in p.text:
+        return True
+    else:
+        return False
+
+
 def get_nested_fields(field_name, field_type, url):
     nested = []
-    resp = requests.get(url=url)
-    soup = BeautifulSoup(resp.content, "html.parser")
-    dt_text = url.split('#')[-1]
-    dl = soup.find("dt", id=dt_text).parent.find("dl", {"class": "last docutils"})
-    if dl is not None:
-        for nfield in list(zip(dl.find_all("dt"), dl.find_all("dd"))):
-            if len(nfield) == 2:
-                nfield_name = nfield[0].contents[0].split(':', 1)[0]
-                nfield_type = nfield[0].contents[1].text
-                if nfield[1].p is not None:
-                    nfield_description = nfield[1].p.text
-                else:
-                    nfield_description = ""
-                nested.append(dict(field=field_name + '.' + nfield_name,
-                                   type=nfield_type,
-                                   description=nfield_description))
-    else:
+    skip_list = ["FTP::PendingCmds", "Intel::TypeSet", "Notice::ActionSet"]
+
+    if field_type in skip_list:
+        logger.warn(' ===> adding SKIPPED nested field: {}'.format(field_name))
         nested.append(dict(field=field_name, type=field_type, description=""))
+    else:
+        resp = requests.get(url=url)
+        soup = BeautifulSoup(resp.content, "html.parser")
+        dt_text = url.split('#')[-1]
+        if is_enum(soup, dt_text):
+            logger.warn(' ===> adding ENUM field: {}'.format(field_name))
+            nested.append(dict(field=field_name, type=field_type, description=""))
+        else:
+            dl = soup.find("dt", id=dt_text).parent.find("dl", {"class": "docutils"})
+            if dl is not None:
+                for nfield in list(zip(dl.find_all("dt"), dl.find_all("dd"))):
+                    if len(nfield) == 2:
+                        nfield_name = nfield[0].contents[0].split(':', 1)[0]
+                        nfield_type = nfield[0].contents[1].text
+                        if nfield[1].p is not None:
+                            nfield_description = nfield[1].p.text
+                        else:
+                            nfield_description = ""
+                        logger.info(' ===> adding nested field: {}'.format(field_name + '.' + nfield_name))
+                        nested.append(dict(field=field_name + '.' + nfield_name,
+                                           type=nfield_type,
+                                           description=nfield_description))
+            else:
+                logger.warn(' ===> unable to parse nested field type: {}. Trying again...'.format(field_type))
+                table = soup.find("dt", id=dt_text).parent.find("table")
+                ps = table.find("th", text="Type:").parent.find_all("p")
+                for p in ps[1:]:
+                    nfield_name = p.contents[0].split(':', 1)[0]
+                    nfield_type = p.contents[1].text
+                    logger.info(' ===> adding nested field: {}'.format(field_name + '.' + nfield_name))
+                    nested.append(dict(field=field_name + '.' + nfield_name, type=nfield_type, description=""))
     return nested
 
 
@@ -96,24 +139,8 @@ def get_log_types():
     return bro_logs
 
 
-def is_url(url):
-    regex = re.compile(r'^(?:http|ftp)s?://'  # http:// or https://
-                       r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'  # domain...
-                       r'localhost|'  # localhost...
-                       r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'  # ...or ip
-                       r'(?::\d+)?'  # optional port
-                       r'(?:/?|[/?]\S+)$',
-                       re.IGNORECASE)
-    return regex.match(url)
-
-
-def build_url(current_url, next_url):
-    if is_url(next_url):
-        return next_url
-    else:
-        return urljoin(current_url, next_url)
-
-
+# TODO: add edge case where it is a table of <p>
+# https://www.bro.org/sphinx/scripts/policy/integration/barnyard2/main.bro.html#type-Barnyard2::Info
 def scrape_bro_docs():
     """ Crawl bro.org docs to extract log types """
     bro_logs = get_log_types()
@@ -163,4 +190,5 @@ def convert_docs_to_grok_patterns(bro_logs):
             patternfile.write('\n\n')
 
 
-convert_docs_to_grok_patterns(scrape_bro_docs())
+if __name__ == '__main__':
+    convert_docs_to_grok_patterns(scrape_bro_docs())
