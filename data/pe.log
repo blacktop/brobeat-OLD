@@ -1,0 +1,20 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	pe
+#open	2016-12-28-16-04-45
+#fields	ts	id	machine	compile_ts	os	subsystem	is_exe	is_64bit	uses_aslr	uses_dep	uses_code_integrity	uses_seh	has_import_table	has_export_table	has_cert_table	has_debug_data	section_names
+#types	time	string	string	time	string	string	bool	bool	bool	bool	bool	bool	bool	bool	bool	bool	vector[string]
+1258578109.503579	Fqr74ZvPfhpKNfQz2	I386	1168712894.000000	Windows 95 or NT 4.0	WINDOWS_GUI	T	F	F	F	F	T	T	F	T	F	.text,.rdata,.data,.ndata,.rsrc
+1258594101.447230	FDXjDl1gAPeiREeP79	I386	1213019984.000000	Windows 95 or NT 4.0	WINDOWS_GUI	T	F	F	F	F	F	T	F	T	F	.text,.rdata,.data,.ndata,.rsrc
+1258594082.313235	FjTupt40cRL4BHAC8f	I386	978733459.000000	Windows 95 or NT 4.0	WINDOWS_GUI	T	F	F	F	F	T	T	F	T	F	.text,.rdata,.data,.idata,.rsrc,.reloc
+1258594163.722388	Fc4plc4XswHlUlymcg	I386	978733459.000000	Windows 95 or NT 4.0	WINDOWS_GUI	T	F	F	F	F	T	T	F	T	F	.text,.rdata,.data,.idata,.rsrc,.reloc
+1258595501.883253	F6hv2Q3pDKfXvMT927	I386	1212449942.000000	Windows 2000	WINDOWS_GUI	T	F	T	T	F	T	T	F	T	T	.text,.data,.rsrc,.reloc
+1258595501.914745	FAlJDO36DnMX7HnRc4	I386	1117644411.000000	Windows XP x64 or Server 2003	WINDOWS_GUI	T	F	F	F	F	F	T	F	T	T	.text,.data,.rsrc
+1258595506.792717	FKrUTJ21iLyXcyQ9dl	I386	1247274461.000000	Windows Vista or Server 2008	WINDOWS_GUI	T	F	T	T	F	T	T	F	T	T	.text,.data,.rsrc,.reloc
+1258595501.895992	FBIDunzbavKwS7TCf	I386	1117644411.000000	Windows XP x64 or Server 2003	WINDOWS_GUI	T	F	F	F	F	F	T	F	T	T	.text,.data,.rsrc
+1258595600.614038	FV9n2g4GyYe3ogup25	I386	1119977701.000000	Windows XP x64 or Server 2003	WINDOWS_GUI	T	F	F	F	F	F	T	F	T	T	.text,.data,.rsrc
+1258595600.627029	FxIteC13ZExltQFhx8	I386	1254808269.000000	Windows XP x64 or Server 2003	WINDOWS_GUI	T	F	F	F	F	T	T	F	T	T	.text,.data,.rsrc
+1258594110.923029	FTdybz3ZHxBIg9Gv33	I386	1213019984.000000	Windows 95 or NT 4.0	WINDOWS_GUI	T	F	F	F	F	F	T	F	T	F	.text,.rdata,.data,.ndata,.rsrc
+#close	2016-12-28-16-04-58

@@ -1,0 +1,83 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	x509
+#open	2016-12-28-15-56-40
+#fields	ts	id	certificate.version	certificate.serial	certificate.subject	certificate.issuer	certificate.not_valid_before	certificate.not_valid_after	certificate.key_alg	certificate.sig_alg	certificate.key_type	certificate.key_length	certificate.exponent	certificate.curve	san.dns	san.uri	san.email	san.ip	basic_constraints.ca	basic_constraints.path_len
+#types	time	string	count	string	string	string	time	time	string	string	string	count	string	string	vector[string]	vector[string]	vector[string]	vector[addr]	bool	count
+1349620475.558570	Fzc6QE1D2nmCP8Ov3l	3	0135CD5AC596FC6B	CN=www.tl6ou6ap7fjroh2o.net	CN=www.tbajutyf.com	1356342002.000000	1387878002.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620489.012094	F36cff1ArOsvq734B3	3	761A6641A13E8F59	CN=www.vklxa6kz.net	CN=www.ohqnkijzzo5vt.com	1356342203.000000	1387878203.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.515241	FZqKvF3EjHrLU13mF6	3	03474E84A004A9CD	CN=www.5rthkzelyecfpir56.net	CN=www.qbboo7mcwzv7.com	1356338931.000000	1387874931.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.515261	FLgioZ2UIIW4fWWAZ1	3	EF1FBC84BFA24C34	CN=www.dctpbbpif6zy54mspih.net	CN=www.m6hoayo5cga.com	1356339303.000000	1387875303.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.525246	FBmLq92aFWOPWlvaof	3	533E045EAD4F5E2C	CN=www.getvdkk6ibned7k3krkc.net	CN=www.7pz4gaio6uc25dyfor.com	1356338316.000000	1387874316.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.536759	FtxRDL2dL1v6ygjA5a	3	156429CEA94D49B1	CN=www.hstk2emyai4yqa5.net	CN=www.wc62pgaaorhccubc.com	1356337145.000000	1387873145.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.536779	Fsxjas39qL69QVn3j	3	770C79A433DC9AC4	CN=www.icab4ctxldy.net	CN=www.wmylm3gln.com	1356341183.000000	1387877183.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.559608	FchM781Q1ICxULs0xc	3	16134A8989A08FD5	CN=www.bnbhckfytu.net	CN=www.w4rlc25peis46haafa.com	1356341927.000000	1387877927.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.559618	FHRsTF4E6i1xoUYYij	3	2A7C85B249F0E35B	CN=www.e6nbbzucq2zrhzqzf.net	CN=www.cbj5ajz4qgeieshx32n.com	1356340578.000000	1387876578.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.559630	FS9TE11qoQBPxhW725	3	68E50A0A09367619	CN=www.cvapjjtbfd6yohbarw5q.net	CN=www.brbqn4rqhscp4rdq.com	1356341084.000000	1387877084.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.562779	F7xD0E4BrDNL4TOCOh	3	A9BBA31B03A708E1	CN=www.ryfg74xnxjg42ln3.net	CN=www.y6bn3trq5cesxk.com	1356339376.000000	1387875376.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.567178	FbdlBZz03vzxlSUs2	3	5FF3D4D744EBE1D4	CN=www.zhbohcqeanv5hw.net	CN=www.w3rfg432.com	1356339030.000000	1387875030.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.569111	FINZ7F4TsfGP9auXqb	3	4C7CCF41A985E890	CN=www.u7c2brldvuk3xil.net	CN=www.owgtwdiazfmzmwu6a5.com	1356341091.000000	1387877091.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.571871	F0Li1D1BJbCAS9YoMi	3	5D83E3F91124621F	CN=www.jnqlvjcoou26znx.net	CN=www.p4tgeg6dhp.com	1356337780.000000	1387873780.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.573425	FmfgmE2eot9fHXeQMf	3	F2C667B9F7888CFD	CN=www.gaqq6ld5gdgib.net	CN=www.nu6u7osxzhmgx64.com	1356338921.000000	1387874921.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.574009	F00r4X3FaPoREofsBh	3	EB528C017ABB3ACC	CN=www.qyccfgkjb.net	CN=www.gs52pdnqyd.com	1356340629.000000	1387876629.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.575273	FhXMcsxksiWhrP14c	3	7F397FBEE1DF826C	CN=www.oi6z76t4.net	CN=www.oe7gv5kxhix2i7eil.com	1356341432.000000	1387877432.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.578633	FJWVLH3I9Ip3CtT4ej	3	73EC1FF0B98CD9B6	CN=www.v6onqj4tmlmcchw23bl.net	CN=www.yc2xz27yoe76.com	1356348104.000000	1387884104.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.579857	FhOiqC3084nH30jrPc	3	EFE4BF8CE5EE9396	CN=www.yastvwre5fvpq3av.net	CN=www.c6dmymzw.com	1356341828.000000	1387877828.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.582707	Fe83w22tLDlKFqWlR7	3	50D7BE45	CN=www.svhbg7k2ed7ijcloj2.net	CN=www.tfijljrmlqi.net	1356341429.000000	1387877429.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.610709	FUfjsn4cuJljKfTWx1	3	5DFC15206D33FB4B	CN=www.wgrv4vpyx.net	CN=www.eyvoebmi4ls6o6.com	1356337446.000000	1387873446.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.622701	F1dJTY3zQiMgryCAX8	3	A93ED42F73629AE6	CN=www.llhtnj3yyk.net	CN=www.qotouwlbhjt.com	1356339330.000000	1387875330.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.622722	FmghZB27UVFAxWuEEe	3	03CF564639BF02C9	CN=www.shucgk26k4x5inet.net	CN=www.j4n2j3sz57cf.com	1356339999.000000	1387875999.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.635365	FF9pL5TDvjai5fHGj	3	9F8467D6AE7FE43E	CN=www.k3dbsxb423am5bwcb.net	CN=www.uuwdimryu2gi42.com	1356342444.000000	1387878444.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.665410	F6pAYFIBNehvgB1xa	3	6E7D04734EB66AF1	CN=www.noyxmydlc3ncgwv4t7hc.net	CN=www.xem2wczmpqtypvzzpsex.com	1356337080.000000	1387873080.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.673098	FAlwSm1mdS1cWcV2zl	3	A538C1507C47E423	CN=www.lipko2t5yqirjrqn2e.net	CN=www.l4kvblp6bd.com	1356343779.000000	1387879779.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.711189	FrlZI51yGvlICuRidf	3	E998D67D7B1E85D1	CN=www.5nmv7zbdqdvgbfem6l.net	CN=www.l3zkpiwawmpwjbzf.com	1356340406.000000	1387876406.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620495.830397	FmW24P3rbxcUUxlfS7	3	50480D4FB1DA530E	CN=www.km6ptswm7mo.net	CN=www.giovpc7o3.com	1356338520.000000	1387874520.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.537498	FfTUS726T5SFxv8aRl	3	714A3124B2FC0EAA	CN=www.pymflkqpqdgghnfj.net	CN=www.jocupasu2o6b2af2tn.com	1356341183.000000	1387877183.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.550989	FkZcNt4ciQPeytqxD2	3	770C79A433DC9AC4	CN=www.icab4ctxldy.net	CN=www.wmylm3gln.com	1356341183.000000	1387877183.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.617564	FHPR79DEnZWAN4zpa	3	50D7BDC3	CN=www.bjxrmwnhp44enzypv6dc.net	CN=www.b2ond2dxj.net	1356341299.000000	1387877299.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.623591	FvqtlQzQUVQADUxo2	3	44B111F1A52F64FC	CN=www.xwwc4mvab66dnn.net	CN=www.7hhuhzlztld46.com	1356342471.000000	1387878471.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.637353	FKYAh42ALAA9VGJdA3	3	5F55B8690C4CD053	CN=www.wgwr7qn7v3j.net	CN=www.u57w6yc5rvv.com	1356342632.000000	1387878632.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.674536	FfVLGy4L1q3WSRsLKf	3	EE73D562706682F0	CN=www.ge26nt2rx.net	CN=www.aewmz33hq6rn7x7nud3.com	1356339498.000000	1387875498.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.676121	F0nkE32Ijj6Z7ZFDRe	3	43002CE434FB4652	CN=www.6hfs2womid.net	CN=www.aq3w5zrobmejm.com	1356337397.000000	1387873397.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.680461	F6S9OKW8rX5z4Hnyi	3	DE952A268526A991	CN=www.ohfe52bk6gyfzojwgts.net	CN=www.jhzi7jmhledqxg.com	1356340341.000000	1387876341.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.701975	FCE8v02bDnL9XGQiR3	3	E998D67D7B1E85D1	CN=www.5nmv7zbdqdvgbfem6l.net	CN=www.l3zkpiwawmpwjbzf.com	1356340406.000000	1387876406.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.703149	FvW3bn3b5PZEjqOIga	3	E8E5D2D6FBD207EE	CN=www.eelcaqcncssfzliilic.net	CN=www.xshjb4uihtmpxh.com	1356341128.000000	1387877128.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.718928	FtuJj64LeUHfHqZ7Uj	3	3206A1633883F96C	CN=www.mqhz74wxch4gj.net	CN=www.wcmcdpazt7iw7g.com	1356341781.000000	1387877781.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.734952	F4OcyovNHJUDwVbqb	3	BD922664414F336C	CN=www.tj5kbu7w.net	CN=www.wgjcmlxyvh6557i2o.com	1356341365.000000	1387877365.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.737394	FbHfOvWlkiWkQ0wqk	3	50D7B18C	CN=www.4x4j6xhtk5qh.net	CN=www.rmybfv4mrpzlcicfg.net	1356338172.000000	1387874172.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.746228	FvmXoJ2Oi51C0QG9s1	3	9916432F186AF8B8	CN=www.3zz5we62e.net	CN=www.w7sb5mdv7w.com	1356341802.000000	1387877802.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.753696	Ff3NvGVGGQDlxpkHe	3	8B41580E88390889	CN=www.suy5hv542.net	CN=www.5mypgv7tgzypyaz63w.com	1356342661.000000	1387878661.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.781905	FkSrwc3Z8E2znHchih	3	50D7C0AF	CN=www.zmctydua4.net	CN=www.im4s4f6mwi5f56kj2sd.net	1356342047.000000	1387878047.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.788991	FnwiVa1vBW2Yvaxahc	3	997E5286EFC8225A	CN=www.w2lamdwdlk6dzrbnibh.net	CN=www.wy2ixf2n7zy.com	1356339107.000000	1387875107.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.819533	FGmOEM1Arsgdl9lRg6	3	E51A3F75DAA5B1D8	CN=www.as7nshgq4a2iq7l.net	CN=www.ltf5vqmvcjvpriyit.com	1356339018.000000	1387875018.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.833402	FXP0ex1qHBsp8PyA1c	3	50D7AE47	CN=www.hlixz2cz43jepqwl.net	CN=www.rbx2sai7fjltkmay3c.net	1356337335.000000	1387873335.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.850016	Ffy1zH2nR0I79Di8Nf	3	2A7C85B249F0E35B	CN=www.e6nbbzucq2zrhzqzf.net	CN=www.cbj5ajz4qgeieshx32n.com	1356340578.000000	1387876578.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.857798	F3wwUk1PWIhBUydezj	3	F2C667B9F7888CFD	CN=www.gaqq6ld5gdgib.net	CN=www.nu6u7osxzhmgx64.com	1356338921.000000	1387874921.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.857812	FqZ8liBMevcpUbiI4	3	B3165E65CDBE73BD	CN=www.jn4k5f5wi65edy7emll.net	CN=www.tr7xl5nzvnidppoub45.com	1356338664.000000	1387874664.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.860014	FajRlG2GCulCHz6T7	3	80D45135FB66FF55	CN=www.4geh5kzuywu3u.net	CN=www.5lv44wlp.com	1356341956.000000	1387877956.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.860735	FITtQ64jNrF1X8Cn6b	3	50D7C1F4	CN=www.rshopmsscpfbw6p.net	CN=www.ezh2dotefpq.net	1356342372.000000	1387878372.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.880128	FXpZGO3Vsg1GWXBq6l	3	1ECF47E093335CFC	CN=www.c2rwawybhf.net	CN=www.cizz6nq34.com	1356343573.000000	1387879573.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620512.883434	FmJ3ZS1eaxaxKwOAn7	3	50D7C0D8	CN=www.3gbl5nlxxs37ycdbhvcr.net	CN=www.dukjjfapnsvtc.net	1356342088.000000	1387878088.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620516.198520	FaQpQ22GE4prei4GYl	3	DDAADE31AB699440	CN=www.qhpomorewmsgxkg2d.net	CN=www.akprqbhdubdvgh.com	1356341784.000000	1387877784.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620519.358741	FFScZu47tuFjOql6W5	3	D6A0A7841DCD288B	CN=www.wtytpviziqgpxsz.net	CN=www.pp6ebzpv.com	1356338827.000000	1387874827.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620526.215512	FPZdUI2MMjap6tJkE9	3	64789418EA479382	CN=www.3ktww4bg.net	CN=www.zp6qqgprcvtjruecw.com	1356341146.000000	1387877146.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620526.225149	FcvCsH1AmXkE8lkEqe	3	799F4D7B5E2A66DE	CN=www.c2nhdwaukm.net	CN=www.mw44w6nn33s.com	1356341249.000000	1387877249.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620526.241275	FloE9o2qKW7WzRzs49	3	9CE35D5DF24CAF9E	CN=www.f5zhq25qq.net	CN=www.l46enok7hjxxxe.com	1356337404.000000	1387873404.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620533.428130	F1e33WDDyZs2wmO97	3	B17627F4E4EE7098	CN=www.iqm3bvunu.net	CN=www.4uwns533ruuzti.com	1356336988.000000	1387872988.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620561.668688	FQu1pi3XxJUIMfSxPi	3	3B5541248D81AF31	CN=www.pts5agysxnvyyvbysfv.net	CN=www.bfjyodhx5bgnrhpce.com	1356342854.000000	1387878854.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620586.529490	FZImjZ23CxNoQ85Uw1	3	50D7B57B	CN=www.ygn472gapjnkkbplith.net	CN=www.rodvfjksohj46gntqr.net	1356339179.000000	1387875179.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620586.660600	FwcoLghwd1qvanyl1	3	CA247FBC12F40456	CN=www.jaaok2kcxn.net	CN=www.7734t3zi3hu4.com	1356340669.000000	1387876669.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620586.708999	FEMb0l4iX4JVEV7dpd	3	45DE24D54E7A4ADA	CN=www.ktq2go444i.net	CN=www.ngb7cfzxzttk.com	1356337200.000000	1387873200.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620647.656682	FYYl492PebgRdIfHAi	3	50D7BC26	CN=www.ferqncujta3wvl.net	CN=www.utzaejuz745.net	1356340886.000000	1387876886.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620647.706924	Fl5IwJ1MO1R5Uet0Wd	3	F1EC4F7E1A7202CE	CN=www.2u5j3bw2r.net	CN=www.ygcokjfb3nr.com	1356343475.000000	1387879475.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620647.788039	Fb4vuT29xACuDTTPOk	3	22531B152FC60AF2	CN=www.uopxo7ik3i2nti.net	CN=www.zjzuzphd4ca.com	1356341937.000000	1387877937.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620952.720460	FZ9iB7u8nnRCGi9O4	3	50D7BC2E	CN=www.2ugfspjvd3tjaa.net	CN=www.i43lqn57buoorzx.net	1356340894.000000	1387876894.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620952.744264	FrYNWV1t9EdARsQ3M5	3	B3B32EA739469475	CN=www.vjonqvyku.net	CN=www.tvcuauuskkj3.com	1356340331.000000	1387876331.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349620952.788903	F93HVQ5zkHCnIrRs	3	815F53239778A8CF	CN=www.6canpulqbqdbqkxc6is.net	CN=www.27xdkxscun.com	1356338549.000000	1387874549.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349621562.638090	Fn7HZR38jqhPkwHQbd	3	EF1FBC84BFA24C34	CN=www.dctpbbpif6zy54mspih.net	CN=www.m6hoayo5cga.com	1356339303.000000	1387875303.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349621562.758236	FhMa7x1fOOXKm0DBOj	3	2CD135645FE15648	CN=www.42ixw6g5fu44w7sth.net	CN=www.oxj2hqwf5g.com	1356343981.000000	1387879981.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349622477.765365	FoQNspJL2wBEKTGKl	3	A9BBA31B03A708E1	CN=www.ryfg74xnxjg42ln3.net	CN=www.y6bn3trq5cesxk.com	1356339376.000000	1387875376.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+1349623087.727245	FMaOJU1gf3q4tlODP1	3	FA184DC81748D918	CN=www.kqwm2iwsvh4xd2q.net	CN=www.rp44tyu3jp7sfat.com	1356344315.000000	1387880315.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
+#close	2016-12-28-15-56-45

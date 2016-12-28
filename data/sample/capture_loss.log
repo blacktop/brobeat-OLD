@@ -1,0 +1,15 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	capture_loss
+#open	2016-12-28-15-56-45
+#fields	ts	ts_delta	peer	gaps	acks	percent_lost
+#types	time	interval	string	count	count	double
+1349621343.681829	903.901109	bro	0	3014	0.0
+1349622243.987262	900.305433	bro	0	299	0.0
+1349623148.143375	904.156113	bro	0	265	0.0
+1349624052.550808	904.407433	bro	0	196	0.0
+1349624954.032636	901.481828	bro	0	297	0.0
+1349625843.680383	889.647747	bro	0	306	0.0
+#close	2016-12-28-15-56-45

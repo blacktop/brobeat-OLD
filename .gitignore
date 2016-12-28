@@ -32,3 +32,7 @@ _testmain.go
 *.pyc
 
 module/bro/*.log
+
+data/.state
+*.gz
+*.pcap

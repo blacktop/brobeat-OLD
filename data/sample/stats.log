@@ -1,0 +1,27 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	stats
+#open	2016-12-28-15-56-40
+#fields	ts	peer	mem	pkts_proc	bytes_recv	pkts_dropped	pkts_link	pkt_lag	events_proc	events_queued	active_tcp_conns	active_udp_conns	active_icmp_conns	tcp_conns	udp_conns	icmp_conns	timers	active_timers	files	active_files	dns_requests	active_dns_requests	reassem_tcp_size	reassem_file_size	reassem_frag_size	reassem_unknown_size
+#types	time	string	count	count	count	count	count	interval	count	count	count	count	count	count	count	count	count	count	count	count	count	count	count	count	count	count
+1349620439.780720	bro	55	1	76	-	-	-	401	18	0	1	0	0	1	0	36	32	0	0	0	0	0	0	0	0
+1349620739.896488	bro	65	8621	5833225	-	-	-	7032	7026	12	0	0	76	7	1	2067	58	70	0	63	0	2560	0	0	0
+1349621040.213733	bro	65	504	185866	-	-	-	775	786	10	0	0	16	0	0	696	63	18	0	3	0	1480	0	0	0
+1349621343.681829	bro	65	235	71424	-	-	-	567	558	3	1	0	8	1	0	474	45	20	0	0	0	0	0	0	0
+1349621671.627910	bro	65	263	92820	-	-	-	554	551	6	0	0	10	0	0	425	52	16	0	1	1	0	0	0	0
+1349622006.500974	bro	65	400	197207	-	-	-	597	595	4	0	0	9	0	0	520	46	19	0	0	0	0	0	0	0
+1349622316.516353	bro	65	206	63844	-	-	-	483	489	3	0	0	8	1	0	436	39	15	0	0	0	648	0	0	0
+1349622616.986229	bro	65	187	56316	-	-	-	453	447	5	0	0	9	0	0	447	48	15	0	0	0	0	0	0	0
+1349622953.099607	bro	65	196	55266	-	-	-	503	506	3	0	0	8	0	0	340	44	18	0	0	0	648	0	0	0
+1349623253.985868	bro	66	420	214316	-	-	-	633	635	4	0	0	10	1	0	397	42	18	0	1	1	648	0	0	0
+1349623554.535498	bro	66	145	39383	-	-	-	380	377	4	0	0	7	0	0	385	47	13	0	0	0	648	0	0	0
+1349623861.063769	bro	66	147	47862	-	-	-	325	329	3	0	0	5	0	0	358	39	10	0	0	0	648	0	0	0
+1349624162.562966	bro	66	151	49275	-	-	-	342	337	3	0	0	5	1	0	399	44	10	0	0	0	648	0	0	0
+1349624466.853203	bro	66	540	269833	-	-	-	817	821	4	0	0	12	2	0	465	48	22	0	0	0	0	0	0	0
+1349624769.720793	bro	66	132	42288	-	-	-	315	315	3	0	0	5	0	0	385	40	10	0	0	0	648	0	0	0
+1349625071.378751	bro	66	155	41327	-	-	-	440	436	4	0	0	9	1	0	328	47	16	0	0	0	0	0	0	0
+1349625375.455901	bro	66	178	50076	-	-	-	488	491	3	0	0	8	0	0	351	43	18	0	0	0	648	0	0	0
+1349625677.423953	bro	66	535	266646	-	-	-	733	732	3	0	0	9	0	0	303	45	16	0	0	0	648	0	0	0
+#close	2016-12-28-15-56-45
