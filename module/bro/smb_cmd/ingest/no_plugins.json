@@ -1,0 +1,37 @@
+{
+  "description": "Pipeline for parsing smb_cmd.log. Requires no plugins",
+  "processors": [{
+    "grok": {
+      "field": "message",
+      "patterns":[
+        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:command}\t%{GREEDYDATA:sub_command}\t%{GREEDYDATA:argument}\t%{GREEDYDATA:status}\t%{GREEDYDATA:rtt}\t%{GREEDYDATA:version}\t%{GREEDYDATA:username}\t%{GREEDYDATA:tree}\t%{GREEDYDATA:tree_service}\t%{NUMBER:referenced_file.ts}\t%{NOTSPACE:referenced_file.uid}\t%{NOTSPACE:referenced_file.id}\t%{NOTSPACE:referenced_file.fuid}\t%{GREEDYDATA:referenced_file.action}\t%{GREEDYDATA:referenced_file.path}\t%{GREEDYDATA:referenced_file.name}\t%{INT:referenced_file.size}\t%{GREEDYDATA:referenced_file.prev_name}\t%{GREEDYDATA:referenced_file.times}\t%{INT:referenced_file.fid}\t%{NOTSPACE:referenced_file.uuid}\t%{NUMBER:referenced_tree.ts}\t%{NOTSPACE:referenced_tree.uid}\t%{NOTSPACE:referenced_tree.id}\t%{GREEDYDATA:referenced_tree.path}\t%{GREEDYDATA:referenced_tree.service}\t%{GREEDYDATA:referenced_tree.native_file_system}\t%{GREEDYDATA:referenced_tree.share_type}\t%{GREEDYDATA:smb1_offered_dialects}\t%{GREEDYDATA:smb2_offered_dialects}"
+        ],
+      "ignore_missing": true
+    }
+  },{
+    "remove":{
+      "field": "message"
+    }
+  }, {
+    "rename": {
+      "field": "@timestamp",
+      "target_field": "read_timestamp"
+    }
+  }, {
+    "date": {
+      "field": "bro.smb_cmd.ts",
+      "target_field": "@timestamp",
+      "formats": ["dd/MMM/YYYY:H:m:s Z"]
+    }
+  }, {
+    "remove": {
+      "field": "nginx.access.time"
+    }
+  }],
+  "on_failure" : [{
+    "set" : {
+      "field" : "error",
+      "value" : "{{ _ingest.on_failure_message }}"
+    }
+  }]
+}

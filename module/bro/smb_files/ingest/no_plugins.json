@@ -1,0 +1,37 @@
+{
+  "description": "Pipeline for parsing smb_files.log. Requires no plugins",
+  "processors": [{
+    "grok": {
+      "field": "message",
+      "patterns":[
+        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{NOTSPACE:fuid}\t%{GREEDYDATA:action}\t%{GREEDYDATA:path}\t%{GREEDYDATA:name}\t%{INT:size}\t%{GREEDYDATA:prev_name}\t%{NUMBER:times.modified}\t%{NUMBER:times.accessed}\t%{NUMBER:times.created}\t%{NUMBER:times.changed}\t%{INT:fid}\t%{NOTSPACE:uuid}"
+        ],
+      "ignore_missing": true
+    }
+  },{
+    "remove":{
+      "field": "message"
+    }
+  }, {
+    "rename": {
+      "field": "@timestamp",
+      "target_field": "read_timestamp"
+    }
+  }, {
+    "date": {
+      "field": "bro.smb_files.ts",
+      "target_field": "@timestamp",
+      "formats": ["dd/MMM/YYYY:H:m:s Z"]
+    }
+  }, {
+    "remove": {
+      "field": "nginx.access.time"
+    }
+  }],
+  "on_failure" : [{
+    "set" : {
+      "field" : "error",
+      "value" : "{{ _ingest.on_failure_message }}"
+    }
+  }]
+}

@@ -1,0 +1,37 @@
+{
+  "description": "Pipeline for parsing x509.log. Requires no plugins",
+  "processors": [{
+    "grok": {
+      "field": "message",
+      "patterns":[
+        "%{NUMBER:ts}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{INT:certificate.version}\t%{GREEDYDATA:certificate.serial}\t%{GREEDYDATA:certificate.subject}\t%{GREEDYDATA:certificate.issuer}\t%{GREEDYDATA:certificate.cn}\t%{NUMBER:certificate.not_valid_before}\t%{NUMBER:certificate.not_valid_after}\t%{GREEDYDATA:certificate.key_alg}\t%{GREEDYDATA:certificate.sig_alg}\t%{GREEDYDATA:certificate.key_type}\t%{INT:certificate.key_length}\t%{GREEDYDATA:certificate.exponent}\t%{GREEDYDATA:certificate.curve}\t%{GREEDYDATA:handle}\t%{GREEDYDATA:extensions}\t%{GREEDYDATA:san.dns}\t%{GREEDYDATA:san.uri}\t%{GREEDYDATA:san.email}\t%{GREEDYDATA:san.ip}\t%{GREEDYDATA:san.other_fields}\t%{GREEDYDATA:basic_constraints.ca}\t%{INT:basic_constraints.path_len}\t%{GREEDYDATA:logcert}"
+        ],
+      "ignore_missing": true
+    }
+  },{
+    "remove":{
+      "field": "message"
+    }
+  }, {
+    "rename": {
+      "field": "@timestamp",
+      "target_field": "read_timestamp"
+    }
+  }, {
+    "date": {
+      "field": "bro.x509.ts",
+      "target_field": "@timestamp",
+      "formats": ["dd/MMM/YYYY:H:m:s Z"]
+    }
+  }, {
+    "remove": {
+      "field": "nginx.access.time"
+    }
+  }],
+  "on_failure" : [{
+    "set" : {
+      "field" : "error",
+      "value" : "{{ _ingest.on_failure_message }}"
+    }
+  }]
+}

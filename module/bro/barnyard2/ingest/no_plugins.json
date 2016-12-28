@@ -1,0 +1,37 @@
+{
+  "description": "Pipeline for parsing barnyard2.log. Requires no plugins",
+  "processors": [{
+    "grok": {
+      "field": "message",
+      "patterns":[
+        "%{NUMBER:ts}\t%{GREEDYDATA:pid}\t%{GREEDYDATA:alert}"
+        ],
+      "ignore_missing": true
+    }
+  },{
+    "remove":{
+      "field": "message"
+    }
+  }, {
+    "rename": {
+      "field": "@timestamp",
+      "target_field": "read_timestamp"
+    }
+  }, {
+    "date": {
+      "field": "bro.barnyard2.ts",
+      "target_field": "@timestamp",
+      "formats": ["dd/MMM/YYYY:H:m:s Z"]
+    }
+  }, {
+    "remove": {
+      "field": "nginx.access.time"
+    }
+  }],
+  "on_failure" : [{
+    "set" : {
+      "field" : "error",
+      "value" : "{{ _ingest.on_failure_message }}"
+    }
+  }]
+}

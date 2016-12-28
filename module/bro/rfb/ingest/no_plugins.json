@@ -1,0 +1,37 @@
+{
+  "description": "Pipeline for parsing rfb.log. Requires no plugins",
+  "processors": [{
+    "grok": {
+      "field": "message",
+      "patterns":[
+        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:client_major_version}\t%{GREEDYDATA:client_minor_version}\t%{GREEDYDATA:server_major_version}\t%{GREEDYDATA:server_minor_version}\t%{GREEDYDATA:authentication_method}\t%{GREEDYDATA:auth}\t%{GREEDYDATA:share_flag}\t%{GREEDYDATA:desktop_name}\t%{INT:width}\t%{INT:height}\t%{GREEDYDATA:done}"
+        ],
+      "ignore_missing": true
+    }
+  },{
+    "remove":{
+      "field": "message"
+    }
+  }, {
+    "rename": {
+      "field": "@timestamp",
+      "target_field": "read_timestamp"
+    }
+  }, {
+    "date": {
+      "field": "bro.rfb.ts",
+      "target_field": "@timestamp",
+      "formats": ["dd/MMM/YYYY:H:m:s Z"]
+    }
+  }, {
+    "remove": {
+      "field": "nginx.access.time"
+    }
+  }],
+  "on_failure" : [{
+    "set" : {
+      "field" : "error",
+      "value" : "{{ _ingest.on_failure_message }}"
+    }
+  }]
+}

@@ -1,0 +1,37 @@
+{
+  "description": "Pipeline for parsing ssl.log. Requires no plugins",
+  "processors": [{
+    "grok": {
+      "field": "message",
+      "patterns":[
+        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{INT:version_num}\t%{GREEDYDATA:version}\t%{GREEDYDATA:cipher}\t%{GREEDYDATA:curve}\t%{GREEDYDATA:server_name}\t%{GREEDYDATA:session_id}\t%{GREEDYDATA:resumed}\t%{GREEDYDATA:client_ticket_empty_session_seen}\t%{GREEDYDATA:client_key_exchange_seen}\t%{INT:server_appdata}\t%{GREEDYDATA:client_appdata}\t%{GREEDYDATA:last_alert}\t%{GREEDYDATA:next_protocol}\t%{INT:analyzer_id}\t%{GREEDYDATA:established}\t%{GREEDYDATA:logged}"
+        ],
+      "ignore_missing": true
+    }
+  },{
+    "remove":{
+      "field": "message"
+    }
+  }, {
+    "rename": {
+      "field": "@timestamp",
+      "target_field": "read_timestamp"
+    }
+  }, {
+    "date": {
+      "field": "bro.ssl.ts",
+      "target_field": "@timestamp",
+      "formats": ["dd/MMM/YYYY:H:m:s Z"]
+    }
+  }, {
+    "remove": {
+      "field": "nginx.access.time"
+    }
+  }],
+  "on_failure" : [{
+    "set" : {
+      "field" : "error",
+      "value" : "{{ _ingest.on_failure_message }}"
+    }
+  }]
+}

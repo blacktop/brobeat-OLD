@@ -1,0 +1,37 @@
+{
+  "description": "Pipeline for parsing sip.log. Requires no plugins",
+  "processors": [{
+    "grok": {
+      "field": "message",
+      "patterns":[
+        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{INT:trans_depth}\t%{GREEDYDATA:method}\t%{GREEDYDATA:uri}\t%{GREEDYDATA:date}\t%{GREEDYDATA:request_from}\t%{GREEDYDATA:request_to}\t%{GREEDYDATA:response_from}\t%{GREEDYDATA:response_to}\t%{GREEDYDATA:reply_to}\t%{GREEDYDATA:call_id}\t%{GREEDYDATA:seq}\t%{GREEDYDATA:subject}\t%{GREEDYDATA:request_path}\t%{GREEDYDATA:response_path}\t%{GREEDYDATA:user_agent}\t%{INT:status_code}\t%{GREEDYDATA:status_msg}\t%{GREEDYDATA:warning}\t%{INT:request_body_len}\t%{INT:response_body_len}\t%{GREEDYDATA:content_type}"
+        ],
+      "ignore_missing": true
+    }
+  },{
+    "remove":{
+      "field": "message"
+    }
+  }, {
+    "rename": {
+      "field": "@timestamp",
+      "target_field": "read_timestamp"
+    }
+  }, {
+    "date": {
+      "field": "bro.sip.ts",
+      "target_field": "@timestamp",
+      "formats": ["dd/MMM/YYYY:H:m:s Z"]
+    }
+  }, {
+    "remove": {
+      "field": "nginx.access.time"
+    }
+  }],
+  "on_failure" : [{
+    "set" : {
+      "field" : "error",
+      "value" : "{{ _ingest.on_failure_message }}"
+    }
+  }]
+}

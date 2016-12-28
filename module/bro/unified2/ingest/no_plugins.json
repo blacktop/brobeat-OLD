@@ -1,0 +1,37 @@
+{
+  "description": "Pipeline for parsing unified2.log. Requires no plugins",
+  "processors": [{
+    "grok": {
+      "field": "message",
+      "patterns":[
+        "%{NUMBER:ts}\t%{IP:id.src_ip}\t%{INT:id.src_p}\t%{IP:id.dst_ip}\t%{INT:id.dst_p}\t%{INT:sensor_id}\t%{INT:signature_id}\t%{GREEDYDATA:signature}\t%{INT:generator_id}\t%{GREEDYDATA:generator}\t%{INT:signature_revision}\t%{INT:classification_id}\t%{GREEDYDATA:classification}\t%{INT:priority_id}\t%{INT:event_id}\t%{GREEDYDATA:packet}"
+        ],
+      "ignore_missing": true
+    }
+  },{
+    "remove":{
+      "field": "message"
+    }
+  }, {
+    "rename": {
+      "field": "@timestamp",
+      "target_field": "read_timestamp"
+    }
+  }, {
+    "date": {
+      "field": "bro.unified2.ts",
+      "target_field": "@timestamp",
+      "formats": ["dd/MMM/YYYY:H:m:s Z"]
+    }
+  }, {
+    "remove": {
+      "field": "nginx.access.time"
+    }
+  }],
+  "on_failure" : [{
+    "set" : {
+      "field" : "error",
+      "value" : "{{ _ingest.on_failure_message }}"
+    }
+  }]
+}

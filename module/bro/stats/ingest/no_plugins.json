@@ -1,0 +1,37 @@
+{
+  "description": "Pipeline for parsing stats.log. Requires no plugins",
+  "processors": [{
+    "grok": {
+      "field": "message",
+      "patterns":[
+        "%{NUMBER:ts}\t%{GREEDYDATA:peer}\t%{INT:mem}\t%{INT:pkts_proc}\t%{INT:bytes_recv}\t%{INT:pkts_dropped}\t%{INT:pkts_link}\t%{GREEDYDATA:pkt_lag}\t%{INT:events_proc}\t%{INT:events_queued}\t%{INT:active_tcp_conns}\t%{INT:active_udp_conns}\t%{INT:active_icmp_conns}\t%{INT:tcp_conns}\t%{INT:udp_conns}\t%{INT:icmp_conns}\t%{INT:timers}\t%{INT:active_timers}\t%{INT:files}\t%{INT:active_files}\t%{INT:dns_requests}\t%{INT:active_dns_requests}\t%{INT:reassem_tcp_size}\t%{INT:reassem_file_size}\t%{INT:reassem_frag_size}\t%{INT:reassem_unknown_size}"
+        ],
+      "ignore_missing": true
+    }
+  },{
+    "remove":{
+      "field": "message"
+    }
+  }, {
+    "rename": {
+      "field": "@timestamp",
+      "target_field": "read_timestamp"
+    }
+  }, {
+    "date": {
+      "field": "bro.stats.ts",
+      "target_field": "@timestamp",
+      "formats": ["dd/MMM/YYYY:H:m:s Z"]
+    }
+  }, {
+    "remove": {
+      "field": "nginx.access.time"
+    }
+  }],
+  "on_failure" : [{
+    "set" : {
+      "field" : "error",
+      "value" : "{{ _ingest.on_failure_message }}"
+    }
+  }]
+}

@@ -1,0 +1,37 @@
+{
+  "description": "Pipeline for parsing http.log. Requires no plugins",
+  "processors": [{
+    "grok": {
+      "field": "message",
+      "patterns":[
+        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{INT:trans_depth}\t%{GREEDYDATA:method}\t%{GREEDYDATA:host}\t%{GREEDYDATA:uri}\t%{GREEDYDATA:referrer}\t%{GREEDYDATA:version}\t%{GREEDYDATA:user_agent}\t%{INT:request_body_len}\t%{INT:response_body_len}\t%{INT:status_code}\t%{GREEDYDATA:status_msg}\t%{INT:info_code}\t%{GREEDYDATA:info_msg}\t%{GREEDYDATA:tags}\t%{GREEDYDATA:username}\t%{GREEDYDATA:password}\t%{GREEDYDATA:capture_password}\t%{GREEDYDATA:proxied}\t%{GREEDYDATA:range_request}\t%{NOTSPACE:orig_fuids}\t%{GREEDYDATA:orig_filenames}\t%{GREEDYDATA:orig_mime_types}\t%{NOTSPACE:resp_fuids}\t%{GREEDYDATA:resp_filenames}\t%{GREEDYDATA:resp_mime_types}\t%{GREEDYDATA:current_entity.filename}\t%{INT:orig_mime_depth}\t%{INT:resp_mime_depth}\t%{GREEDYDATA:client_header_names}\t%{GREEDYDATA:server_header_names}\t%{GREEDYDATA:omniture}\t%{GREEDYDATA:flash_version}\t%{GREEDYDATA:cookie_vars}\t%{GREEDYDATA:uri_vars}"
+        ],
+      "ignore_missing": true
+    }
+  },{
+    "remove":{
+      "field": "message"
+    }
+  }, {
+    "rename": {
+      "field": "@timestamp",
+      "target_field": "read_timestamp"
+    }
+  }, {
+    "date": {
+      "field": "bro.http.ts",
+      "target_field": "@timestamp",
+      "formats": ["dd/MMM/YYYY:H:m:s Z"]
+    }
+  }, {
+    "remove": {
+      "field": "nginx.access.time"
+    }
+  }],
+  "on_failure" : [{
+    "set" : {
+      "field" : "error",
+      "value" : "{{ _ingest.on_failure_message }}"
+    }
+  }]
+}

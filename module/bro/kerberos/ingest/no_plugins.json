@@ -1,0 +1,37 @@
+{
+  "description": "Pipeline for parsing kerberos.log. Requires no plugins",
+  "processors": [{
+    "grok": {
+      "field": "message",
+      "patterns":[
+        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:request_type}\t%{GREEDYDATA:client}\t%{GREEDYDATA:service}\t%{GREEDYDATA:success}\t%{INT:error_code}\t%{GREEDYDATA:error_msg}\t%{NUMBER:from}\t%{NUMBER:till}\t%{GREEDYDATA:cipher}\t%{GREEDYDATA:forwardable}\t%{GREEDYDATA:renewable}\t%{GREEDYDATA:logged}\t%{NUMBER:client_cert.ts}\t%{NOTSPACE:client_cert.fuid}\t%{GREEDYDATA:client_cert.tx_hosts}\t%{GREEDYDATA:client_cert.rx_hosts}\t%{NOTSPACE:client_cert.conn_uids}\t%{GREEDYDATA:client_cert.source}\t%{INT:client_cert.depth}\t%{GREEDYDATA:client_cert.analyzers}\t%{GREEDYDATA:client_cert.mime_type}\t%{GREEDYDATA:client_cert.filename}\t%{GREEDYDATA:client_cert.duration}\t%{GREEDYDATA:client_cert.local_orig}\t%{GREEDYDATA:client_cert.is_orig}\t%{INT:client_cert.seen_bytes}\t%{INT:client_cert.total_bytes}\t%{INT:client_cert.missing_bytes}\t%{INT:client_cert.overflow_bytes}\t%{GREEDYDATA:client_cert.timedout}\t%{NOTSPACE:client_cert.parent_fuid}\t%{GREEDYDATA:client_cert.md5}\t%{GREEDYDATA:client_cert.sha1}\t%{GREEDYDATA:client_cert.sha256}\t%{GREEDYDATA:client_cert.x509}\t%{GREEDYDATA:client_cert.extracted}\t%{GREEDYDATA:client_cert.entropy}\t%{GREEDYDATA:client_cert_subject}\t%{NOTSPACE:client_cert_fuid}\t%{NUMBER:server_cert.ts}\t%{NOTSPACE:server_cert.fuid}\t%{GREEDYDATA:server_cert.tx_hosts}\t%{GREEDYDATA:server_cert.rx_hosts}\t%{NOTSPACE:server_cert.conn_uids}\t%{GREEDYDATA:server_cert.source}\t%{INT:server_cert.depth}\t%{GREEDYDATA:server_cert.analyzers}\t%{GREEDYDATA:server_cert.mime_type}\t%{GREEDYDATA:server_cert.filename}\t%{GREEDYDATA:server_cert.duration}\t%{GREEDYDATA:server_cert.local_orig}\t%{GREEDYDATA:server_cert.is_orig}\t%{INT:server_cert.seen_bytes}\t%{INT:server_cert.total_bytes}\t%{INT:server_cert.missing_bytes}\t%{INT:server_cert.overflow_bytes}\t%{GREEDYDATA:server_cert.timedout}\t%{NOTSPACE:server_cert.parent_fuid}\t%{GREEDYDATA:server_cert.md5}\t%{GREEDYDATA:server_cert.sha1}\t%{GREEDYDATA:server_cert.sha256}\t%{GREEDYDATA:server_cert.x509}\t%{GREEDYDATA:server_cert.extracted}\t%{GREEDYDATA:server_cert.entropy}\t%{GREEDYDATA:server_cert_subject}\t%{NOTSPACE:server_cert_fuid}"
+        ],
+      "ignore_missing": true
+    }
+  },{
+    "remove":{
+      "field": "message"
+    }
+  }, {
+    "rename": {
+      "field": "@timestamp",
+      "target_field": "read_timestamp"
+    }
+  }, {
+    "date": {
+      "field": "bro.kerberos.ts",
+      "target_field": "@timestamp",
+      "formats": ["dd/MMM/YYYY:H:m:s Z"]
+    }
+  }, {
+    "remove": {
+      "field": "nginx.access.time"
+    }
+  }],
+  "on_failure" : [{
+    "set" : {
+      "field" : "error",
+      "value" : "{{ _ingest.on_failure_message }}"
+    }
+  }]
+}
