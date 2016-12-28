@@ -3,79 +3,63 @@
   description: >
     Contains fields for the Bro netcontrol logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Time at which the recorded activity occurred.
-    
     - name: rule_id
       type: string
       description: >
         ID of the rule; unique during each Bro run.
-    
     - name: category
       type: NetControl::InfoCategory
       description: >
         
-    
     - name: cmd
       type: string
       description: >
         The command the log entry is about.
-    
     - name: state
       type: NetControl::InfoState
       description: >
         
-    
     - name: action
       type: string
       description: >
         String describing an action the entry is about.
-    
     - name: target
       type: NetControl::TargetType
       description: >
         
-    
     - name: entity_type
       type: string
       description: >
         Type of the entity the log entry is about.
-    
     - name: entity
       type: string
       description: >
         String describing the entity the log entry is about.
-    
     - name: mod
       type: string
       description: >
         String describing the optional modification of the entry (e.h. redirect)
-    
     - name: msg
       type: string
       description: >
         String with an additional message.
-    
     - name: priority
       type: int
       description: >
         Number describing the priority of the log entry.
-    
     - name: expire
       type: interval
       description: >
         Expiry time of the log entry.
-    
     - name: location
       type: string
       description: >
         Location where the underlying action was triggered.
-    
     - name: plugin
       type: string
       description: >
         Plugin triggering the log entry.
-    

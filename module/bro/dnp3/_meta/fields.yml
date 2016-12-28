@@ -3,34 +3,27 @@
   description: >
     Contains fields for the Bro dnp3 logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Time of the request.
-    
     - name: uid
       type: string
       description: >
         Unique identifier for the connection.
-    
     - name: id
       type: conn_id
       description: >
         Identifier for the connection.
-    
     - name: fc_request
       type: string
       description: >
         The name of the function message in the request.
-    
     - name: fc_reply
       type: string
       description: >
         The name of the function message in the reply.
-    
     - name: iin
       type: count
       description: >
-        The response's internal indication number.
-    
+        The responses internal indication number.

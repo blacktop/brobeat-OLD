@@ -3,26 +3,19 @@
   description: >
     Contains fields for the Bro reporter logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         The network time at which the reporter event was generated.
-    
     - name: level
       type: Reporter::Level
       description: >
         
-    
     - name: message
       type: string
       description: >
-        An info/warning/error message that could have either been
-generated from the internal Bro core or at the scripting-layer.
-    
+        An info/warning/error message that could have either been generated from the internal Bro core or at the scripting-layer.
     - name: location
       type: string
       description: >
-        This is the location in a Bro script where the message originated.
-Not all reporter messages will have locations in them though.
-    
+        This is the location in a Bro script where the message originated. Not all reporter messages will have locations in them though.

@@ -3,396 +3,279 @@
   description: >
     Contains fields for the Bro kerberos logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Timestamp for when the event happened.
-    
     - name: uid
       type: string
       description: >
         Unique ID for the connection.
-    
     - name: id
       type: conn_id
       description: >
-        The connection's 4-tuple of endpoint addresses/ports.
-    
+        The connections 4-tuple of endpoint addresses/ports.
     - name: request_type
       type: string
       description: >
-        Request type - Authentication Service (AS) or
-Ticket Granting Service (TGS)
-    
+        Request type - Authentication Service (AS) or Ticket Granting Service (TGS)
     - name: client
       type: string
       description: >
         Client
-    
     - name: service
       type: string
       description: >
         Service
-    
     - name: success
       type: bool
       description: >
         Request result
-    
     - name: error_code
       type: count
       description: >
         Error code
-    
     - name: error_msg
       type: string
       description: >
         Error message
-    
     - name: from
       type: time
       description: >
         Ticket valid from
-    
     - name: till
       type: time
       description: >
         Ticket valid till
-    
     - name: cipher
       type: string
       description: >
         Ticket encryption type
-    
     - name: forwardable
       type: bool
       description: >
         Forwardable ticket requested
-    
     - name: renewable
       type: bool
       description: >
         Renewable ticket requested
-    
     - name: logged
       type: bool
       description: >
-        We've already logged this
-    
+        Weve already logged this
     - name: client_cert.ts
       type: time
       description: >
         The time when the file was first seen.
-    
     - name: client_cert.fuid
       type: string
       description: >
         An identifier associated with a single file.
-    
     - name: client_cert.tx_hosts
       type: set
       description: >
-        If this file was transferred over a network
-connection this should show the host or hosts that
-the data sourced from.
-    
+        If this file was transferred over a network connection this should show the host or hosts that the data sourced from.
     - name: client_cert.rx_hosts
       type: set
       description: >
-        If this file was transferred over a network
-connection this should show the host or hosts that
-the data traveled to.
-    
+        If this file was transferred over a network connection this should show the host or hosts that the data traveled to.
     - name: client_cert.conn_uids
       type: set
       description: >
         Connection UIDs over which the file was transferred.
-    
     - name: client_cert.source
       type: string
       description: >
-        An identification of the source of the file data.  E.g. it
-may be a network protocol over which it was transferred, or a
-local file path which was read, or some other input source.
-    
+        An identification of the source of the file data.  E.g. it may be a network protocol over which it was transferred, or a local file path which was read, or some other input source.
     - name: client_cert.depth
       type: count
       description: >
-        A value to represent the depth of this file in relation
-to its source.  In SMTP, it is the depth of the MIME
-attachment on the message.  In HTTP, it is the depth of the
-request within the TCP connection.
-    
+        A value to represent the depth of this file in relation to its source.  In SMTP, it is the depth of the MIME attachment on the message.  In HTTP, it is the depth of the request within the TCP connection.
     - name: client_cert.analyzers
       type: set
       description: >
         A set of analysis types done during the file analysis.
-    
     - name: client_cert.mime_type
       type: string
       description: >
-        A mime type provided by the strongest file magic signature
-match against the bof_buffer field of fa_file,
-or in the cases where no buffering of the beginning of file
-occurs, an initial guess of the mime type based on the first
-data seen.
-    
+        A mime type provided by the strongest file magic signature match against the bof_buffer field of fa_file, or in the cases where no buffering of the beginning of file occurs, an initial guess of the mime type based on the first data seen.
     - name: client_cert.filename
       type: string
       description: >
-        A filename for the file if one is available from the source
-for the file.  These will frequently come from
-Content-Disposition headers in network protocols.
-    
+        A filename for the file if one is available from the source for the file.  These will frequently come from Content-Disposition headers in network protocols.
     - name: client_cert.duration
       type: interval
       description: >
         The duration the file was analyzed for.
-    
     - name: client_cert.local_orig
       type: bool
       description: >
-        If the source of this file is a network connection, this field
-indicates if the data originated from the local network or not as
-determined by the configured Site::local_nets.
-    
+        If the source of this file is a network connection, this field indicates if the data originated from the local network or not as determined by the configured Site::local_nets.
     - name: client_cert.is_orig
       type: bool
       description: >
-        If the source of this file is a network connection, this field
-indicates if the file is being sent by the originator of the
-connection or the responder.
-    
+        If the source of this file is a network connection, this field indicates if the file is being sent by the originator of the connection or the responder.
     - name: client_cert.seen_bytes
       type: count
       description: >
         Number of bytes provided to the file analysis engine for the file.
-    
     - name: client_cert.total_bytes
       type: count
       description: >
         Total number of bytes that are supposed to comprise the full file.
-    
     - name: client_cert.missing_bytes
       type: count
       description: >
-        The number of bytes in the file stream that were completely missed
-during the process of analysis e.g. due to dropped packets.
-    
+        The number of bytes in the file stream that were completely missed during the process of analysis e.g. due to dropped packets.
     - name: client_cert.overflow_bytes
       type: count
       description: >
-        The number of bytes in the file stream that were not delivered to
-stream file analyzers.  This could be overlapping bytes or
-bytes that couldn't be reassembled.
-    
+        The number of bytes in the file stream that were not delivered to stream file analyzers.  This could be overlapping bytes or bytes that couldnt be reassembled.
     - name: client_cert.timedout
       type: bool
       description: >
         Whether the file analysis timed out at least once for the file.
-    
     - name: client_cert.parent_fuid
       type: string
       description: >
-        Identifier associated with a container file from which this one was
-extracted as part of the file analysis.
-    
+        Identifier associated with a container file from which this one was extracted as part of the file analysis.
     - name: client_cert.md5
       type: string
       description: >
         (present if base/files/hash/main.bro is loaded)
-    
     - name: client_cert.sha1
       type: string
       description: >
         (present if base/files/hash/main.bro is loaded)
-    
     - name: client_cert.sha256
       type: string
       description: >
         (present if base/files/hash/main.bro is loaded)
-    
     - name: client_cert.x509
       type: X509::Info
       description: >
         (present if base/files/x509/main.bro is loaded)
-    
     - name: client_cert.extracted
       type: string
       description: >
         (present if base/files/extract/main.bro is loaded)
-    
     - name: client_cert.entropy
       type: double
       description: >
         (present if policy/frameworks/files/entropy-test-all-files.bro is loaded)
-    
     - name: client_cert_subject
       type: string
       description: >
         (present if base/protocols/krb/files.bro is loaded)
-    
     - name: client_cert_fuid
       type: string
       description: >
         (present if base/protocols/krb/files.bro is loaded)
-    
     - name: server_cert.ts
       type: time
       description: >
         The time when the file was first seen.
-    
     - name: server_cert.fuid
       type: string
       description: >
         An identifier associated with a single file.
-    
     - name: server_cert.tx_hosts
       type: set
       description: >
-        If this file was transferred over a network
-connection this should show the host or hosts that
-the data sourced from.
-    
+        If this file was transferred over a network connection this should show the host or hosts that the data sourced from.
     - name: server_cert.rx_hosts
       type: set
       description: >
-        If this file was transferred over a network
-connection this should show the host or hosts that
-the data traveled to.
-    
+        If this file was transferred over a network connection this should show the host or hosts that the data traveled to.
     - name: server_cert.conn_uids
       type: set
       description: >
         Connection UIDs over which the file was transferred.
-    
     - name: server_cert.source
       type: string
       description: >
-        An identification of the source of the file data.  E.g. it
-may be a network protocol over which it was transferred, or a
-local file path which was read, or some other input source.
-    
+        An identification of the source of the file data.  E.g. it may be a network protocol over which it was transferred, or a local file path which was read, or some other input source.
     - name: server_cert.depth
       type: count
       description: >
-        A value to represent the depth of this file in relation
-to its source.  In SMTP, it is the depth of the MIME
-attachment on the message.  In HTTP, it is the depth of the
-request within the TCP connection.
-    
+        A value to represent the depth of this file in relation to its source.  In SMTP, it is the depth of the MIME attachment on the message.  In HTTP, it is the depth of the request within the TCP connection.
     - name: server_cert.analyzers
       type: set
       description: >
         A set of analysis types done during the file analysis.
-    
     - name: server_cert.mime_type
       type: string
       description: >
-        A mime type provided by the strongest file magic signature
-match against the bof_buffer field of fa_file,
-or in the cases where no buffering of the beginning of file
-occurs, an initial guess of the mime type based on the first
-data seen.
-    
+        A mime type provided by the strongest file magic signature match against the bof_buffer field of fa_file, or in the cases where no buffering of the beginning of file occurs, an initial guess of the mime type based on the first data seen.
     - name: server_cert.filename
       type: string
       description: >
-        A filename for the file if one is available from the source
-for the file.  These will frequently come from
-Content-Disposition headers in network protocols.
-    
+        A filename for the file if one is available from the source for the file.  These will frequently come from Content-Disposition headers in network protocols.
     - name: server_cert.duration
       type: interval
       description: >
         The duration the file was analyzed for.
-    
     - name: server_cert.local_orig
       type: bool
       description: >
-        If the source of this file is a network connection, this field
-indicates if the data originated from the local network or not as
-determined by the configured Site::local_nets.
-    
+        If the source of this file is a network connection, this field indicates if the data originated from the local network or not as determined by the configured Site::local_nets.
     - name: server_cert.is_orig
       type: bool
       description: >
-        If the source of this file is a network connection, this field
-indicates if the file is being sent by the originator of the
-connection or the responder.
-    
+        If the source of this file is a network connection, this field indicates if the file is being sent by the originator of the connection or the responder.
     - name: server_cert.seen_bytes
       type: count
       description: >
         Number of bytes provided to the file analysis engine for the file.
-    
     - name: server_cert.total_bytes
       type: count
       description: >
         Total number of bytes that are supposed to comprise the full file.
-    
     - name: server_cert.missing_bytes
       type: count
       description: >
-        The number of bytes in the file stream that were completely missed
-during the process of analysis e.g. due to dropped packets.
-    
+        The number of bytes in the file stream that were completely missed during the process of analysis e.g. due to dropped packets.
     - name: server_cert.overflow_bytes
       type: count
       description: >
-        The number of bytes in the file stream that were not delivered to
-stream file analyzers.  This could be overlapping bytes or
-bytes that couldn't be reassembled.
-    
+        The number of bytes in the file stream that were not delivered to stream file analyzers.  This could be overlapping bytes or bytes that couldnt be reassembled.
     - name: server_cert.timedout
       type: bool
       description: >
         Whether the file analysis timed out at least once for the file.
-    
     - name: server_cert.parent_fuid
       type: string
       description: >
-        Identifier associated with a container file from which this one was
-extracted as part of the file analysis.
-    
+        Identifier associated with a container file from which this one was extracted as part of the file analysis.
     - name: server_cert.md5
       type: string
       description: >
         (present if base/files/hash/main.bro is loaded)
-    
     - name: server_cert.sha1
       type: string
       description: >
         (present if base/files/hash/main.bro is loaded)
-    
     - name: server_cert.sha256
       type: string
       description: >
         (present if base/files/hash/main.bro is loaded)
-    
     - name: server_cert.x509
       type: X509::Info
       description: >
         (present if base/files/x509/main.bro is loaded)
-    
     - name: server_cert.extracted
       type: string
       description: >
         (present if base/files/extract/main.bro is loaded)
-    
     - name: server_cert.entropy
       type: double
       description: >
         (present if policy/frameworks/files/entropy-test-all-files.bro is loaded)
-    
     - name: server_cert_subject
       type: string
       description: >
         (present if base/protocols/krb/files.bro is loaded)
-    
     - name: server_cert_fuid
       type: string
       description: >
         (present if base/protocols/krb/files.bro is loaded)
-    

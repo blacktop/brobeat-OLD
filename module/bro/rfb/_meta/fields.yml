@@ -3,75 +3,59 @@
   description: >
     Contains fields for the Bro rfb logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Timestamp for when the event happened.
-    
     - name: uid
       type: string
       description: >
         Unique ID for the connection.
-    
     - name: id
       type: conn_id
       description: >
-        The connection's 4-tuple of endpoint addresses/ports.
-    
+        The connections 4-tuple of endpoint addresses/ports.
     - name: client_major_version
       type: string
       description: >
         Major version of the client.
-    
     - name: client_minor_version
       type: string
       description: >
         Minor version of the client.
-    
     - name: server_major_version
       type: string
       description: >
         Major version of the server.
-    
     - name: server_minor_version
       type: string
       description: >
         Minor version of the server.
-    
     - name: authentication_method
       type: string
       description: >
         Identifier of authentication method used.
-    
     - name: auth
       type: bool
       description: >
         Whether or not authentication was successful.
-    
     - name: share_flag
       type: bool
       description: >
         Whether the client has an exclusive or a shared session.
-    
     - name: desktop_name
       type: string
       description: >
         Name of the screen that is being shared.
-    
     - name: width
       type: count
       description: >
         Width of the screen that is being shared.
-    
     - name: height
       type: count
       description: >
         Height of the screen that is being shared.
-    
     - name: done
       type: bool
       description: >
-        Internally used value to determine if this connection
-has already been logged.
-    
+        Internally used value to determine if this connection has already been logged.

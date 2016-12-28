@@ -3,114 +3,79 @@
   description: >
     Contains fields for the Bro ssl logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Time when the SSL connection was first detected.
-    
     - name: uid
       type: string
       description: >
         Unique ID for the connection.
-    
     - name: id
       type: conn_id
       description: >
-        The connection's 4-tuple of endpoint addresses/ports.
-    
+        The connections 4-tuple of endpoint addresses/ports.
     - name: version_num
       type: count
       description: >
         Numeric SSL/TLS version that the server chose.
-    
     - name: version
       type: string
       description: >
         SSL/TLS version that the server chose.
-    
     - name: cipher
       type: string
       description: >
         SSL/TLS cipher suite that the server chose.
-    
     - name: curve
       type: string
       description: >
         Elliptic curve the server chose when using ECDH/ECDHE.
-    
     - name: server_name
       type: string
       description: >
-        Value of the Server Name Indicator SSL/TLS extension.  It
-indicates the server name that the client was requesting.
-    
+        Value of the Server Name Indicator SSL/TLS extension.  It indicates the server name that the client was requesting.
     - name: session_id
       type: string
       description: >
-        Session ID offered by the client for session resumption.
-Not used for logging.
-    
+        Session ID offered by the client for session resumption. Not used for logging.
     - name: resumed
       type: bool
       description: >
-        Flag to indicate if the session was resumed reusing
-the key material exchanged in an earlier connection.
-    
+        Flag to indicate if the session was resumed reusing the key material exchanged in an earlier connection.
     - name: client_ticket_empty_session_seen
       type: bool
       description: >
-        Flag to indicate if we saw a non-empty session ticket being
-sent by the client using an empty session ID. This value
-is used to determine if a session is being resumed. It's
-not logged.
-    
+        Flag to indicate if we saw a non-empty session ticket being sent by the client using an empty session ID. This value is used to determine if a session is being resumed. Its not logged.
     - name: client_key_exchange_seen
       type: bool
       description: >
-        Flag to indicate if we saw a client key exchange message sent
-by the client. This value is used to determine if a session
-is being resumed. It's not logged.
-    
+        Flag to indicate if we saw a client key exchange message sent by the client. This value is used to determine if a session is being resumed. Its not logged.
     - name: server_appdata
       type: count
       description: >
-        Count to track if the server already sent an application data
-packet for TLS 1.3. Used to track when a session was established.
-    
+        Count to track if the server already sent an application data packet for TLS 1.3. Used to track when a session was established.
     - name: client_appdata
       type: bool
       description: >
-        Flag to track if the client already sent an application data
-packet for TLS 1.3. Used to track when a session was established.
-    
+        Flag to track if the client already sent an application data packet for TLS 1.3. Used to track when a session was established.
     - name: last_alert
       type: string
       description: >
         Last alert that was seen during the connection.
-    
     - name: next_protocol
       type: string
       description: >
-        Next protocol the server chose using the application layer
-next protocol extension, if present.
-    
+        Next protocol the server chose using the application layer next protocol extension, if present.
     - name: analyzer_id
       type: count
       description: >
-        The analyzer ID used for the analyzer instance attached
-to each connection.  It is not used for logging since it's a
-meaningless arbitrary number.
-    
+        The analyzer ID used for the analyzer instance attached to each connection.  It is not used for logging since its a meaningless arbitrary number.
     - name: established
       type: bool
       description: >
-        Flag to indicate if this ssl session has been established
-successfully, or if it was aborted during the handshake.
-    
+        Flag to indicate if this ssl session has been established successfully, or if it was aborted during the handshake.
     - name: logged
       type: bool
       description: >
-        Flag to indicate if this record already has been logged, to
-prevent duplicates.
-    
+        Flag to indicate if this record already has been logged, to prevent duplicates.

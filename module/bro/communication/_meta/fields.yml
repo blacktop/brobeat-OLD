@@ -3,47 +3,35 @@
   description: >
     Contains fields for the Bro communication logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         The network time at which a communication event occurred.
-    
     - name: peer
       type: string
       description: >
-        The peer name (if any) with which a communication event is
-concerned.
-    
+        The peer name (if any) with which a communication event is concerned.
     - name: src_name
       type: string
       description: >
-        Where the communication event message originated from, that
-is, either from the scripting layer or inside the Bro process.
-    
+        Where the communication event message originated from, that is, either from the scripting layer or inside the Bro process.
     - name: connected_peer_desc
       type: string
       description: >
         Todo
-    
     - name: connected_peer_addr
       type: addr
       description: >
         Todo
-    
     - name: connected_peer_port
       type: port
       description: >
         Todo
-    
     - name: level
       type: string
       description: >
         The severity of the communication event message.
-    
     - name: message
       type: string
       description: >
-        A message describing the communication event between Bro or
-Broccoli instances.
-    
+        A message describing the communication event between Bro or Broccoli instances.

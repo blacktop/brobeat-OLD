@@ -3,164 +3,107 @@
   description: >
     Contains fields for the Bro notice logs.
   fields:
-    
     - name: ts
       type: time
       description: >
-        An absolute time indicating when the notice occurred,
-defaults to the current network time.
-    
+        An absolute time indicating when the notice occurred, defaults to the current network time.
     - name: uid
       type: string
       description: >
-        A connection UID which uniquely identifies the endpoints
-concerned with the notice.
-    
+        A connection UID which uniquely identifies the endpoints concerned with the notice.
     - name: id
       type: conn_id
       description: >
-        A connection 4-tuple identifying the endpoints concerned
-with the notice.
-    
+        A connection 4-tuple identifying the endpoints concerned with the notice.
     - name: conn
       type: connection
       description: >
-        A shorthand way of giving the uid and id to a notice.  The
-reference to the actual connection will be deleted after
-applying the notice policy.
-    
+        A shorthand way of giving the uid and id to a notice.  The reference to the actual connection will be deleted after applying the notice policy.
     - name: iconn
       type: icmp_conn
       description: >
-        A shorthand way of giving the uid and id to a notice.  The
-reference to the actual connection will be deleted after
-applying the notice policy.
-    
+        A shorthand way of giving the uid and id to a notice.  The reference to the actual connection will be deleted after applying the notice policy.
     - name: f
       type: fa_file
       description: >
-        A file record if the notice is related to a file.  The
-reference to the actual fa_file record will be deleted after
-applying the notice policy.
-    
+        A file record if the notice is related to a file.  The reference to the actual fa_file record will be deleted after applying the notice policy.
     - name: fuid
       type: string
       description: >
-        A file unique ID if this notice is related to a file.  If
-the f field is provided, this will be automatically filled
-out.
-    
+        A file unique ID if this notice is related to a file.  If the f field is provided, this will be automatically filled out.
     - name: file_mime_type
       type: string
       description: >
-        A mime type if the notice is related to a file.  If the f
-field is provided, this will be automatically filled out.
-    
+        A mime type if the notice is related to a file.  If the f field is provided, this will be automatically filled out.
     - name: file_desc
       type: string
       description: >
-        Frequently files can be described to give a bit more
-context.  This field will typically be automatically filled
-out from an fa_file record.  For example, if a notice was
-related to a file over HTTP, the URL of the request would
-be shown.
-    
+        Frequently files can be described to give a bit more context.  This field will typically be automatically filled out from an fa_file record.  For example, if a notice was related to a file over HTTP, the URL of the request would be shown.
     - name: proto
       type: transport_proto
       description: >
-        The transport protocol. Filled automatically when either
-conn, iconn or p is specified.
-    
+        The transport protocol. Filled automatically when either conn, iconn or p is specified.
     - name: note
       type: Notice::Type
       description: >
         
-    
     - name: msg
       type: string
       description: >
         The human readable message for the notice.
-    
     - name: sub
       type: string
       description: >
         The human readable sub-message.
-    
     - name: src
       type: addr
       description: >
-        Source address, if we don't have a conn_id.
-    
+        Source address, if we dont have a conn_id.
     - name: dst
       type: addr
       description: >
         Destination address.
-    
     - name: p
       type: port
       description: >
-        Associated port, if we don't have a conn_id.
-    
+        Associated port, if we dont have a conn_id.
     - name: n
       type: count
       description: >
         Associated count, or perhaps a status code.
-    
     - name: src_peer
       type: event_peer
       description: >
         Peer that raised this notice.
-    
     - name: peer_descr
       type: string
       description: >
         Textual description for the peer that raised this notice.
-    
     - name: actions
       type: Notice::ActionSet
       description: >
         
-    
     - name: email_body_sections
       type: vector
       description: >
-        By adding chunks of text into this element, other scripts
-can expand on notices that are being emailed.  The normal
-way to add text is to extend the vector by handling the
-Notice::notice event and modifying the notice in
-place.
-    
+        By adding chunks of text into this element, other scripts can expand on notices that are being emailed.  The normal way to add text is to extend the vector by handling the Notice::notice event and modifying the notice in place.
     - name: email_delay_tokens
       type: set
       description: >
-        Adding a string token to this set will cause the notice
-framework's built-in emailing functionality to delay sending
-the email until either the token has been removed or the
-email has been delayed for Notice::max_email_delay.
-    
+        Adding a string token to this set will cause the notice frameworks built-in emailing functionality to delay sending the email until either the token has been removed or the email has been delayed for Notice::max_email_delay.
     - name: identifier
       type: string
       description: >
-        This field is to be provided when a notice is generated for
-the purpose of deduplicating notices.  The identifier string
-should be unique for a single instance of the notice.  This
-field should be filled out in almost all cases when
-generating notices to define when a notice is conceptually
-a duplicate of a previous notice.
-    
+        This field is to be provided when a notice is generated for the purpose of deduplicating notices.  The identifier string should be unique for a single instance of the notice.  This field should be filled out in almost all cases when generating notices to define when a notice is conceptually a duplicate of a previous notice.
     - name: suppress_for
       type: interval
       description: >
-        This field indicates the length of time that this
-unique notice should be suppressed.
-    
+        This field indicates the length of time that this unique notice should be suppressed.
     - name: dropped
       type: bool
       description: >
         (present if base/frameworks/notice/actions/drop.bro is loaded)
-    
     - name: remote_location
       type: geo_location
       description: >
         (present if base/frameworks/notice/actions/add-geodata.bro is loaded)
-    

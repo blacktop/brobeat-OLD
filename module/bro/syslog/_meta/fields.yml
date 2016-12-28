@@ -3,39 +3,31 @@
   description: >
     Contains fields for the Bro syslog logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Timestamp when the syslog message was seen.
-    
     - name: uid
       type: string
       description: >
         Unique ID for the connection.
-    
     - name: id
       type: conn_id
       description: >
-        The connection's 4-tuple of endpoint addresses/ports.
-    
+        The connections 4-tuple of endpoint addresses/ports.
     - name: proto
       type: transport_proto
       description: >
         Protocol over which the message was seen.
-    
     - name: facility
       type: string
       description: >
         Syslog facility for the message.
-    
     - name: severity
       type: string
       description: >
         Syslog severity for the message.
-    
     - name: message
       type: string
       description: >
         The plain text message.
-    

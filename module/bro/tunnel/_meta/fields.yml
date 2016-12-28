@@ -3,34 +3,23 @@
   description: >
     Contains fields for the Bro tunnel logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Time at which some tunnel activity occurred.
-    
     - name: uid
       type: string
       description: >
-        The unique identifier for the tunnel, which may correspond
-to a connection uid field for non-IP-in-IP tunnels.
-This is optional because there could be numerous connections
-for payload proxies like SOCKS but we should treat it as a
-single tunnel.
-    
+        The unique identifier for the tunnel, which may correspond to a connections uid field for non-IP-in-IP tunnels. This is optional because there could be numerous connections for payload proxies like SOCKS but we should treat it as a single tunnel.
     - name: id
       type: conn_id
       description: >
-        The tunnel connection 4-tuple of endpoint addresses/ports.
-For an IP tunnel, the ports will be 0.
-    
+        The tunnel connection 4-tuple of endpoint addresses/ports. For an IP tunnel, the ports will be 0.
     - name: tunnel_type
       type: Tunnel::Type
       description: >
         
-    
     - name: action
       type: Tunnel::Action
       description: >
         
-    

@@ -3,89 +3,71 @@
   description: >
     Contains fields for the Bro pe logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Current timestamp.
-    
     - name: id
       type: string
       description: >
         File id of this portable executable file.
-    
     - name: machine
       type: string
       description: >
         The target machine that the file was compiled for.
-    
     - name: compile_ts
       type: time
       description: >
         The time that the file was created at.
-    
     - name: os
       type: string
       description: >
         The required operating system.
-    
     - name: subsystem
       type: string
       description: >
         The subsystem that is required to run this file.
-    
     - name: is_exe
       type: bool
       description: >
         Is the file an executable, or just an object file?
-    
     - name: is_64bit
       type: bool
       description: >
         Is the file a 64-bit executable?
-    
     - name: uses_aslr
       type: bool
       description: >
         Does the file support Address Space Layout Randomization?
-    
     - name: uses_dep
       type: bool
       description: >
         Does the file support Data Execution Prevention?
-    
     - name: uses_code_integrity
       type: bool
       description: >
         Does the file enforce code integrity checks?
-    
     - name: uses_seh
       type: bool
       description: >
         Does the file use structured exception handing?
-    
     - name: has_import_table
       type: bool
       description: >
         Does the file have an import table?
-    
     - name: has_export_table
       type: bool
       description: >
         Does the file have an export table?
-    
     - name: has_cert_table
       type: bool
       description: >
         Does the file have an attribute certificate table?
-    
     - name: has_debug_data
       type: bool
       description: >
         Does the file have a debug table?
-    
     - name: section_names
       type: vector
       description: >
         The names of the sections, in order.
-    

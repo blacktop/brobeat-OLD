@@ -3,56 +3,39 @@
   description: >
     Contains fields for the Bro weird logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         The time when the weird occurred.
-    
     - name: uid
       type: string
       description: >
-        If a connection is associated with this weird, this will be
-the connection's unique ID.
-    
+        If a connection is associated with this weird, this will be the connections unique ID.
     - name: id
       type: conn_id
       description: >
         conn_id for the optional connection.
-    
     - name: conn
       type: connection
       description: >
         A shorthand way of giving the uid and id to a weird.
-    
     - name: name
       type: string
       description: >
         The name of the weird that occurred.
-    
     - name: addl
       type: string
       description: >
         Additional information accompanying the weird if any.
-    
     - name: notice
       type: bool
       description: >
         Indicate if this weird was also turned into a notice.
-    
     - name: peer
       type: string
       description: >
-        The peer that originated this weird.  This is helpful in
-cluster deployments if a particular cluster node is having
-trouble to help identify which node is having trouble.
-    
+        The peer that originated this weird.  This is helpful in cluster deployments if a particular cluster node is having trouble to help identify which node is having trouble.
     - name: identifier
       type: string
       description: >
-        This field is to be provided when a weird is generated for
-the purpose of deduplicating weirds. The identifier string
-should be unique for a single instance of the weird. This field
-is used to define when a weird is conceptually a duplicate of
-a previous weird.
-    
+        This field is to be provided when a weird is generated for the purpose of deduplicating weirds. The identifier string should be unique for a single instance of the weird. This field is used to define when a weird is conceptually a duplicate of a previous weird.

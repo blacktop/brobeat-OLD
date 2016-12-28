@@ -3,59 +3,47 @@
   description: >
     Contains fields for the Bro netcontrol_catch_release logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         The absolute time indicating when the action for this log-line occured.
-    
     - name: rule_id
       type: string
       description: >
         The rule id that this log line refers to.
-    
     - name: ip
       type: addr
       description: >
         The IP address that this line refers to.
-    
     - name: action
       type: NetControl::CatchReleaseActions
       description: >
         
-    
     - name: block_interval
       type: interval
       description: >
         The current block_interaval (for how long the address is blocked).
-    
     - name: watch_interval
       type: interval
       description: >
         The current watch_interval (for how long the address will be watched and re-block if it reappears).
-    
     - name: blocked_until
       type: time
       description: >
         The absolute time until which the address is blocked.
-    
     - name: watched_until
       type: time
       description: >
         The absolute time until which the address will be monitored.
-    
     - name: num_blocked
       type: count
       description: >
         Number of times that this address was blocked in the current cycle.
-    
     - name: location
       type: string
       description: >
         The user specified location string.
-    
     - name: message
       type: string
       description: >
         Additional informational string by the catch and release framework about this log-line.
-    

@@ -3,84 +3,63 @@
   description: >
     Contains fields for the Bro ssh logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Time when the SSH connection began.
-    
     - name: uid
       type: string
       description: >
         Unique ID for the connection.
-    
     - name: id
       type: conn_id
       description: >
-        The connection's 4-tuple of endpoint addresses/ports.
-    
+        The connections 4-tuple of endpoint addresses/ports.
     - name: version
       type: count
       description: >
         SSH major version (1 or 2)
-    
     - name: auth_success
       type: bool
       description: >
         Authentication result (T=success, F=failure, unset=unknown)
-    
     - name: auth_attempts
       type: count
       description: >
-        The number of authentication attemps we observed. There's always
-at least one, since some servers might support no authentication at all.
-It's important to note that not all of these are failures, since
-some servers require two-factor auth (e.g. password AND pubkey)
-    
+        The number of authentication attemps we observed. Theres always at least one, since some servers might support no authentication at all. Its important to note that not all of these are failures, since some servers require two-factor auth (e.g. password AND pubkey)
     - name: direction
       type: Direction
       description: >
-        Direction of the connection. If the client was a local host
-logging into an external host, this would be OUTBOUND. INBOUND
-would be set for the opposite situation.
-    
+        Direction of the connection. If the client was a local host logging into an external host, this would be OUTBOUND. INBOUND would be set for the opposite situation.
     - name: client
       type: string
       description: >
-        The client's version string
-    
+        The clients version string
     - name: server
       type: string
       description: >
-        The server's version string
-    
+        The servers version string
     - name: cipher_alg
       type: string
       description: >
         The encryption algorithm in use
-    
     - name: mac_alg
       type: string
       description: >
         The signing (MAC) algorithm in use
-    
     - name: compression_alg
       type: string
       description: >
         The compression algorithm in use
-    
     - name: kex_alg
       type: string
       description: >
         The key exchange algorithm in use
-    
     - name: host_key_alg
       type: string
       description: >
-        The server host key's algorithm
-    
+        The server host keys algorithm
     - name: host_key
       type: string
       description: >
-        The server's key fingerprint
-    
+        The servers key fingerprint

@@ -112,7 +112,8 @@ def get_nested_fields(field_name, field_type, url):
                         nfield_name = nfield[0].contents[0].split(':', 1)[0]
                         nfield_type = nfield[0].contents[1].text
                         if nfield[1].p is not None:
-                            nfield_description = nfield[1].p.text
+                            nfield_description = nfield[1].p.text.replace('\n', ' ').replace('\r', '').encode('ascii',
+                                                                                                              'ignore')
                         else:
                             nfield_description = ""
                         logger.info(' ===> adding nested field: {}'.format(field_name + '.' + nfield_name))
@@ -167,7 +168,8 @@ def scrape_bro_docs():
                             field_name = dfield[0].contents[0].split(':', 1)[0]
                             field_type = dfield[0].contents[1].text
                             if dfield[1].p is not None:
-                                field_description = dfield[1].p.text
+                                field_description = dfield[1].p.text.replace('\n', ' ').replace('\r', '').encode(
+                                    'ascii', 'ignore')
                             else:
                                 field_description = ""
                             if '::' in field_type:

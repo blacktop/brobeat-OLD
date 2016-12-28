@@ -3,31 +3,23 @@
   description: >
     Contains fields for the Bro packet_filter logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         The time at which the packet filter installation attempt was made.
-    
     - name: node
       type: string
       description: >
-        This is a string representation of the node that applied this
-packet filter.  It's mostly useful in the context of
-dynamically changing filters on clusters.
-    
+        This is a string representation of the node that applied this packet filter.  Its mostly useful in the context of dynamically changing filters on clusters.
     - name: filter
       type: string
       description: >
         The packet filter that is being set.
-    
     - name: init
       type: bool
       description: >
         Indicate if this is the filter set during initialization.
-    
     - name: success
       type: bool
       description: >
         Indicate if the filter was applied successfully.
-    

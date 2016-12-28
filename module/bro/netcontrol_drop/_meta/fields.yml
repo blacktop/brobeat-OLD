@@ -3,44 +3,35 @@
   description: >
     Contains fields for the Bro netcontrol_drop logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Time at which the recorded activity occurred.
-    
     - name: rule_id
       type: string
       description: >
         ID of the rule; unique during each Bro run.
-    
     - name: orig_h
       type: addr
       description: >
-        The originator's IP address.
-    
+        The originators IP address.
     - name: orig_p
       type: port
       description: >
-        The originator's port number.
-    
+        The originators port number.
     - name: resp_h
       type: addr
       description: >
-        The responder's IP address.
-    
+        The responders IP address.
     - name: resp_p
       type: port
       description: >
-        The responder's port number.
-    
+        The responders port number.
     - name: expire
       type: interval
       description: >
         Expiry time of the shunt.
-    
     - name: location
       type: string
       description: >
         Location where the underlying action was triggered.
-    

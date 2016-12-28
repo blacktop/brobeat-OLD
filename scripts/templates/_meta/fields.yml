@@ -3,9 +3,9 @@
   description: >
     Contains fields for the Bro {{ log_type }} logs.
   fields:
-    {% for field in fields %}
+    {%- for field in fields %}
     - name: {{ field["field"]|string }}
       type: {{ field["type"]|string }}
       description: >
         {{ field["description"]|string }}
-    {% endfor %}
+    {%- endfor %}

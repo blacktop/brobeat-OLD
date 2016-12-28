@@ -3,36 +3,27 @@
   description: >
     Contains fields for the Bro capture_loss logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Timestamp for when the measurement occurred.
-    
     - name: ts_delta
       type: interval
       description: >
         The time delay between this measurement and the last.
-    
     - name: peer
       type: string
       description: >
-        In the event that there are multiple Bro instances logging
-to the same host, this distinguishes each peer with its
-individual name.
-    
+        In the event that there are multiple Bro instances logging to the same host, this distinguishes each peer with its individual name.
     - name: gaps
       type: count
       description: >
         Number of missed ACKs from the previous measurement interval.
-    
     - name: acks
       type: count
       description: >
         Total number of ACKs seen in the previous measurement interval.
-    
     - name: percent_lost
       type: double
       description: >
-        Percentage of ACKs seen where the data being ACKed wasn't seen.
-    
+        Percentage of ACKs seen where the data being ACKed wasnt seen.

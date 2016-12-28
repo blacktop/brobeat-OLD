@@ -3,96 +3,71 @@
   description: >
     Contains fields for the Bro intel logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Timestamp when the data was discovered.
-    
     - name: uid
       type: string
       description: >
-        If a connection was associated with this intelligence hit,
-this is the uid for the connection
-    
+        If a connection was associated with this intelligence hit, this is the uid for the connection
     - name: id
       type: conn_id
       description: >
-        If a connection was associated with this intelligence hit,
-this is the conn_id for the connection.
-    
+        If a connection was associated with this intelligence hit, this is the conn_id for the connection.
     - name: seen.indicator
       type: string
       description: >
         The string if the data is about a string.
-    
     - name: seen.indicator_type
       type: Intel::Type
       description: >
         The type of data that the indicator represents.
-    
     - name: seen.host
       type: addr
       description: >
-        If the indicator type was Intel::ADDR, then this
-field will be present.
-    
+        If the indicator type was Intel::ADDR, then this field will be present.
     - name: seen.where
       type: Intel::Where
       description: >
         Where the data was discovered.
-    
     - name: seen.node
       type: string
       description: >
         The name of the node where the match was discovered.
-    
     - name: seen.conn
       type: connection
       description: >
-        If the data was discovered within a connection, the
-connection record should go here to give context to the data.
-    
+        If the data was discovered within a connection, the connection record should go here to give context to the data.
     - name: seen.uid
       type: string
       description: >
-        If the data was discovered within a connection, the
-connection uid should go here to give context to the data.
-If the conn field is provided, this will be automatically
-filled out.
-    
+        If the data was discovered within a connection, the connection uid should go here to give context to the data. If the conn field is provided, this will be automatically filled out.
     - name: seen.f
       type: fa_file
       description: >
         (present if base/frameworks/intel/files.bro is loaded)
-    
     - name: seen.fuid
       type: string
       description: >
         (present if base/frameworks/intel/files.bro is loaded)
-    
     - name: matched
       type: Intel::TypeSet
       description: >
         
-    
     - name: sources
       type: set
       description: >
         Sources which supplied data that resulted in this match.
-    
     - name: fuid
       type: string
       description: >
         (present if base/frameworks/intel/files.bro is loaded)
-    
     - name: file_mime_type
       type: string
       description: >
         (present if base/frameworks/intel/files.bro is loaded)
-    
     - name: file_desc
       type: string
       description: >
         (present if base/frameworks/intel/files.bro is loaded)
-    

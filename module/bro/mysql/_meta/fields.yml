@@ -3,44 +3,35 @@
   description: >
     Contains fields for the Bro mysql logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Timestamp for when the event happened.
-    
     - name: uid
       type: string
       description: >
         Unique ID for the connection.
-    
     - name: id
       type: conn_id
       description: >
-        The connection's 4-tuple of endpoint addresses/ports.
-    
+        The connections 4-tuple of endpoint addresses/ports.
     - name: cmd
       type: string
       description: >
         The command that was issued
-    
     - name: arg
       type: string
       description: >
         The argument issued to the command
-    
     - name: success
       type: bool
       description: >
         Did the server tell us that the command succeeded?
-    
     - name: rows
       type: count
       description: >
         The number of affected rows, if any
-    
     - name: response
       type: string
       description: >
         Server message, if any
-    

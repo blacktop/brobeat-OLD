@@ -3,51 +3,39 @@
   description: >
     Contains fields for the Bro ntlm logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Timestamp for when the event happened.
-    
     - name: uid
       type: string
       description: >
         Unique ID for the connection.
-    
     - name: id
       type: conn_id
       description: >
-        The connection's 4-tuple of endpoint addresses/ports.
-    
+        The connections 4-tuple of endpoint addresses/ports.
     - name: username
       type: string
       description: >
         Username given by the client.
-    
     - name: hostname
       type: string
       description: >
         Hostname given by the client.
-    
     - name: domainname
       type: string
       description: >
         Domainname given by the client.
-    
     - name: success
       type: bool
       description: >
         Indicate whether or not the authentication was successful.
-    
     - name: status
       type: string
       description: >
-        A string representation of the status code that was
-returned in response to the authentication attempt.
-    
+        A string representation of the status code that was returned in response to the authentication attempt.
     - name: done
       type: bool
       description: >
-        Internally used field to indicate if the login attempt
-has already been logged.
-    
+        Internally used field to indicate if the login attempt has already been logged.

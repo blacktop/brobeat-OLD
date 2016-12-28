@@ -3,80 +3,63 @@
   description: >
     Contains fields for the Bro smb_files logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Time when the file was first discovered.
-    
     - name: uid
       type: string
       description: >
         Unique ID of the connection the file was sent over.
-    
     - name: id
       type: conn_id
       description: >
         ID of the connection the file was sent over.
-    
     - name: fuid
       type: string
       description: >
         Unique ID of the file.
-    
     - name: action
       type: SMB::Action
       description: >
         
-    
     - name: path
       type: string
       description: >
         Path pulled from the tree this file was transferred to or from.
-    
     - name: name
       type: string
       description: >
         Filename if one was seen.
-    
     - name: size
       type: count
       description: >
         Total size of the file.
-    
     - name: prev_name
       type: string
       description: >
-        If the rename action was seen, this will be
-the file's previous name.
-    
+        If the rename action was seen, this will be the files previous name.
     - name: times.modified
       type: time
       description: >
         The time when data was last written to the file.
-    
     - name: times.accessed
       type: time
       description: >
         The time when the file was last accessed.
-    
     - name: times.created
       type: time
       description: >
         The time the file was created.
-    
     - name: times.changed
       type: time
       description: >
         The time when the file was last modified.
-    
     - name: fid
       type: count
       description: >
         ID referencing this file.
-    
     - name: uuid
       type: string
       description: >
         UUID referencing this file if DCE/RPC.
-    

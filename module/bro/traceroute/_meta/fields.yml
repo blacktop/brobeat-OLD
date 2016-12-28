@@ -3,24 +3,19 @@
   description: >
     Contains fields for the Bro traceroute logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Timestamp
-    
     - name: src
       type: addr
       description: >
         Address initiating the traceroute.
-    
     - name: dst
       type: addr
       description: >
         Destination address of the traceroute.
-    
     - name: proto
       type: string
       description: >
         Protocol used for the traceroute.
-    

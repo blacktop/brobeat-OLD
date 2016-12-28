@@ -3,129 +3,99 @@
   description: >
     Contains fields for the Bro sip logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Timestamp for when the request happened.
-    
     - name: uid
       type: string
       description: >
         Unique ID for the connection.
-    
     - name: id
       type: conn_id
       description: >
-        The connection's 4-tuple of endpoint addresses/ports.
-    
+        The connections 4-tuple of endpoint addresses/ports.
     - name: trans_depth
       type: count
       description: >
-        Represents the pipelined depth into the connection of this
-request/response transaction.
-    
+        Represents the pipelined depth into the connection of this request/response transaction.
     - name: method
       type: string
       description: >
         Verb used in the SIP request (INVITE, REGISTER etc.).
-    
     - name: uri
       type: string
       description: >
         URI used in the request.
-    
     - name: date
       type: string
       description: >
         Contents of the Date: header from the client
-    
     - name: request_from
       type: string
       description: >
-        Contents of the request From: header
-Note: The tag= value that's usually appended to the sender
-is stripped off and not logged.
-    
+        Contents of the request From: header Note: The tag= value thats usually appended to the sender is stripped off and not logged.
     - name: request_to
       type: string
       description: >
         Contents of the To: header
-    
     - name: response_from
       type: string
       description: >
-        Contents of the response From: header
-Note: The tag= value that's usually appended to the sender
-is stripped off and not logged.
-    
+        Contents of the response From: header Note: The tag= value thats usually appended to the sender is stripped off and not logged.
     - name: response_to
       type: string
       description: >
         Contents of the response To: header
-    
     - name: reply_to
       type: string
       description: >
         Contents of the Reply-To: header
-    
     - name: call_id
       type: string
       description: >
         Contents of the Call-ID: header from the client
-    
     - name: seq
       type: string
       description: >
         Contents of the CSeq: header from the client
-    
     - name: subject
       type: string
       description: >
         Contents of the Subject: header from the client
-    
     - name: request_path
       type: vector
       description: >
         The client message transmission path, as extracted from the headers.
-    
     - name: response_path
       type: vector
       description: >
         The server message transmission path, as extracted from the headers.
-    
     - name: user_agent
       type: string
       description: >
         Contents of the User-Agent: header from the client
-    
     - name: status_code
       type: count
       description: >
         Status code returned by the server.
-    
     - name: status_msg
       type: string
       description: >
         Status message returned by the server.
-    
     - name: warning
       type: string
       description: >
         Contents of the Warning: header
-    
     - name: request_body_len
       type: count
       description: >
         Contents of the Content-Length: header from the client
-    
     - name: response_body_len
       type: count
       description: >
         Contents of the Content-Length: header from the server
-    
     - name: content_type
       type: string
       description: >
         Contents of the Content-Type: header from the server
-    

@@ -3,19 +3,15 @@
   description: >
     Contains fields for the Bro known_devices logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         The timestamp at which the host was detected.
-    
     - name: mac
       type: string
       description: >
         The MAC address that was detected.
-    
     - name: dhcp_host_name
       type: string
       description: >
         (present if policy/protocols/dhcp/known-devices-and-hostnames.bro is loaded)
-    

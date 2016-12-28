@@ -3,134 +3,103 @@
   description: >
     Contains fields for the Bro ftp logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Time when the command was sent.
-    
     - name: uid
       type: string
       description: >
         Unique ID for the connection.
-    
     - name: id
       type: conn_id
       description: >
-        The connection's 4-tuple of endpoint addresses/ports.
-    
+        The connections 4-tuple of endpoint addresses/ports.
     - name: user
       type: string
       description: >
         User name for the current FTP session.
-    
     - name: password
       type: string
       description: >
         Password for the current FTP session if captured.
-    
     - name: command
       type: string
       description: >
         Command given by the client.
-    
     - name: arg
       type: string
       description: >
         Argument for the command if one is given.
-    
     - name: mime_type
       type: string
       description: >
-        Libmagic sniffed file type if the command indicates a file
-transfer.
-    
+        Libmagic sniffed file type if the command indicates a file transfer.
     - name: file_size
       type: count
       description: >
         Size of the file if the command indicates a file transfer.
-    
     - name: reply_code
       type: count
       description: >
         Reply code from the server in response to the command.
-    
     - name: reply_msg
       type: string
       description: >
         Reply message from the server in response to the command.
-    
     - name: data_channel.passive
       type: bool
       description: >
         Whether PASV mode is toggled for control channel.
-    
     - name: data_channel.orig_h
       type: addr
       description: >
         The host that will be initiating the data connection.
-    
     - name: data_channel.resp_h
       type: addr
       description: >
         The host that will be accepting the data connection.
-    
     - name: data_channel.resp_p
       type: port
       description: >
-        The port at which the acceptor is listening for the data
-connection.
-    
+        The port at which the acceptor is listening for the data connection.
     - name: cwd
       type: string
       description: >
-        Current working directory that this session is in.  By making
-the default value .', we can indicate that unless something
-more concrete is discovered that the existing but unknown
-directory is ok to use.
-    
+        Current working directory that this session is in.  By making the default value ., we can indicate that unless something more concrete is discovered that the existing but unknown directory is ok to use.
     - name: cmdarg.ts
       type: time
       description: >
         Time when the command was sent.
-    
     - name: cmdarg.cmd
       type: string
       description: >
         Command.
-    
     - name: cmdarg.arg
       type: string
       description: >
         Argument for the command if one was given.
-    
     - name: cmdarg.seq
       type: count
       description: >
         Counter to track how many commands have been executed.
-    
     - name: pending_commands
       type: FTP::PendingCmds
       description: >
         
-    
     - name: passive
       type: bool
       description: >
         Indicates if the session is in active or passive mode.
-    
     - name: capture_password
       type: bool
       description: >
         Determines if the password will be captured for this request.
-    
     - name: fuid
       type: string
       description: >
         (present if base/protocols/ftp/files.bro is loaded)
-    
     - name: last_auth_requested
       type: string
       description: >
         (present if base/protocols/ftp/gridftp.bro is loaded)
-    

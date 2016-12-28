@@ -3,49 +3,39 @@
   description: >
     Contains fields for the Bro radius logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Timestamp for when the event happened.
-    
     - name: uid
       type: string
       description: >
         Unique ID for the connection.
-    
     - name: id
       type: conn_id
       description: >
-        The connection's 4-tuple of endpoint addresses/ports.
-    
+        The connections 4-tuple of endpoint addresses/ports.
     - name: username
       type: string
       description: >
         The username, if present.
-    
     - name: mac
       type: string
       description: >
         MAC address, if present.
-    
     - name: remote_ip
       type: addr
       description: >
         Remote IP address, if present.
-    
     - name: connect_info
       type: string
       description: >
         Connect info, if present.
-    
     - name: result
       type: string
       description: >
         Successful or failed authentication.
-    
     - name: logged
       type: bool
       description: >
         Whether this has already been logged and can be ignored.
-    

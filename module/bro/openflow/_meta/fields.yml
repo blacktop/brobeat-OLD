@@ -3,111 +3,87 @@
   description: >
     Contains fields for the Bro openflow logs.
   fields:
-    
     - name: ts
       type: time
       description: >
         Network time.
-    
     - name: dpid
       type: count
       description: >
         OpenFlow switch datapath id.
-    
     - name: match.in_port
       type: count
       description: >
         
-    
     - name: match.dl_src
       type: string
       description: >
         
-    
     - name: match.dl_dst
       type: string
       description: >
         
-    
     - name: match.dl_vlan
       type: count
       description: >
         
-    
     - name: match.dl_vlan_pcp
       type: count
       description: >
         
-    
     - name: match.dl_type
       type: count
       description: >
         
-    
     - name: match.nw_tos
       type: count
       description: >
         
-    
     - name: match.nw_proto
       type: count
       description: >
         
-    
     - name: match.nw_src
       type: subnet
       description: >
         
-    
     - name: match.nw_dst
       type: subnet
       description: >
         
-    
     - name: match.tp_src
       type: count
       description: >
         
-    
     - name: match.tp_dst
       type: count
       description: >
         
-    
     - name: flow_mod.cookie
       type: count
       description: >
         Opaque controller-issued identifier.
-    
     - name: flow_mod.table_id
       type: count
       description: >
-        Table to put the flow in. OFPTT_ALL can be used for delete,
-to delete flows from all matching tables.
-    
+        Table to put the flow in. OFPTT_ALL can be used for delete, to delete flows from all matching tables.
     - name: flow_mod.command
       type: OpenFlow::ofp_flow_mod_command
       description: >
         One of OFPFC_*.
-    
     - name: flow_mod.idle_timeout
       type: count
       description: >
         Idle time before discarding (seconds).
-    
     - name: flow_mod.hard_timeout
       type: count
       description: >
         Max time before discarding (seconds).
-    
     - name: flow_mod.priority
       type: count
       description: >
         Priority level of flow entry.
-    
     - name: flow_mod.out_port
       type: count
       description: >
-        For OFPFC_DELETE* commands, require matching entried to include
-this as an output port/group. OFPP_ANY/OFPG_ANY means no restrictions.
-    
+        For OFPFC_DELETE* commands, require matching entried to include this as an output port/group. OFPP_ANY/OFPG_ANY means no restrictions.
