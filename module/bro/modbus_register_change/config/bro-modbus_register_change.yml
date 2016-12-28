@@ -5,7 +5,6 @@
    - {{path}}
   {%- endfor %}
   exclude_files: [".gz$"]
-
   fields:
     source_type: bro-modbus_register_change
     pipeline_id: {{beat.pipeline_id}}

@@ -5,7 +5,6 @@
    - {{path}}
   {%- endfor %}
   exclude_files: [".gz$"]
-
   fields:
     source_type: bro-ftp
     pipeline_id: {{beat.pipeline_id}}
