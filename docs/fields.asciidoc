@@ -73,25 +73,20 @@ Contains user configurable fields.
 [[exported-fields-brobeat]]
 == brobeat Fields
 
-None
+Brobeat - Monitors Bro NSM logs and sends them to Elasticsearch
+
 
 
 [float]
-=== counter
+=== created
 
-type: long
+type: date
+
+format: yyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis
 
 required: True
 
-PLEASE UPDATE DOCUMENTATION
-
-
-[float]
-=== remote_ip
-
-type: keyword
-
-Client IP address.
+Date the log file was created
 
 
 [[exported-fields-cloud]]

@@ -3,9 +3,11 @@ package beater
 import (
 	"bufio"
 	"encoding/csv"
+	"errors"
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -42,6 +44,25 @@ type BroLogLine struct {
 // BroLogs is an array of BroLogLines
 type BroLogs struct {
 	Logs []BroLogLine `json:"logs,omitempty"`
+}
+
+func convertTs2Time(ts string) (time.Time, error) {
+
+	unixParts := strings.Split(ts, ".")
+
+	if len(unixParts) == 2 {
+		sec, err := strconv.ParseInt(unixParts[0], 10, 64)
+		if err != nil {
+			return time.Time{}, err
+		}
+		nsec, err := strconv.ParseInt(unixParts[1]+"000", 10, 64)
+		if err != nil {
+			return time.Time{}, err
+		}
+		return time.Unix(sec, nsec), err
+	}
+
+	return time.Time{}, errors.New("ts not in correct format")
 }
 
 // ReadHeader parses the bro log header

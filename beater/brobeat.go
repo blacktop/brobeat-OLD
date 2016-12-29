@@ -57,6 +57,16 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 			"counter":    counter,
 		}
 		for _, field := range log.Fields {
+			// use ts field as @timestamp
+			if field.Name == "ts" {
+				time, err := convertTs2Time(field.Value)
+				if err != nil {
+					return err
+				}
+				fmt.Println(time)
+				event["@timestamp"] = common.Time(time)
+			}
+			// don't output fields with '-' values
 			if field.Value != log.UnsetField {
 				event[field.Name] = field.Value
 			}

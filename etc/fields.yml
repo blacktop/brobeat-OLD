@@ -1,13 +1,155 @@
 - key: brobeat
   title: brobeat
-  description:
+  description: >
+    Brobeat - Monitors Bro NSM logs and sends them to Elasticsearch
   fields:
-    - name: counter
-      type: long
+    - name: created
+      type: date
+      format: yyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis
       required: true
       description: >
-        PLEASE UPDATE DOCUMENTATION
-    - name: remote_ip
-      type: keyword
-      description: >
-        Client IP address.
+        Date the log file was created
+    # - name: http
+    #     type: group
+    #     description: >
+    #       Contains the parsed User agent field. Only present if the user
+    #       agent Elasticsearch plugin is available and used.
+    #     fields:
+    #       - name: ts
+    #         type: date
+    #         format: yyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis
+    #         description: >
+    #           Timestamp for when the request happened.
+    #       - name: uid
+    #         type: string
+    #         description: >
+    #           Unique ID for the connection.
+    #       - name: id
+    #         type: conn_id
+    #         description: >
+    #           The connections 4-tuple of endpoint addresses/ports.
+    #       - name: trans_depth
+    #         type: integer
+    #         description: >
+    #           Represents the pipelined depth into the connection of this request/response transaction.
+    #       - name: method
+    #         type: keyword
+    #         description: >
+    #           Verb used in the HTTP request (GET, POST, HEAD, etc.).
+    #       - name: host
+    #         type: text
+    #         description: >
+    #           Value of the HOST header.
+    #       - name: uri
+    #         type: text
+    #         description: >
+    #           URI used in the request.
+    #       - name: referrer
+    #         type: text
+    #         description: >
+    #           Value of the referer header.  The comment is deliberately misspelled like the standard declares, but the name used here is referrer spelled correctly.
+    #       - name: version
+    #         type: text
+    #         description: >
+    #           Value of the version portion of the request.
+    #       - name: user_agent
+    #         type: string
+    #         description: >
+    #           Value of the User-Agent header from the client.
+    #       - name: request_body_len
+    #         type: integer
+    #         description: >
+    #           Actual uncompressed content size of the data transferred from the client.
+    #       - name: response_body_len
+    #         type: integer
+    #         description: >
+    #           Actual uncompressed content size of the data transferred from the server.
+    #       - name: status_code
+    #         type: integer
+    #         description: >
+    #           Status code returned by the server.
+    #       - name: status_msg
+    #         type: string
+    #         description: >
+    #           Status message returned by the server.
+    #       - name: info_code
+    #         type: integer
+    #         description: >
+    #           Last seen 1xx informational reply code returned by the server.
+    #       - name: info_msg
+    #         type: string
+    #         description: >
+    #           Last seen 1xx informational reply message returned by the server.
+    #       - name: tags
+    #         description: >
+    #           A set of indicators of various attributes discovered and related to a particular request/response pair.
+    #       - name: username
+    #         type: string
+    #         description: >
+    #           Username if basic-auth is performed for the request.
+    #       - name: password
+    #         type: string
+    #         description: >
+    #           Password if basic-auth is performed for the request.
+    #       - name: capture_password
+    #         type: boolean
+    #         description: >
+    #           Determines if the password will be captured for this request.
+    #       - name: proxied
+    #         type: set
+    #         description: >
+    #           All of the headers that may indicate if the request was proxied.
+    #       - name: range_request
+    #         type: boolean
+    #         description: >
+    #           Indicates if this request can assume 206 partial content in response.
+    #       - name: orig_fuids
+    #         description: >
+    #           (present if base/protocols/http/entities.bro is loaded)
+    #       - name: orig_filenames
+    #         description: >
+    #           (present if base/protocols/http/entities.bro is loaded)
+    #       - name: orig_mime_types
+    #         description: >
+    #           (present if base/protocols/http/entities.bro is loaded)
+    #       - name: resp_fuids
+    #         description: >
+    #           (present if base/protocols/http/entities.bro is loaded)
+    #       - name: resp_filenames
+    #         description: >
+    #           (present if base/protocols/http/entities.bro is loaded)
+    #       - name: resp_mime_types
+    #         description: >
+    #           (present if base/protocols/http/entities.bro is loaded)
+    #       - name: current_entity.filename
+    #         type: string
+    #         description: >
+    #           Filename for the entity if discovered from a header.
+    #       - name: orig_mime_depth
+    #         type: integer
+    #         description: >
+    #           (present if base/protocols/http/entities.bro is loaded)
+    #       - name: resp_mime_depth
+    #         type: integer
+    #         description: >
+    #           (present if base/protocols/http/entities.bro is loaded)
+    #       - name: client_header_names
+    #         description: >
+    #           (present if policy/protocols/http/header-names.bro is loaded)
+    #       - name: server_header_names
+    #         description: >
+    #           (present if policy/protocols/http/header-names.bro is loaded)
+    #       - name: omniture
+    #         type: boolean
+    #         description: >
+    #           (present if policy/protocols/http/software-browser-plugins.bro is loaded)
+    #       - name: flash_version
+    #         type: string
+    #         description: >
+    #           (present if policy/protocols/http/software-browser-plugins.bro is loaded)
+    #       - name: cookie_vars
+    #         description: >
+    #           (present if policy/protocols/http/var-extraction-cookies.bro is loaded)
+    #       - name: uri_vars
+    #         description: >
+    #           (present if policy/protocols/http/var-extraction-uri.bro is loaded)
