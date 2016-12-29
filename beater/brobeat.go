@@ -52,16 +52,17 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 		fmt.Println(log)
 		event := common.MapStr{
 			"@timestamp": common.Time(time.Now()),
-			"type":       b.Name,
+			"type":       log.Type,
 			"created":    log.Created,
 			"counter":    counter,
 		}
 		for _, field := range log.Fields {
-			event[field.Name] = field.Value
+			if field.Value != log.UnsetField {
+				event[field.Name] = field.Value
+			}
 		}
 
 		bt.client.PublishEvent(event)
-		fmt.Printf("%#v\n", event)
 		logp.Info("Event sent")
 		counter++
 	}

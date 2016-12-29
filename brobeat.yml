@@ -5,7 +5,7 @@
 brobeat:
   # Defines how often an event is sent to the output
   period: 1s
-  path: "./data/http.log"
+  path: "./data/files.log"
 
 #================================ General =====================================
 
