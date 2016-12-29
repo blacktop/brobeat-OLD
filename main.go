@@ -158,6 +158,7 @@ func main() {
 			SetSeparator: broHeader.SetSeparator,
 			UnsetField:   broHeader.UnsetField,
 			EmptyField:   broHeader.EmptyField,
+			Fields:       make([]BroField, len(broHeader.Fields)),
 		}
 		for j, word := range line {
 			broField := BroField{
@@ -165,7 +166,7 @@ func main() {
 				Type:  broHeader.Types[j],
 				Value: word,
 			}
-			broLine.Fields = append(broLine.Fields, broField)
+			broLine.Fields[j] = broField
 		}
 		broJSON, err := json.Marshal(broLine)
 		if err != nil {
