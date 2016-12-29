@@ -38,22 +38,22 @@ def field_type_lookup(ftype, field):
     type2grok = {
         'time': 'NUMBER',
         'count': 'INT',
-        'interval': 'GREEDYDATA',
-        'bool': 'GREEDYDATA',
+        'interval': 'DATA',
+        'bool': 'DATA',
         'addr': 'IP',
         'port': 'INT',
-        'string': 'GREEDYDATA',
-        'double': 'GREEDYDATA',
-        'geo_location': 'GREEDYDATA',
+        'string': 'DATA',
+        'double': 'DATA',
+        'geo_location': 'DATA',
         'int': 'INT',
         'transport_proto': 'WORD',
         'conn_id': 'NOTSPACE',
-        'set': 'GREEDYDATA',
-        'vector': 'GREEDYDATA',
+        'set': 'DATA',
+        'vector': 'DATA',
     }
     if 'uid' in field:
         return 'NOTSPACE', field
-    return type2grok.get(ftype, 'GREEDYDATA'), field
+    return type2grok.get(ftype, 'DATA'), field
 
 
 def doc2grok(fields):

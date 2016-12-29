@@ -1,9 +1,22 @@
 filebeat:
-  # List of prospectors to fetch data.
   prospectors:
     -
-      {% for field in fields %}
       paths:
-        - /var/log/app/{{ field.log_type }}.log
-      document_type: {{ field.log_type }}
-      {% endfor %}
+        - ./http.log
+      input_type: log
+      document_type: http
+
+output:
+  logstash:
+    hosts: ["localhost:5044"]
+    bulk_max_size: 1024
+
+# filebeat:
+#   # List of prospectors to fetch data.
+#   prospectors:
+#     -
+#       {% for field in fields %}
+#       paths:
+#         - /var/log/app/{{ field.log_type }}.log
+#       document_type: {{ field.log_type }}
+#       {% endfor %}
