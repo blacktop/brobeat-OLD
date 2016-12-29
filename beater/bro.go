@@ -3,7 +3,6 @@ package beater
 import (
 	"bufio"
 	"encoding/csv"
-	"encoding/json"
 	"fmt"
 	"log"
 	"os"
@@ -38,6 +37,11 @@ type BroLogLine struct {
 	EmptyField   string     `json:"empty_field,omitempty"`
 	UnsetField   string     `json:"unset_field,omitempty"`
 	Fields       []BroField `json:"fields,omitempty"`
+}
+
+// BroLogs is an array of BroLogLines
+type BroLogs struct {
+	Logs []BroLogLine `json:"logs,omitempty"`
 }
 
 // ReadHeader parses the bro log header
@@ -128,7 +132,9 @@ func ReadHeader(filePath string) BroHeaderFields {
 }
 
 // ParseLogFile parses out a bro log file
-func ParseLogFile(filePath string) {
+func ParseLogFile(filePath string) BroLogs {
+
+	logs := BroLogs{}
 
 	// read bro log header
 	broHeader := ReadHeader(filePath)
@@ -165,10 +171,12 @@ func ParseLogFile(filePath string) {
 			}
 			broLine.Fields[j] = broField
 		}
-		broJSON, err := json.Marshal(broLine)
-		if err != nil {
-			fmt.Println(err)
-		}
-		fmt.Println(string(broJSON))
+		logs.Logs = append(logs.Logs, broLine)
+		// broJSON, err := json.Marshal(broLine)
+		// if err != nil {
+		// 	fmt.Println(err)
+		// }
+		// fmt.Println(string(broJSON))
 	}
+	return logs
 }

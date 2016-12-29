@@ -38,24 +38,36 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 	logp.Info("brobeat is running! Hit CTRL-C to stop it.")
 
 	bt.client = b.Publisher.Connect()
-	ticker := time.NewTicker(bt.config.Period)
+	path := bt.config.Path
+	// ticker := time.NewTicker(bt.config.Period)
 	counter := 1
-	for {
-		select {
-		case <-bt.done:
-			return nil
-		case <-ticker.C:
-		}
-
+	// for {
+	// 	select {
+	// 	case <-bt.done:
+	// 		return nil
+	// 	case <-ticker.C:
+	// 	}
+	bro := ParseLogFile(path)
+	for _, log := range bro.Logs {
+		fmt.Println(log)
 		event := common.MapStr{
 			"@timestamp": common.Time(time.Now()),
 			"type":       b.Name,
+			"created":    log.Created,
 			"counter":    counter,
 		}
+		for _, field := range log.Fields {
+			event[field.Name] = field.Value
+		}
+
 		bt.client.PublishEvent(event)
+		fmt.Printf("%#v\n", event)
 		logp.Info("Event sent")
 		counter++
 	}
+
+	// }
+	return nil
 }
 
 // Stop stops beater
