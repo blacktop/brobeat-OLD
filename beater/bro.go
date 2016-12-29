@@ -128,10 +128,12 @@ func ReadHeader(filePath string) BroHeaderFields {
 }
 
 // ParseLogFile parses out a bro log file
-func ParseLogFile() {
-	broHeader := ReadHeader("./data/http.log")
+func ParseLogFile(filePath string) {
 
-	csvFile, err := os.Open("./data/http.log")
+	// read bro log header
+	broHeader := ReadHeader(filePath)
+
+	csvFile, err := os.Open(filePath)
 	if err != nil {
 		fmt.Println(err)
 	}
