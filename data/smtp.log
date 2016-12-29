@@ -3,16 +3,16 @@
 #empty_field	(empty)
 #unset_field	-
 #path	smtp
-#open	2016-12-28-16-04-44
+#open	2016-12-28-16-25-44
 #fields	ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	trans_depth	helo	mailfrom	rcptto	date	from	to	cc	reply_to	msg_id	in_reply_to	subject	x_originating_ip	first_received	second_received	last_reply	path	user_agent	tls	fuids	is_webmail
 #types	time	string	addr	port	addr	port	count	string	string	set[string]	string	string	set[string]	set[string]	string	string	string	string	addr	string	string	string	vector[addr]	string	bool	vector[string]	bool
-1258574141.215730	CpAxIF2JNVTdrOI3Xf	192.168.1.104	1572	192.168.1.1	25	1	[192.168.1.104]	charlie@m57.biz	pat@m57.biz	Wed, 18 Nov 2009 11:58:15 -0800	Charlie <charlie@m57.biz>	Pat McGoo <pat@m57.biz>	-	-	<4B0451D7.6080508@m57.biz>	<98CC40FE46EA4F9CB82A95B0E7634C9A@m57pat>	Re: COFFEE	-	-	-	250 2.0.0 Ok: queued as 3B2C92AF471	192.168.1.1,192.168.1.104	Thunderbird 2.0.0.23 (Windows/20090812)	F	FbUS8R2oihxulRlvke	F
-1258577484.766250	CIQgs73cB26WdEppf5	192.168.1.104	1604	192.168.1.1	25	1	[192.168.1.104]	charlie@m57.biz	pat@m57.biz	Wed, 18 Nov 2009 12:53:59 -0800	Charlie <charlie@m57.biz>	Pat McGoo <pat@m57.biz>	-	-	<4B045EE7.2000405@m57.biz>	<941C9DB33FCE45B7848E97D30E37ABD2@m57pat>	Re: Google patent	-	-	-	250 2.0.0 Ok: queued as BF9192AF931	192.168.1.1,192.168.1.104	Thunderbird 2.0.0.23 (Windows/20090812)	F	Fgk3Xx2gwg7kWbUEv7	F
-1258577841.023534	CUWa454h65ohX3xtdl	192.168.1.104	1665	192.168.1.1	25	1	[192.168.1.104]	charlie@m57.biz	alix.pery@yahoo.com	Wed, 18 Nov 2009 12:59:55 -0800	Charlie <charlie@m57.biz>	Alix Pery <alix.pery@yahoo.com>	-	-	<4B04604B.3070508@m57.biz>	-	Movie tonight???	-	-	-	250 2.0.0 Ok: queued as 0B4782AF94B	192.168.1.1,192.168.1.104	Thunderbird 2.0.0.23 (Windows/20090812)	F	FCNK0F2MhRNdL6RCof	F
-1258581758.231392	C9PRODwvz6dZNRwh6	192.168.1.103	1934	192.168.1.1	25	1	m57pat	-	-	-	-	-	-	-	-	-	-	-	-	-	220 2.0.0 Ready to start TLS	192.168.1.1,192.168.1.103	-	T	(empty)	F
-1258582108.009273	CBpS502ThtWW6fd1t4	192.168.1.103	2008	192.168.1.1	25	1	m57pat	-	-	-	-	-	-	-	-	-	-	-	-	-	220 2.0.0 Ready to start TLS	192.168.1.1,192.168.1.103	-	T	(empty)	F
-1258583615.024437	CXEPlw1LNQLO2kgXK8	192.168.1.102	1911	192.168.1.1	25	1	m57jo	-	-	-	-	-	-	-	-	-	-	-	-	-	220 2.0.0 Ready to start TLS	192.168.1.1,192.168.1.102	-	T	(empty)	F
-1258650317.021854	C74JGu4Ju0riCvsAfa	192.168.1.102	1453	192.168.1.1	25	1	m57jo	-	-	-	-	-	-	-	-	-	-	-	-	-	220 2.0.0 Ready to start TLS	192.168.1.1,192.168.1.102	-	T	(empty)	F
-1258651740.491312	C4EJ7y4RLy5Sqm67jg	192.168.1.103	1564	192.168.1.1	25	1	m57pat	-	-	-	-	-	-	-	-	-	-	-	-	-	220 2.0.0 Ready to start TLS	192.168.1.1,192.168.1.103	-	T	(empty)	F
-1258652304.041002	C78JIK3y4ylRFREoZj	192.168.1.103	1622	192.168.1.1	25	1	m57pat	-	-	-	-	-	-	-	-	-	-	-	-	-	220 2.0.0 Ready to start TLS	192.168.1.1,192.168.1.103	-	T	(empty)	F
-#close	2016-12-28-16-04-58
+1258574141.215730	C2sD3j1Okk09c8J2Kb	192.168.1.104	1572	192.168.1.1	25	1	[192.168.1.104]	charlie@m57.biz	pat@m57.biz	Wed, 18 Nov 2009 11:58:15 -0800	Charlie <charlie@m57.biz>	Pat McGoo <pat@m57.biz>	-	-	<4B0451D7.6080508@m57.biz>	<98CC40FE46EA4F9CB82A95B0E7634C9A@m57pat>	Re: COFFEE	-	-	-	250 2.0.0 Ok: queued as 3B2C92AF471	192.168.1.1,192.168.1.104	Thunderbird 2.0.0.23 (Windows/20090812)	F	FbUS8R2oihxulRlvke	F
+1258577484.766250	CnAbda4VWgamxjNpxc	192.168.1.104	1604	192.168.1.1	25	1	[192.168.1.104]	charlie@m57.biz	pat@m57.biz	Wed, 18 Nov 2009 12:53:59 -0800	Charlie <charlie@m57.biz>	Pat McGoo <pat@m57.biz>	-	-	<4B045EE7.2000405@m57.biz>	<941C9DB33FCE45B7848E97D30E37ABD2@m57pat>	Re: Google patent	-	-	-	250 2.0.0 Ok: queued as BF9192AF931	192.168.1.1,192.168.1.104	Thunderbird 2.0.0.23 (Windows/20090812)	F	Fgk3Xx2gwg7kWbUEv7	F
+1258577841.023534	CBUT6S2Eg2wlp4VtVh	192.168.1.104	1665	192.168.1.1	25	1	[192.168.1.104]	charlie@m57.biz	alix.pery@yahoo.com	Wed, 18 Nov 2009 12:59:55 -0800	Charlie <charlie@m57.biz>	Alix Pery <alix.pery@yahoo.com>	-	-	<4B04604B.3070508@m57.biz>	-	Movie tonight???	-	-	-	250 2.0.0 Ok: queued as 0B4782AF94B	192.168.1.1,192.168.1.104	Thunderbird 2.0.0.23 (Windows/20090812)	F	FCNK0F2MhRNdL6RCof	F
+1258581758.231392	CkEAFBLI7PnvUpcB3	192.168.1.103	1934	192.168.1.1	25	1	m57pat	-	-	-	-	-	-	-	-	-	-	-	-	-	220 2.0.0 Ready to start TLS	192.168.1.1,192.168.1.103	-	T	(empty)	F
+1258582108.009273	CLqWVG2zBrP2EnfEEf	192.168.1.103	2008	192.168.1.1	25	1	m57pat	-	-	-	-	-	-	-	-	-	-	-	-	-	220 2.0.0 Ready to start TLS	192.168.1.1,192.168.1.103	-	T	(empty)	F
+1258583615.024437	CPdRFQ10wZOBTu2z8l	192.168.1.102	1911	192.168.1.1	25	1	m57jo	-	-	-	-	-	-	-	-	-	-	-	-	-	220 2.0.0 Ready to start TLS	192.168.1.1,192.168.1.102	-	T	(empty)	F
+1258650317.021854	CXxpWH2K2jlkjs1zGd	192.168.1.102	1453	192.168.1.1	25	1	m57jo	-	-	-	-	-	-	-	-	-	-	-	-	-	220 2.0.0 Ready to start TLS	192.168.1.1,192.168.1.102	-	T	(empty)	F
+1258651740.491312	CRJs5z3SN7uhJYygh6	192.168.1.103	1564	192.168.1.1	25	1	m57pat	-	-	-	-	-	-	-	-	-	-	-	-	-	220 2.0.0 Ready to start TLS	192.168.1.1,192.168.1.103	-	T	(empty)	F
+1258652304.041002	CDhBODpZTGh0hwqOj	192.168.1.103	1622	192.168.1.1	25	1	m57pat	-	-	-	-	-	-	-	-	-	-	-	-	-	220 2.0.0 Ready to start TLS	192.168.1.1,192.168.1.103	-	T	(empty)	F
+#close	2016-12-28-16-26-00

@@ -3,7 +3,7 @@
 #empty_field	(empty)
 #unset_field	-
 #path	loaded_scripts
-#open	2016-12-28-16-04-43
+#open	2016-12-28-16-25-43
 #fields	name
 #types	string
 /usr/local/Cellar/bro/2.5/share/bro/base/init-bare.bro
@@ -390,6 +390,10 @@
   /usr/local/Cellar/bro/2.5/share/bro/policy/protocols/http/detect-sqli.bro
   /usr/local/Cellar/bro/2.5/share/bro/policy/frameworks/files/hash-all-files.bro
   /usr/local/Cellar/bro/2.5/share/bro/policy/frameworks/files/detect-MHR.bro
+  /usr/local/Cellar/bro/2.5/share/bro/policy/protocols/http/software-browser-plugins.bro
+  /usr/local/Cellar/bro/2.5/share/bro/policy/protocols/http/var-extraction-uri.bro
+  /usr/local/Cellar/bro/2.5/share/bro/policy/protocols/http/var-extraction-cookies.bro
+  /usr/local/Cellar/bro/2.5/share/bro/policy/frameworks/files/entropy-test-all-files.bro
   /usr/local/Cellar/bro/2.5/share/bro/policy/protocols/ssl/heartbleed.bro
   /usr/local/Cellar/bro/2.5/share/bro/policy/protocols/conn/vlan-logging.bro
   /usr/local/Cellar/bro/2.5/share/bro/policy/protocols/conn/mac-logging.bro
@@ -398,4 +402,4 @@
     /usr/local/Cellar/bro/2.5/share/bro/policy/protocols/smb/smb1-main.bro
     /usr/local/Cellar/bro/2.5/share/bro/policy/protocols/smb/smb2-main.bro
     /usr/local/Cellar/bro/2.5/share/bro/policy/protocols/smb/files.bro
-#close	2016-12-28-16-04-58
+#close	2016-12-28-16-26-00

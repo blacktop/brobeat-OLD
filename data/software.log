@@ -3,7 +3,7 @@
 #empty_field	(empty)
 #unset_field	-
 #path	software
-#open	2016-12-28-16-04-43
+#open	2016-12-28-16-25-43
 #fields	ts	host	host_p	software_type	name	version.major	version.minor	version.minor2	version.minor3	version.addl	unparsed_version	url
 #types	time	addr	port	enum	string	count	count	count	count	string	string	string
 1258569169.320850	192.168.1.102	-	HTTP::BROWSER	Firefox	3	5	5	-	-	Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5	-
@@ -48,4 +48,4 @@
 1258608426.043846	192.168.1.104	-	HTTP::BROWSER	Windows-Update-Agent	-	-	-	-	-	Windows-Update-Agent	-
 1258618079.433228	192.168.1.102	-	HTTP::BROWSER	JNLP	6	0	-	-	javaws/1	JNLP/6.0 javaws/1.6.0_17 (b04) Java/1.6.0_17	-
 1258650924.227204	192.168.1.103	-	HTTP::BROWSER	Firefox	3	5	5	-	-	Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5	-
-#close	2016-12-28-16-04-58
+#close	2016-12-28-16-26-00

@@ -3,7 +3,7 @@
 #empty_field	(empty)
 #unset_field	-
 #path	x509
-#open	2016-12-28-16-04-43
+#open	2016-12-28-16-25-44
 #fields	ts	id	certificate.version	certificate.serial	certificate.subject	certificate.issuer	certificate.not_valid_before	certificate.not_valid_after	certificate.key_alg	certificate.sig_alg	certificate.key_type	certificate.key_length	certificate.exponent	certificate.curve	san.dns	san.uri	san.email	san.ip	basic_constraints.ca	basic_constraints.path_len
 #types	time	string	count	string	string	string	time	time	string	string	string	count	string	string	vector[string]	vector[string]	vector[string]	vector[addr]	bool	count
 1258569859.129691	F0qMQDJQRNn7cCyP	1	E8C89278D005CE5F	emailAddress=support@dreamhost.com,CN=*.mail.dreamhost.com,OU=Security,O=Dreamhost.com,L=Brea,ST=California,C=US	emailAddress=support@dreamhost.com,CN=New Dream Network Certificate Authority,OU=Security,O=New Dream Network\\, LLC,L=Los Angeles,ST=California,C=US	1176360537.000000	1491720537.000000	rsaEncryption	md5WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
@@ -85,4 +85,4 @@
 1258652304.044128	FlvOPP2yQzdZCekXsl	3	01	C=US,CN=domex.local	C=US,CN=domex.local	1254528773.000000	1286064773.000000	rsaEncryption	sha1WithRSAEncryption	rsa	2048	65537	-	-	-	-	-	-	-
 1258652306.438486	FpQgaX1pkWy3Ol1xNb	1	E8C89278D005CE5F	emailAddress=support@dreamhost.com,CN=*.mail.dreamhost.com,OU=Security,O=Dreamhost.com,L=Brea,ST=California,C=US	emailAddress=support@dreamhost.com,CN=New Dream Network Certificate Authority,OU=Security,O=New Dream Network\\, LLC,L=Los Angeles,ST=California,C=US	1176360537.000000	1491720537.000000	rsaEncryption	md5WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	-	-
 1258652446.163804	Fsve0z4QMOD5Vfhlta	3	59F8C7AA8616D173177C505C016E381B	CN=login.live.com,OU=Passport,O=Microsoft Corporation,street=One Microsoft Way,L=Redmond,ST=Washington,postalCode=98052,C=US,serialNumber=600413485,businessCategory=V1.0\\, Clause 5.(b),jurisdictionST=Washington,jurisdictionC=US	CN=VeriSign Class 3 Extended Validation SSL CA,OU=Terms of use at https://www.verisign.com/rpa (c)06,OU=VeriSign Trust Network,O=VeriSign\\, Inc.,C=US	1245132000.000000	1276754399.000000	rsaEncryption	sha1WithRSAEncryption	rsa	1024	65537	-	-	-	-	-	F	-
-#close	2016-12-28-16-04-58
+#close	2016-12-28-16-26-00

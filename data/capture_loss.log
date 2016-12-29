@@ -3,7 +3,7 @@
 #empty_field	(empty)
 #unset_field	-
 #path	capture_loss
-#open	2016-12-28-16-04-43
+#open	2016-12-28-16-25-44
 #fields	ts	ts_delta	peer	gaps	acks	percent_lost
 #types	time	interval	string	count	count	double
 1258570073.023960	905.936703	bro	0	318	0.0
@@ -98,4 +98,4 @@
 1258651323.914412	900.000013	bro	0	385	0.0
 1258652232.194544	908.280132	bro	1	417	0.239808
 1258652823.914387	591.719843	bro	3	1103	0.271985
-#close	2016-12-28-16-04-58
+#close	2016-12-28-16-26-00
