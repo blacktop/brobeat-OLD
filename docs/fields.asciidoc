@@ -15,6 +15,7 @@ grouped in the following categories:
 * <<exported-fields-beat>>
 * <<exported-fields-brobeat>>
 * <<exported-fields-cloud>>
+* <<exported-fields-http>>
 
 --
 [[exported-fields-beat]]
@@ -78,15 +79,9 @@ Brobeat - Monitors Bro NSM logs and sends them to Elasticsearch
 
 
 [float]
-=== created
+=== test
 
-type: date
-
-format: yyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis
-
-required: True
-
-Date the log file was created
+TEST
 
 
 [[exported-fields-cloud]]
@@ -138,5 +133,72 @@ Name of the project in Google Cloud.
 === meta.cloud.region
 
 Region in which this host is running.
+
+
+[[exported-fields-http]]
+== HTTP Fields
+
+HTTP requests and replies
+
+
+
+[float]
+=== created
+
+type: date
+
+format: yyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis
+
+required: True
+
+Date the log file was created
+
+
+[float]
+=== ts
+
+type: double
+
+Timestamp for when the request happened.
+
+
+[float]
+=== uid
+
+type: text
+
+Unique ID for the connection.
+
+
+[float]
+=== id.orig_h
+
+type: ip
+
+The originator's IP address.
+
+
+[float]
+=== id.orig_p
+
+type: integer
+
+The originator's port number.
+
+
+[float]
+=== id.resp_h
+
+type: ip
+
+The responder's IP address.
+
+
+[float]
+=== id.resp_p
+
+type: integer
+
+The responder's port number.
 
 

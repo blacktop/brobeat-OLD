@@ -41,6 +41,22 @@
         "created": {
           "type": "date"
         },
+        "id": {
+          "properties": {
+            "orig_h": {
+              "type": "ip"
+            },
+            "orig_p": {
+              "type": "long"
+            },
+            "resp_h": {
+              "type": "ip"
+            },
+            "resp_p": {
+              "type": "long"
+            }
+          }
+        },
         "meta": {
           "properties": {
             "cloud": {
@@ -76,6 +92,17 @@
         "tags": {
           "ignore_above": 1024,
           "type": "keyword"
+        },
+        "test": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "ts": {
+          "type": "double"
+        },
+        "uid": {
+          "norms": false,
+          "type": "text"
         }
       }
     }
