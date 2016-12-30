@@ -1,4 +1,6 @@
-# Brobeat (WIP) - MOVED HERE => https://github.com/blacktop/brobeat (because I suck at git :disappointed: )
+# Brobeat (WIP) - MOVED HERE => https://github.com/blacktop/brobeat 
+
+> (because I suck at git :disappointed: )
 
 [![Build Status](https://travis-ci.org/blacktop/brobeat.svg?branch=master)](https://travis-ci.org/blacktop/brobeat)
 [![License][license]](http://www.apache.org/licenses/LICENSE-2.0)
